@@ -246,7 +246,7 @@ A área de processamento digital de imagens vem crescendo nas mais diversas áre
 
 Mesmo com o esforço e dedicação de educadores de universidades, estudantes se frustram com disciplinas do curso devido a grande complexidade e a falta de motivação (GARCIA; GUZMAN; PACHECO, 2015). Na maioria dos casos, estudantes descobrem que a teoria não é atrativa, difícil e pouco aplicável (ZIN; SALLEH; BAKRI, 2015).
 
-A gamificação é uma abordagem que visa facilitar a aprendizagem e incrementar a motivação, através da utilização de conceitos provenientes dos jogos como superar desafios, receber recompensas e ganhar pontuação. Um dos objetivos da gamificação é atrair a atenção da pessoa e motivá-la a executar a tarefa proposta, criando um ambiente onde haja um maior envolvimento (KAPP, 2014). 	
+A gamificação é uma abordagem que visa facilitar a aprendizagem e incrementar a motivação, através da utilização de conceitos provenientes dos jogos como superar desafios, receber recompensas e ganhar pontuação. Um dos objetivos da gamificação é atrair a atenção da pessoa e motivá-la a executar a tarefa proposta, criando um ambiente onde haja um maior envolvimento \cite{kaap:2014}. 	
 
 Atualmente o processamento digital de imagens (PDI) é uma área de grande importância no mercado. Segundo Gonzales e Woods (2002), os avanços de pesquisa e utilização de  (PDI) cresce fortemente nas mais diversas áreas de conhecimento. Em medicina, por exemplo, procedimentos são utilizados para melhorar a qualidade de imagens médicas através da alteração de contraste ou intensidade de contraste, facilitando, desta forma, a interpretação por parte de profissionais da área da saúde. Da mesma forma, PDI pode ser encontrado em astronomia, biologia, medicina nuclear, aplicações industriais e apoio a defesa (GONZALES; WOODS, 2002). Devido a esta importância, a disciplina de PDI é presente em quase todos os programas de graduação dos cursos de Ciência da 
 
@@ -255,7 +255,7 @@ PDI é composta por diversas etapas, iniciando pela aquisição da imagem, passa
 
 A área de PDI conta com diversas ferramentas para auxiliar tanto na aprendizagem quanto no desenvolvimento de novas soluções. Pode-se citar o OpenCV que é uma biblioteca de visão computacional open source (PULLI et al. 2012), o ambiente CoLFDImaP é uma ferramenta web para experimentação que faz uso de um paradigma colaborativo (GARCIA; GUZMAN; PACHECO, 2015) e o Adaptive Vision Studio (AVS) que é uma ferramenta para a criação de algoritmos de processamento e análise de imagens através de um dataflow de técnicas PDI (RADLAK et al., 2015).
 
-O VISNode é uma ferramenta que apresenta uma interface que permite uma visualização mais concreta de técnicas de PDI e como elas se conectam para formar um processamento de mais alto nível. A ferramenta é baseada em nodos e suas conexões, onde cada nodo representa uma técnica de PDI e pode ser encadeado para formação de um processo (VISNODE, 2018).
+O VISNode é uma ferramenta que apresenta uma interface que permite uma visualização mais concreta de técnicas de PDI e como elas se conectam para formar um processamento de mais alto nível. A ferramenta é baseada em nodos e suas conexões, onde cada nodo representa uma técnica de PDI e pode ser encadeado para formação de um processo \cite{visnode}.
 
 Portanto, este trabalho tem como objetivo desenvolver módulos para a ferramenta VISNode, visando o auxílio na aprendizagem na área de processamento digital de imagens. Para isso serão aplicados conceitos de gamificação. 
 
@@ -266,19 +266,19 @@ O módulo desenvolvido proporcionará aos estudantes um ambiente onde seja poss�
 % ----------------------------------------------------------
 \chapter{Processamento digital de imagens}
 
-O  processamento digital de imagens (PDI) se refere a utilização de um conjunto de técnicas para processamento de imagens digitais. Este processamento, geralmente, faz uso de técnicas matemáticas transcritas de forma algorítmica que são utilizadas para a manipulação e a geração de novas imagens \cite{gonzalesWoods:2008}. A utilização destas técnicas permite a extração e identificação de informação de imagens, possibilitando a interpretação automática por meio computacional (PEDRINI; SCHWARTZ, 2008).
+O  processamento digital de imagens (PDI) se refere a utilização de um conjunto de técnicas para processamento de imagens digitais. Este processamento, geralmente, faz uso de técnicas matemáticas transcritas de forma algorítmica que são utilizadas para a manipulação e a geração de novas imagens \cite{gonzalesWoods:2008}. A utilização destas técnicas permite a extração e identificação de informação de imagens, possibilitando a interpretação automática por meio computacional \cite{pedriniSchwartz:2008}.
 
-Um sistema de processamento de imagens é composto por um conjunto de etapas, dentre elas estão: aquisição; pré-processamento; segmentação; representação e descrição; reconhecimento e interpretação. Estas etapas possuem a capacidade de produzir um resultado a partir de um domínio do problema. Por exemplo, determinar o número de células sanguíneas em uma amostra digital de sangue (PEDRINI; SCHWARTZ, 2008).
+Um sistema de processamento de imagens é composto por um conjunto de etapas, dentre elas estão: aquisição; pré-processamento; segmentação; representação e descrição; reconhecimento e interpretação. Estas etapas possuem a capacidade de produzir um resultado a partir de um domínio do problema. Por exemplo, determinar o número de células sanguíneas em uma amostra digital de sangue \cite{pedriniSchwartz:2008}.
 
-A etapa de aquisição tem como objetivo a capturar a imagem por meio de um dispositivo e converte-la adequadamente para uma representação digital. A etapa de pré-processamento visa a melhora da qualidade da imagem, utilizando técnicas para a diminuição de ruídos, a correção de contraste e a suavização da imagem. A etapa de segmentação é responsável pela extração e identificação de áreas de interesse, geralmente utilizando técnicas de detecção de bordas ou regiões (PEDRINI; SCHWARTZ, 2008).
+A etapa de aquisição tem como objetivo a capturar a imagem por meio de um dispositivo e converte-la adequadamente para uma representação digital. A etapa de pré-processamento visa a melhora da qualidade da imagem, utilizando técnicas para a diminuição de ruídos, a correção de contraste e a suavização da imagem. A etapa de segmentação é responsável pela extração e identificação de áreas de interesse, geralmente utilizando técnicas de detecção de bordas ou regiões \cite{pedriniSchwartz:2008}.
 
-A etapa de representação e descrição é responsável  pelo armazenamento e manipulação dos objetos extraídos da imagem. Além disso, este processo visa a extração de características dos objetivos extraídos. A utiliza etapa, reconhecimento e interpretação, é a etapa que rotula os objetivos da imagem, utilizando, para isso, as características extraídas na etapa anterior. Além da rotulação, é responsabilidade desta etapa atribuir um significado ao conjunto de objetos reconhecidos (PEDRINI; SCHWARTZ, 2008). 
+A etapa de representação e descrição é responsável  pelo armazenamento e manipulação dos objetos extraídos da imagem. Além disso, este processo visa a extração de características dos objetivos extraídos. A utiliza etapa, reconhecimento e interpretação, é a etapa que rotula os objetivos da imagem, utilizando, para isso, as características extraídas na etapa anterior. Além da rotulação, é responsabilidade desta etapa atribuir um significado ao conjunto de objetos reconhecidos \cite{pedriniSchwartz:2008}. 
 
 Para o processamento digital de imagens é necessário que a imagem possa ser manipulada digitalmente. Segundo Pedrini e Schwartz (2008), uma imagem digital pode ser representada através de uma matriz bidimensional, onde cada elemento desta matriz corresponde a um ponto da imagem. Cada um destes pontos representa uma cor ou um tom de cinza e são denominados pixels. 
 
 Imagens monocromáticas são imagens onde seus pixels possuem somente uma banda espectral, ou seja, seu pixel é representado somente por uma grandeza. Estas imagens podem ser binárias ou em escala de cinza. Imagens binárias são imagens onde seus pixels assumem somente dois valores, normalmente 0 ou 1. Já uma imagem em escala de cinza, é uma imagem onde seus pixels podem assumir uma faixa de valores. Caso a imagem utilize 1 byte, seus valores podem variam de 0 a 255, onde 0 representa a cor preta e 255 a cor branca, e o intervalo é representado por tonalidades de cinza, desta forma, haverá 256 tons diferentes \cite{conciAzevedoLeta:2008}.
 
-Imagens coloridas são imagens que possuem mais de uma banda, ou seja, multibanda. Seus pixels possuem mais de um canal. Cada canal representa uma cor, desta forma, uma imagem RGB será representada por canais que representam a cor vermelha, verde e azul respectivamente. Digitalmente, esta imagem pode ser representada por 3 matrizes, cada uma representando um canal da imagem, a combinação das três matrizes representa uma cor (CONCI; AZEVEDO; LETA, 2008).
+Imagens coloridas são imagens que possuem mais de uma banda, ou seja, multibanda. Seus pixels possuem mais de um canal. Cada canal representa uma cor, desta forma, uma imagem RGB será representada por canais que representam a cor vermelha, verde e azul respectivamente. Digitalmente, esta imagem pode ser representada por 3 matrizes, cada uma representando um canal da imagem, a combinação das três matrizes representa uma cor \cite{conciAzevedoLeta:2008}.
 
 Uma imagem colorida pode ser transformada em uma imagem monocromática em escala de cinza ou em uma imagem binária. A transformação em escala de cinza realiza uma combinação dos valores RGB de cada pixel, definido um valor para cada pixel que representa a média dos valores RGB. A conversão para uma imagem binária pode ser realizada através do processo de Limiarização (explicado na seção xxx), onde cada pixel da imagem será testado e verificado se seu valor será preto ou branco (RUIDIAS, 2010).
 
@@ -314,7 +314,7 @@ Uma maneira comum para a identificação do Threshold a ser utilizado é atravé
 \section{Brilho e Contraste}
 O conceito de brilho está relacionado com a intensidade luminosa de uma fonte, quando é trabalhado com imagens digitais. Esta intensidade está relacionada com os pixels da imagem. O contraste está relacionado com a medida de variação da intensidade luminosa por unidade de área \cite{gonzalesWoods:2008}.
 
-O brilho e contraste podem ser definidos através de uma função matemática. Esta função é definida por g =.f + , onde o g é o pixel resultante,  é o coeficiente de contraste e  é o coeficiente de brilho e f é o pixel analisado (PEDRINI; SCHWARTZ, 2008).
+O brilho e contraste podem ser definidos através de uma função matemática. Esta função é definida por g =.f + , onde o g é o pixel resultante,  é o coeficiente de contraste e  é o coeficiente de brilho e f é o pixel analisado \cite{pedriniSchwartz:2008}.
 
 A Figura 1.3 apresenta figuras que representam a imagem original (esquerda), o resultado após a aplicação de contraste utilizando o coeficiente 2 (b) e o resultado após a aplicação de contraste utilizando o coeficiente 0,5, respectivamente (c). A implementação em java para o algoritmo pode ser acessado através do link:
 https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/ContrastProcess.java 
@@ -325,7 +325,7 @@ https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/Brightn
 % ---
 \section{Transformações geométricas}
 
-Operações geométricas são aquelas que possuem o objetivo de permitir o mapeamento entre posições espaciais da imagem e a imagem modificada. Estas transformações consistem em aplicar operações responsáveis pela reorganização dos pixels da imagem (PEDRINI; SCHWARTZ, 2008). São operações que modificam os tons dos pixel na posição (xo, yo)da imagem de origem para outra imagem (xd, yd)de destino, alterando, desta forma, a posição dos pixels (CONCI; AZEVEDO; LETA, 2008).
+Operações geométricas são aquelas que possuem o objetivo de permitir o mapeamento entre posições espaciais da imagem e a imagem modificada. Estas transformações consistem em aplicar operações responsáveis pela reorganização dos pixels da imagem \cite{pedriniSchwartz:2008}. São operações que modificam os tons dos pixel na posição (xo, yo)da imagem de origem para outra imagem (xd, yd)de destino, alterando, desta forma, a posição dos pixels \cite{conciAzevedoLeta:2008}.
 
 Transformações espaciais podem ser realizadas através da multiplicação de matrizes, expressa por:
 
@@ -358,7 +358,7 @@ Os valores X’, Y’, Z’ representam as coordenadas da imagem de destino que 
 % ---
 \subsection{Translação}
 
-O processo de transladar um objeto consistem em deslocar ou somar a cada um dos pixels da imagem um determinado valor (tx,ty,tz) (CONCI; AZEVEDO; LETA, 2008). Segundo Pedrini e Schwartz (2008), a translação de uma imagem, utilizando o deslocamento tx,ty e tz, pode ser expressa na forma matricial por:
+O processo de transladar um objeto consistem em deslocar ou somar a cada um dos pixels da imagem um determinado valor (tx,ty,tz) \cite{conciAzevedoLeta:2008}. Segundo Pedrini e Schwartz (2008), a translação de uma imagem, utilizando o deslocamento tx,ty e tz, pode ser expressa na forma matricial por:
 
 A implementação em java para o algoritmo pode ser acessado através do link:
 https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/TranslateProcess.java 
@@ -366,7 +366,7 @@ https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/Transla
 % ---
 \subsection{Mudança de escala}
 
-O processo de mudança de escala (zoom in, zoom out) consiste na multiplicação de cada um dos pixels da imagem por um uma escala (sx, sy, sz)  (CONCI; AZEVEDO; LETA, 2008). Segundo Pedrini e Schwartz (2008), a mudança de escala de uma imagem, utilizando os fatores sx, sye sz, pode ser expressa na forma matricial por:
+O processo de mudança de escala (zoom in, zoom out) consiste na multiplicação de cada um dos pixels da imagem por um uma escala (sx, sy, sz)  \cite{conciAzevedoLeta:2008}. Segundo Pedrini e Schwartz (2008), a mudança de escala de uma imagem, utilizando os fatores sx, sye sz, pode ser expressa na forma matricial por:
 
 A implementação em java para o algoritmo pode ser acessado através do link:
 https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/ResizeProcess.java 
@@ -374,7 +374,7 @@ https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/ResizeP
 % ---
 \subsection{Reflexão}
 
-A operação de reflexão ou espelhamento é uma operação que combina operações de rotação múltiplas do ângulo de 90º com uma inversão de coordenadas (CONCI; AZEVEDO; LETA, 2008). Segundo Pedrini e Schwartz (2008), operações de reflexão podem ser expressas na forma matricial por:
+A operação de reflexão ou espelhamento é uma operação que combina operações de rotação múltiplas do ângulo de 90º com uma inversão de coordenadas \cite{conciAzevedoLeta:2008}. Segundo Pedrini e Schwartz (2008), operações de reflexão podem ser expressas na forma matricial por:
 
 
 Onde Eyz refere-se a reflexão no eixo xy,Exzrefere-se a reflexão no eixo xz eExyrefere-se a reflexão no eixo xy.
@@ -401,7 +401,7 @@ Na Figura 1.6 é apresentado a aplicação de transformações geométricas. O p
 \section{Filtros passa baixa (Suavização)}
 Filtros do tipo passa baixa são aqueles utilizados para a extração e limpeza de imagens. Existem diversas técnicas que permitem esta operação e a escolha deve ser feita com base no tipo de imagem a ser analisada e na informação desejada desta. 
 
-O efeito visual resultante da aplicação de um filtro passa baixa é o da suavização e redução das variações nos níveis de cinza da imagem. Sua aplicação tende a reduzir ruídos, mas como consequência, a imagem tende a perder nitidez (CONCI; AZEVEDO; LETA, 2008).
+O efeito visual resultante da aplicação de um filtro passa baixa é o da suavização e redução das variações nos níveis de cinza da imagem. Sua aplicação tende a reduzir ruídos, mas como consequência, a imagem tende a perder nitidez \cite{conciAzevedoLeta:2008}.
 
 % ---
 \subsection{Média}
@@ -413,7 +413,7 @@ A implementação em java para o algoritmo pode ser acessado através do link: h
 
 % ---
 \subsection{Moda}
-O filtro de moda calcula o ponto médio entre os valores máximos e mínimos da aŕea em processamento. É indicado para a remoção de ruídos aleatoriamente distribuídos como o ruído gaussiano ou o uniforme \cite{gonzalesWoods:2008}. Neste filtro, os valores existentes na máscara são ordenado e é utilizado o como novo valor o valor mais frequente (CONCI; AZEVEDO; LETA, 2008).
+O filtro de moda calcula o ponto médio entre os valores máximos e mínimos da aŕea em processamento. É indicado para a remoção de ruídos aleatoriamente distribuídos como o ruído gaussiano ou o uniforme \cite{gonzalesWoods:2008}. Neste filtro, os valores existentes na máscara são ordenado e é utilizado o como novo valor o valor mais frequente \cite{conciAzevedoLeta:2008}.
 
 A implementação em java para o algoritmo pode ser acessado através do link:
 https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/ModeBlurProcess.java 
@@ -423,20 +423,20 @@ https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/ModeBlu
 
  O filtro de mediana é o filtro estatístico mais conhecido, onde substitui o valor de um determinado pixel pela mediana dos níveis de intensidade da vizinhança. Este tipo de filtro é utilizado quando se deseja reduzir ruídos aleatórios de uma imagem. O filtro propicia um menor borramento do que filtros lineares de suavização como o filtro de média \cite{gonzalesWoods:2008}.
 
-A mediana m de um conjunto contendo um número nde elementos é definida pelo valor central destes elementos, desta forma, a metade dos elementos situam-se acima de me a outra metade abaixo. Quando nfor par, é necessário realizar a média aritmética dos elementos mais próximos aos centro (CONCI; AZEVEDO; LETA, 2008).
+A mediana m de um conjunto contendo um número nde elementos é definida pelo valor central destes elementos, desta forma, a metade dos elementos situam-se acima de me a outra metade abaixo. Quando nfor par, é necessário realizar a média aritmética dos elementos mais próximos aos centro \cite{conciAzevedoLeta:2008}.
 
-Este filtro realiza a ordenação das intensidades dos pixels existentes dentro da máscara, utilizando como valor para o píxel analizado o valor central dos elementos ordenados (CONCI; AZEVEDO; LETA, 2008).
+Este filtro realiza a ordenação das intensidades dos pixels existentes dentro da máscara, utilizando como valor para o píxel analizado o valor central dos elementos ordenados \cite{conciAzevedoLeta:2008}.
 
-O filtro de mediana possui resultados melhores do que o filtro de média. Isso ocorre devido ao fato de que, se existe um ruído entre os elementos da máscara, este valor estará presente nas primeiras ou últimas posições. Desta forma, pontos discrepantes têm grande chance de serem considerados ruídos e suavizados (CONCI; AZEVEDO; LETA, 2008).
+O filtro de mediana possui resultados melhores do que o filtro de média. Isso ocorre devido ao fato de que, se existe um ruído entre os elementos da máscara, este valor estará presente nas primeiras ou últimas posições. Desta forma, pontos discrepantes têm grande chance de serem considerados ruídos e suavizados \cite{conciAzevedoLeta:2008}.
 
 A implementação em java para o algoritmo pode ser acessado através do link:
 https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/MedianBlurProcess.java 
 
 % ---
 \subsection{Filtro Gaussiano}
-Filtros Gaussianos possuem características que são úteis para o processamento de imagens. As funções Gaussianas são simétricas, o que significa que o grau de suavização é aplicado da mesma forma em todas as direções (isotrópico). A suavização da imagem é obtida através da substituição de cada pixel da imagem pela média ponderada dos pixels vizinhos (PEDRINI; SCHWARTZ, 2008). 
+Filtros Gaussianos possuem características que são úteis para o processamento de imagens. As funções Gaussianas são simétricas, o que significa que o grau de suavização é aplicado da mesma forma em todas as direções (isotrópico). A suavização da imagem é obtida através da substituição de cada pixel da imagem pela média ponderada dos pixels vizinhos \cite{pedriniSchwartz:2008}. 
 
-Este filtro é utilizado para reduzir quantidades de variação de intensidades entre o pixel e seus vizinhos, minimizando e até eliminado informações indesejadas. É um dos filtros de passa-baixa mais importantes, pois seu nível de suavização ocorre de maneira mais uniforme, o que não ocorre nos outros filtros, como, por exemplo, no filtro de média. Este filtro é adequado para a aplicação em conjunto com outros filtros em aplicações de detecção de bordas (CONCI; AZEVEDO; LETA, 2008).   
+Este filtro é utilizado para reduzir quantidades de variação de intensidades entre o pixel e seus vizinhos, minimizando e até eliminado informações indesejadas. É um dos filtros de passa-baixa mais importantes, pois seu nível de suavização ocorre de maneira mais uniforme, o que não ocorre nos outros filtros, como, por exemplo, no filtro de média. Este filtro é adequado para a aplicação em conjunto com outros filtros em aplicações de detecção de bordas \cite{conciAzevedoLeta:2008}.   
 
 Segundo Pedrini e Schwartz (2008), em filtros Gaussianos, os coeficientes da máscara de processamento são obtidos através de uma função Gaussiana bidimensional. A função Gaussiana com média zero e desvio padrão é descrita por:
 
@@ -450,11 +450,11 @@ Na Figura 1.7 é apresentado um conjunto de aplicações de filtros passa baixa 
 % ---
 \section{Filtros passa alta}
 
-Filtros passa-alta diminuem ou eliminam baixas frequências, realçando as altas frequências. São filtros que destacam características como bordas, linhas e curvas, indicado mudanças repentinas nos níveis de intensidade entre duas regiões. Em geral, o resultado obtido através destes filtros é o de tornar mais nítidas as transições entre regiões da imagem (CONCI; AZEVEDO; LETA, 2008).
+Filtros passa-alta diminuem ou eliminam baixas frequências, realçando as altas frequências. São filtros que destacam características como bordas, linhas e curvas, indicado mudanças repentinas nos níveis de intensidade entre duas regiões. Em geral, o resultado obtido através destes filtros é o de tornar mais nítidas as transições entre regiões da imagem \cite{conciAzevedoLeta:2008}.
 
 Segundo Pedrini e Schwartz (2008), técnicas de detecção de bordas fazem uso de uma abordagem onde é realizado um cálculo de um operador local, que determina uma mudança abrupta de níveis de cinza. Uma borda é uma fronteira ou limite entre regiões com intensidades distintas de níveis de cinza
 
-Um operador utilizado para a detecção de mudanças significativas nos níveis de cinza de uma imagem é o gradiente. O gradiente é um vetor cuja direção indica os locais onde os níveis de cinza sofreram maior variação (PEDRINI; SCHWARTZ, 2008). Técnicas de detecção de contornos assumem que a transição entre regiões a serem segmentadas são caracterizadas por um variação nos níveis de cinza da imagem, desta forma, uma grande variação dos níveis de cinza pode indicar a presença das fronteiras entre objetos (CONCI; AZEVEDO; LETA, 2008). 
+Um operador utilizado para a detecção de mudanças significativas nos níveis de cinza de uma imagem é o gradiente. O gradiente é um vetor cuja direção indica os locais onde os níveis de cinza sofreram maior variação \cite{pedriniSchwartz:2008}. Técnicas de detecção de contornos assumem que a transição entre regiões a serem segmentadas são caracterizadas por um variação nos níveis de cinza da imagem, desta forma, uma grande variação dos níveis de cinza pode indicar a presença das fronteiras entre objetos \cite{conciAzevedoLeta:2008}. 
 
 O gradiente de uma imagem, para a função f(x,y) na coordenadas x,y,pode ser definido como um vetor formado pelas suas derivadas parciais:
 
@@ -467,7 +467,7 @@ Onde Gx e Gycorresponde ao resultado da multiplicação da matriz Z, que corresp
 % ---
 \subsection{Sobel}
 
-O operador de Sobel realiza a aproximação da magnitude do gradiente através da diferença de valores ponderados dos níveis de cinza da imagem. Para isso, são utilizados duas máscaras de tamanho 3 x 3, sendo que uma é aplicada em relação ao eixo xe a outro é aplicada no eixo y(PEDRINI; SCHWARTZ, 2008). Este operador realiza um suavização e ao mesmo tempo o realce de bordas.
+O operador de Sobel realiza a aproximação da magnitude do gradiente através da diferença de valores ponderados dos níveis de cinza da imagem. Para isso, são utilizados duas máscaras de tamanho 3 x 3, sendo que uma é aplicada em relação ao eixo xe a outro é aplicada no eixo y\cite{pedriniSchwartz:2008}. Este operador realiza um suavização e ao mesmo tempo o realce de bordas.
 
 Considerando z0a z8os tons de cinza em torno do pixel que está sendo analisado, este filtro é definido por (Equação 1.1):
 
@@ -480,9 +480,9 @@ https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/SobelPr
 
 % ---
 \subsection{Roberts}
-O operador de Roberts corresponde ao método mais simples de detecção de bordas. Como resultado, em regiões que possuem contraste bem definido, obtém-se uma imagem com intensidades altas, e baixos valores em regiões com pouco contraste. Este operador caracteriza-se por um orientação a 45º, desta forma, bordas inclinadas são mais realçadas que outras. Outra característica deste operador e a sensibilidade a ruído (CONCI; AZEVEDO; LETA, 2008).
+O operador de Roberts corresponde ao método mais simples de detecção de bordas. Como resultado, em regiões que possuem contraste bem definido, obtém-se uma imagem com intensidades altas, e baixos valores em regiões com pouco contraste. Este operador caracteriza-se por um orientação a 45º, desta forma, bordas inclinadas são mais realçadas que outras. Outra característica deste operador e a sensibilidade a ruído \cite{conciAzevedoLeta:2008}.
 
-O operador de Roberts faz uso de duas máscaras de tamanho 2 x 2, sendo que uma é aplicada no sentido horizontal e a outro é aplicada no sentido vertical (PEDRINI; SCHWARTZ, 2008).
+O operador de Roberts faz uso de duas máscaras de tamanho 2 x 2, sendo que uma é aplicada no sentido horizontal e a outro é aplicada no sentido vertical \cite{pedriniSchwartz:2008}.
 
 Considerando z0a z8os tons de cinza em torno do pixel que está sendo analisado, este filtro é definido por (Equação 1.1):
 
@@ -494,7 +494,7 @@ A implementação em java para o algoritmo pode ser acessado através do link:
 % ---
 \subsection{Prewith}
 
-O operador de Prewith faz uso de duas máscaras de tamanho 3 x 3, sendo que uma é aplicada no sentido horizontal e a outro é aplicada no sentido vertical (PEDRINI; SCHWARTZ, 2008).	
+O operador de Prewith faz uso de duas máscaras de tamanho 3 x 3, sendo que uma é aplicada no sentido horizontal e a outro é aplicada no sentido vertical \cite{pedriniSchwartz:2008}.	
 
 Este filtro faz uso do mesmo conceito de Sobel e Roberts. Considerando z0a z8os tons de cinza em torno do pixel que está sendo analisado, este filtro é definido por (Equação 1.1)
 
@@ -506,24 +506,24 @@ https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/Roberts
 
 % ---
 \subsection{Kirsch}
-O operador Kirsch (KIRSCH, 1971) consiste na utilização de oito máscaras orientadas em 45º. Para cadas pixel da imagem é realizada a aplicação de uma das oito máscaras e é mantido o valor máximo. Desta forma, o gradiente não é obtido através dos valores de Gxe Gyseparadamente, e sim  atraś do maior resultado do conjunto de 8 máscaras (PEDRINI; SCHWARTZ, 2008).
+O operador Kirsch (KIRSCH, 1971) consiste na utilização de oito máscaras orientadas em 45º. Para cadas pixel da imagem é realizada a aplicação de uma das oito máscaras e é mantido o valor máximo. Desta forma, o gradiente não é obtido através dos valores de Gxe Gyseparadamente, e sim  atraś do maior resultado do conjunto de 8 máscaras \cite{pedriniSchwartz:2008}.
 
 
-Outras máscaras maiores podem ser aplicadas, como máscaras de tamanho 5 x 5 ou 7 x 7 pixel, mas estas abordagens são menos sensíveis a ruído e o tempo para a realização dos cálculos destas máscaras aumenta significamente (PEDRINI; SCHWARTZ, 2008).
+Outras máscaras maiores podem ser aplicadas, como máscaras de tamanho 5 x 5 ou 7 x 7 pixel, mas estas abordagens são menos sensíveis a ruído e o tempo para a realização dos cálculos destas máscaras aumenta significamente \cite{pedriniSchwartz:2008}.
 
 A implementação em java para o algoritmo pode ser acessado através do link:
 https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/KirshProcess.java 
 
 % ---
 \subsection{Robinson}
-Robson propôs um conjunto de oito máscaras onde a magnitude é calculada de maneira semelhante a realizada por Kirsh, ou seja, utilizando o valor máximo entre as oito máscaras (PEDRINI; SCHWARTZ, 2008). 
+Robson propôs um conjunto de oito máscaras onde a magnitude é calculada de maneira semelhante a realizada por Kirsh, ou seja, utilizando o valor máximo entre as oito máscaras \cite{pedriniSchwartz:2008}. 
 
  A implementação em java para o algoritmo pode ser acessado através do link:
 https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/RobinsonProcess.java 
 
 % ---
 \subsection{Frei-Chein}
-O operador Frei-Chein utiliza um conjunto de nove máscaras de tamanho 3 x 3. As máscara M1 a M4 são utilizadas para realizar a detecção de bordas, já a M5 a M8 realizam a detecção de retas, e a M9 representa uma médias dos pixels na região da matriz (PEDRINI; SCHWARTZ, 2008). 
+O operador Frei-Chein utiliza um conjunto de nove máscaras de tamanho 3 x 3. As máscara M1 a M4 são utilizadas para realizar a detecção de bordas, já a M5 a M8 realizam a detecção de retas, e a M9 representa uma médias dos pixels na região da matriz \cite{pedriniSchwartz:2008}. 
 
 A implementação em java para o algoritmo pode ser acessado através do link:
 https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/FreiChenProcess.java 
@@ -534,9 +534,9 @@ A Figura 1.xx apresenta o resultado da aplicação de detecção de bordas. O pr
 \subsection{Canny}
 % Adicionar referentecia inline
 
-O operador de Canny (1986) propõem um método que tem como objetivo otimizar a detecção de bordas em uma imagem que possui ruídos. Este método é o mais complexo, mas geralmente tem resultados superiores aos demais métodos de mesma finalidade. Esta técnica é dividida em etapas. Inicialmente a imagem é suavizada através a aplicação de um filtro Gaussiano. Após esta suavização, são calculadas a magnitude e a direção do gradiente. Após o cálculo do gradiente, a borda é encontrada utilizando apenas os pontos onde a magnitude seja máxima na direção do gradiente, reduzindo assim, a espessura da borda (PEDRINI; SCHWARTZ, 2008).
+O operador de Canny (1986) propõem um método que tem como objetivo otimizar a detecção de bordas em uma imagem que possui ruídos. Este método é o mais complexo, mas geralmente tem resultados superiores aos demais métodos de mesma finalidade. Esta técnica é dividida em etapas. Inicialmente a imagem é suavizada através a aplicação de um filtro Gaussiano. Após esta suavização, são calculadas a magnitude e a direção do gradiente. Após o cálculo do gradiente, a borda é encontrada utilizando apenas os pontos onde a magnitude seja máxima na direção do gradiente, reduzindo assim, a espessura da borda \cite{pedriniSchwartz:2008}.
 
-A após a identificação da borda, é possível que a imagem ainda contenha certos fragmentos causadores de ruído. Para solucionar este problema, o operador Canny (1986) faz uso de dois limiares T1e T2, constituindo a etapa denominada limiarização com histerese. Desta forma, os pontos da borda que possuem gradiente maiores que T2são mantidos na imagem. Pontos que estão conectados a estes pontos e que possuem magnitude de gradiente maior que T1também são considerados como pertencentes a borda (PEDRINI; SCHWARTZ, 2008).
+A após a identificação da borda, é possível que a imagem ainda contenha certos fragmentos causadores de ruído. Para solucionar este problema, o operador Canny (1986) faz uso de dois limiares T1e T2, constituindo a etapa denominada limiarização com histerese. Desta forma, os pontos da borda que possuem gradiente maiores que T2são mantidos na imagem. Pontos que estão conectados a estes pontos e que possuem magnitude de gradiente maior que T1também são considerados como pertencentes a borda \cite{pedriniSchwartz:2008}.
 
 A implementação em java para o algoritmo pode ser acessado através do link:
 https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/CannyProcess.java 
@@ -553,11 +553,11 @@ A Figura 1.xx apresenta o resultado da aplicação de detecção de bordas. O pr
 % ---
 \section{Mofologia matemática}
 
-A Morfologia matemática é uma metodologia utilizada para a análise de imagens, permitindo a construção de operações para a descrição de objetos em uma imagem digital.  É uma metodologia que tem aplicabilidade em diversas áreas, permitindo a busca de padrões, extração e afinamento de bordas, além do preenchimento de pequenas deformações nas imagens (PEDRINI; SCHWARTZ, 2008).
+A Morfologia matemática é uma metodologia utilizada para a análise de imagens, permitindo a construção de operações para a descrição de objetos em uma imagem digital.  É uma metodologia que tem aplicabilidade em diversas áreas, permitindo a busca de padrões, extração e afinamento de bordas, além do preenchimento de pequenas deformações nas imagens \cite{pedriniSchwartz:2008}.
 
 Segundo Gonzales e Woods (2010) a morfologia matemática utiliza como linguagem a teoria dos conjuntos. Para a realização de uma operação morfológica é realizado um mapeamento entre um conjunto aque define a imagem analisada e um conjunto b chamado de objeto estruturante, que são pequenos conjuntos utilizados para buscar propriedades de interesse (Figura 1.XXX). 
 
-As operações de morfologia matemática são realizadas a partir de um elemento estruturante que é utilizado para percorrer a imagem processada. A cada ciclo, é realizada uma operação matemática sobre os pixels do elementos estruturante, alterando a imagem (PEDRINI; SCHWARTZ, 2008).
+As operações de morfologia matemática são realizadas a partir de um elemento estruturante que é utilizado para percorrer a imagem processada. A cada ciclo, é realizada uma operação matemática sobre os pixels do elementos estruturante, alterando a imagem \cite{pedriniSchwartz:2008}.
 
 % ---
 \subsection{Erosão}
@@ -612,14 +612,14 @@ Na imagem 1.17 é apresentada a aplicação de operações de morfologia matemá
 % ---
 \section{Afinamento de bordas}    
 
-Os algoritmos de afinamento de bordas tem como objetivo a remoção de pixels redundantes das imagens, produzindo, desta forma, uma simplificação dos objetos da imagem. O principal problema que estes algoritmos enfrentam é determinar com exatidão quais são os pixels redundantes da imagem (GUILHERME, 2007).
+Os algoritmos de afinamento de bordas tem como objetivo a remoção de pixels redundantes das imagens, produzindo, desta forma, uma simplificação dos objetos da imagem. O principal problema que estes algoritmos enfrentam é determinar com exatidão quais são os pixels redundantes da imagem \cite{guilherme:2007}.
 
-Uma das características mais importantes em um processo de afinamento de bordas é a conectividade. O número de conectividade pode ser definido como sendo o número de transições de branco para preto dentro de uma área ao redor do pixel central (GUILHERME, 2007).
+Uma das características mais importantes em um processo de afinamento de bordas é a conectividade. O número de conectividade pode ser definido como sendo o número de transições de branco para preto dentro de uma área ao redor do pixel central \cite{guilherme:2007}.
     
 % ---
 \subsection{Stentiford}    
 
-O algoritmo de Stentiford adota uma abordagem baseada na utilização de máscaras para o afinamento de objetos. São utilizadas quatro máscaras que são aplicadas de forma sucessiva e ordenada (GUILHERME, 2007).
+O algoritmo de Stentiford adota uma abordagem baseada na utilização de máscaras para o afinamento de objetos. São utilizadas quatro máscaras que são aplicadas de forma sucessiva e ordenada \cite{guilherme:2007}.
 
 Figura 1.18 - Representa máscaras utilizadas pelo algoritmo de Stentiford
 
@@ -642,7 +642,7 @@ https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/Stentif
 % ---
 \subsection{Zhang Suen}
 
-O algoritmo de Zhang Suen (ZHANG; SUEN, 1984) tem como base a comparação do pixel em processamento com seus 8 vizinhos. A exclusão de pixel por parte do algoritmo somente é realizada mediante a quatro regras. Estas regras têm como objetivo obter a exclusão segura dos pixels, garantindo, desta forma, que áreas interligadas não percam a conectividade e que a eliminação ocorrerá nas bordas do objeto (GUILHERME, 2007).
+O algoritmo de Zhang Suen (ZHANG; SUEN, 1984) tem como base a comparação do pixel em processamento com seus 8 vizinhos. A exclusão de pixel por parte do algoritmo somente é realizada mediante a quatro regras. Estas regras têm como objetivo obter a exclusão segura dos pixels, garantindo, desta forma, que áreas interligadas não percam a conectividade e que a eliminação ocorrerá nas bordas do objeto \cite{guilherme:2007}.
 
 Figura 1.20 - Representa máscaras utilizadas pelo algoritmo de Zhang Suen
 
@@ -711,16 +711,16 @@ Na Figura 1.27 são apresentados as aplicações de algoritmos de afinamento. A 
 % ---
 \section{Segmentação}  
 
-Segmentação é um processo de consiste em dividir a imagem em regiões. O objetivo deste processo é fazer com que os objetos e áreas de interesse de uma imagem tenham seus pixels agrupados e destacados do restante da imagem. A segmentação é um tema de extrema importância na área de análise de imagens, pois a identificação de partes de imagens que representam elementos de interesse é fundamental (CONCI; AZEVEDO; LETA, 2008).  
+Segmentação é um processo de consiste em dividir a imagem em regiões. O objetivo deste processo é fazer com que os objetos e áreas de interesse de uma imagem tenham seus pixels agrupados e destacados do restante da imagem. A segmentação é um tema de extrema importância na área de análise de imagens, pois a identificação de partes de imagens que representam elementos de interesse é fundamental \cite{conciAzevedoLeta:2008}.  
 
-A segmentação de imagens é convencionalmente baseada em propriedades dos níveis de cinza de imagens, a descontinuidade e similaridade. Os métodos da descontinuidade visam a identificação de objetos a partir de mudanças abruptas dos níveis de cinza da imagem, que caracterizam a borda de um objeto. Estes métodos foram tratados do seção XXX. Os métodos de similaridade tem como objetivo agrupar pontos semelhantes da imagem para um determinado conjunto de características (PEDRINI; SCHWARTZ, 2008). Este métodos serão tratados nesta seção.
+A segmentação de imagens é convencionalmente baseada em propriedades dos níveis de cinza de imagens, a descontinuidade e similaridade. Os métodos da descontinuidade visam a identificação de objetos a partir de mudanças abruptas dos níveis de cinza da imagem, que caracterizam a borda de um objeto. Estes métodos foram tratados do seção XXX. Os métodos de similaridade tem como objetivo agrupar pontos semelhantes da imagem para um determinado conjunto de características \cite{pedriniSchwartz:2008}. Este métodos serão tratados nesta seção.
     
 % ---
 \subsection{Segmentação baseada em regiões}     
 
-Segmentações baseadas em regiões são métodos que detectam diretamente regiões na imagem, ao invés de detectar bordas que delimitam regiões. Estes algoritmos agrupam pontos que possuem propriedades similares, formando, desta forma, regiões. Um dos principais métodos de segmentação baseada em regiões é o método de crescimento de regiões (PEDRINI; SCHWARTZ, 2008).
+Segmentações baseadas em regiões são métodos que detectam diretamente regiões na imagem, ao invés de detectar bordas que delimitam regiões. Estes algoritmos agrupam pontos que possuem propriedades similares, formando, desta forma, regiões. Um dos principais métodos de segmentação baseada em regiões é o método de crescimento de regiões \cite{pedriniSchwartz:2008}.
 
-O método de crescimento de regiões é um processo de segmentação que tem como início um pixel ou um conjuntos de pixels, que são denominados sementes. Para cada semente, os pixels vizinhos são analisados, caso possuam um nível de similaridade, os pixels são definidos como pertencentes a região da semente. As regiões devem possuir características em comum, considerando algum fator de tolerância. Além disso, regiões devem estar fechadas, possuindo bordas bem delimitadas, de forma que seu interior esteja separado de outros segmentos. (CONCI; AZEVEDO; LETA, 2008).
+O método de crescimento de regiões é um processo de segmentação que tem como início um pixel ou um conjuntos de pixels, que são denominados sementes. Para cada semente, os pixels vizinhos são analisados, caso possuam um nível de similaridade, os pixels são definidos como pertencentes a região da semente. As regiões devem possuir características em comum, considerando algum fator de tolerância. Além disso, regiões devem estar fechadas, possuindo bordas bem delimitadas, de forma que seu interior esteja separado de outros segmentos. \cite{conciAzevedoLeta:2008}.
 
 De acordo com Conci, Azevedo e Leta (2008), alguns fatores devem ser considerados na execução do processo de crescimento de regiões. Inicialmente, é necessário que a escolha de semente seja realizada da maneira adequada, representando corretamente a região de interesse, sendo que a semente é o ponto de partida para a execução do método. A definição de critérios de parada do método é outro fator de extrema importância, pois o crescimento deve parar quando não houver mais pixels vizinhos que satisfaçam estes critérios. Estes critérios podem estar relacionados a comparação dos pixels vizinhos, a forma e ao tamanho.
 
@@ -738,9 +738,9 @@ Onde f(r,s)representa a semente e f(x, y)representam os pixels conectados a seme
 % ---
 \subsection{Método de Contornos Ativos}     
 
-Os métodos de contornos ativos, também conhecidos como Snakes, são técnicas que tem como objetivo a extração das bordas de objetos da imagem. Estas técnicas são caracterizadas para uma curva, que é ajustada de acordo com o contorno do objeto. A técnica é iniciada a partir de um contorno arbitrário que é evoluído até a correta identificação do objeto de interesse (CONCI; AZEVEDO; LETA, 2008).
+Os métodos de contornos ativos, também conhecidos como Snakes, são técnicas que tem como objetivo a extração das bordas de objetos da imagem. Estas técnicas são caracterizadas para uma curva, que é ajustada de acordo com o contorno do objeto. A técnica é iniciada a partir de um contorno arbitrário que é evoluído até a correta identificação do objeto de interesse \cite{conciAzevedoLeta:2008}.
 
-O ajuste da curva é realizado levando em consideração forças internas e externas a curva. O objetivo da energia interna é manter a continuidade e suavidade do contorno, levando em consideração o formato do objeto. Já a energia externa é responsável por buscar valores onde há maior variável entre o pixel e seus vizinhos, o que caracteriza uma borda (KASS, 1988).
+O ajuste da curva é realizado levando em consideração forças internas e externas a curva. O objetivo da energia interna é manter a continuidade e suavidade do contorno, levando em consideração o formato do objeto. Já a energia externa é responsável por buscar valores onde há maior variável entre o pixel e seus vizinhos, o que caracteriza uma borda \\cite{kass:1988}.
 
 Figura 1.xx - Exemplo na execução do método Snakes
 
@@ -756,9 +756,9 @@ https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/CannyPr
 % ----------------------------------------------------------
 \chapter{Gamificação}
 
-A gamificação é um tópico bastante discutido nos últimos anos, estando presente no meio empresarial, acadêmico e nas mais diversas áreas de conhecimento. A gamificação é encarada como uma ferramenta de auxílio para o estímulo e engajamento de pessoas no desenvolvimento de atividades, fazendo uso de elementos de jogos e suas características (QUADROS, 2016).
+A gamificação é um tópico bastante discutido nos últimos anos, estando presente no meio empresarial, acadêmico e nas mais diversas áreas de conhecimento. A gamificação é encarada como uma ferramenta de auxílio para o estímulo e engajamento de pessoas no desenvolvimento de atividades, fazendo uso de elementos de jogos e suas características \cite{quadros2016gamificaccao}.
 
-A gamificação tem sido aplicada com o objetivo de melhorar a experiência e engajamento de usuários (QUADROS, 2016). Segundo Deterding et. al (2011), a gamificação é um conceito que pode ser aplicado nos mais diversos campos de pesquisa, estando presente em áreas de ciências humanas, computação, finanças, saúde e educação. É um termo que deve ser utilizado para sistemas que utilizam elementos de jogos, e não para cenários que utilizam games. 
+A gamificação tem sido aplicada com o objetivo de melhorar a experiência e engajamento de usuários \cite{quadros2016gamificaccao}. Segundo Deterding et. al (2011), a gamificação é um conceito que pode ser aplicado nos mais diversos campos de pesquisa, estando presente em áreas de ciências humanas, computação, finanças, saúde e educação. É um termo que deve ser utilizado para sistemas que utilizam elementos de jogos, e não para cenários que utilizam games. 
 
 Levando em consideração este cenário propício, a gamificação se apresenta como uma ferramenta com grande potencialidade de aplicação. Isso se faz possível devido a linguagem e metodologia dos games serem bastante populares, sendo aceitos naturalmente pelas gerações que cresceram interagindo com esse tipo de entretenimento (FARDO, 2013). Segundo Deterding et al. (2011), a gamificação é um fenômeno emergente, que se aproveita da popularidade dos jogos digitais e de suas capacidades de motivar ações, resolver problemas e potencializar aprendizagens em diversas áreas do conhecimento
 
@@ -773,9 +773,9 @@ Este capítulo trata de conceitos referente a gamificação. É abordado sua dif
 
 Jogo, simulação e gamificação são conceitos que muitas vezes são confundidos. Esta confusão acontece por estes conceitos compartilharem características comuns.
 
-Definir o que é um jogo não é uma tarefa fácil devido a grande quantidade e diversidade de jogos existente. Há, por exemplo, jogos de tabuleiro, como xadrez e damas, também há jogos digitais, como jogos de console e computador e também há jogos esportivos como Futebol, Rugby entre outros. Desta forma, o fato de um produto ser eletrônico não o define como sendo um jogo. Um jogo normalmente é caracterizado pela existência de um objetivo, além de regras específicas. Sendo assim, um jogo pode ser definido como sendo um sistema onde jogadores estão engajados em um desafio que é definido por regras, interatividade e feedback (KAPP, 2014). 
+Definir o que é um jogo não é uma tarefa fácil devido a grande quantidade e diversidade de jogos existente. Há, por exemplo, jogos de tabuleiro, como xadrez e damas, também há jogos digitais, como jogos de console e computador e também há jogos esportivos como Futebol, Rugby entre outros. Desta forma, o fato de um produto ser eletrônico não o define como sendo um jogo. Um jogo normalmente é caracterizado pela existência de um objetivo, além de regras específicas. Sendo assim, um jogo pode ser definido como sendo um sistema onde jogadores estão engajados em um desafio que é definido por regras, interatividade e feedback \cite{kaap:2014}. 
 
-Dentro da área de jogos existe uma categoria denominada Serious Game, que são jogos desenvolvidos com o objetivo de resolver problemas reais. A gamificação e os serious game estão relacionadas, pois ambos fazem uso de conceitos de jogos para conquistar algo a mais. Um Serious Game é um jogo real, enquanto a gamificação faz uso de uma série de ferramentas relacionadas a jogos, como, por exemplo a mecânica ou dinâmica de jogo, design do jogo, psicologia dos jogos, entre outros (DORLING; MCCAFFERY, 2012)
+Dentro da área de jogos existe uma categoria denominada Serious Game, que são jogos desenvolvidos com o objetivo de resolver problemas reais. A gamificação e os serious game estão relacionadas, pois ambos fazem uso de conceitos de jogos para conquistar algo a mais. Um Serious Game é um jogo real, enquanto a gamificação faz uso de uma série de ferramentas relacionadas a jogos, como, por exemplo a mecânica ou dinâmica de jogo, design do jogo, psicologia dos jogos, entre outros \cite{dorling2012software}
 
 A simulação também está relacionada com a ideia de jogo. Mas diferente de um jogo, a simulação é um ambiente onde jogadores podem praticar ações e comportamentos do mundo real em um mundo virtual. Um simulador de vôo é um exemplo, a partir dele é possível que um piloto simule diversas manobras como a decolagem e a aterrissagem de uma aeronave.
 
@@ -785,7 +785,7 @@ Fonte: Adaptado de Deterding et al. (2014)
 
 	%A Figura 2.1  contextualiza a gamificação, fazendo uma divisão em 4 sessões. As sessões acima do eixo horizontal compõem abordagens que fazem uso de conceitos de jogos (mais formal), já as sessões abaixo do eixo horizontal compoẽm abordagens que fazem uso de brincadeiras (livre e descontraída).  Também há outra divisão realizada no eixo vertical separando abordagens que fazem uso de jogos ou brincadeiras por completo de abordagens que somente utilizam elementos.
 
-A gamificação é uma abordagem que visa facilitar a aprendizagem e incrementar a motivação, através da utilização de conceitos provenientes dos jogos como superar desafios, receber recompensas e ganhar pontuação. Um dos objetivos da gamificação é atrair a atenção da pessoa e motivá-la a executar a tarefa proposta, criando um ambiente onde haja um maior envolvimento (KAPP, 2014). Semelhante ao que acontece com o uso de serious game, a gamificação utiliza jogos para um propósito diferente do uso normal para o entretenimento (DETERDING et al., 2011).
+A gamificação é uma abordagem que visa facilitar a aprendizagem e incrementar a motivação, através da utilização de conceitos provenientes dos jogos como superar desafios, receber recompensas e ganhar pontuação. Um dos objetivos da gamificação é atrair a atenção da pessoa e motivá-la a executar a tarefa proposta, criando um ambiente onde haja um maior envolvimento \cite{kaap:2014}. Semelhante ao que acontece com o uso de serious game, a gamificação utiliza jogos para um propósito diferente do uso normal para o entretenimento \cite{deterding2011game}.
 
 % ---
 \section{Gamificação na educação}
@@ -805,9 +805,9 @@ Portanto, a ideia por trás da aplicação da gamificação na educação é adi
 
 Uma questão bastante polêmica em torno da gamificação é comparação entre motivação intrínseca e motivação extrínseca. É argumentado que a gamificação faz uso de muitos fatores externos (extrínsecos) para motivar os alunos e é deixado de lado os fatores internos (intrínsecos) (ANDRE, 2018).
 
-A motivação intrínseca é aquela originada pelo próprio indivíduo. O envolvimento do indivíduo ocorre por vontade própria,  pois é motivado por interesse, desafio ou prazer. Além da busca por novidades, curiosidade e vontade de aprender algo novo. Desta forma, o indivíduo participa de uma atividade pois ela proporciona satisfação (BUSARELLO, 2016).
+A motivação intrínseca é aquela originada pelo próprio indivíduo. O envolvimento do indivíduo ocorre por vontade própria,  pois é motivado por interesse, desafio ou prazer. Além da busca por novidades, curiosidade e vontade de aprender algo novo. Desta forma, o indivíduo participa de uma atividade pois ela proporciona satisfação \cite{busarello2016gamificaccao}.
 
-De maneira contrária, a motivação extrínseca é baseada no mundo que envolve o indivíduo de forma externa. Tem como origem o desejo em obter alguma recompensa externa, como, por exemplo, pontos, prêmios e classificações ou evitar uma punição. Desta forma, através da motivação extrínseca, um indivíduo não é motivado por fatores interno, em vez disso, é motivação pela recompensa que será obtida por realizar uma determinada tarefa (BUSARELLO, 2016).
+De maneira contrária, a motivação extrínseca é baseada no mundo que envolve o indivíduo de forma externa. Tem como origem o desejo em obter alguma recompensa externa, como, por exemplo, pontos, prêmios e classificações ou evitar uma punição. Desta forma, através da motivação extrínseca, um indivíduo não é motivado por fatores interno, em vez disso, é motivação pela recompensa que será obtida por realizar uma determinada tarefa \cite{busarello2016gamificaccao}.
 
 Segundo Andre (2018), alguns críticos da gamificação argumentam que a gamificação é baseada em motivações extrínsecas. E, por este motivo, o aluno irá perder o interesse a partir do momento que a motivação externar ser interrompida. Portanto, é importante equilibrar elementos motivacionais intrínsecos e extrínsecos na implementação da gamificação. O autor apresenta algumas recomendações:
 
@@ -822,14 +822,14 @@ O uso adequado de ambas as motivação aumenta a probabilidade de envolvimento d
 % ---
 \section{Elementos gamificação}
 
-Elementos de jogos aplicados a gamificação como, narrativas, metas, regras, feedbacks e desafíos podem contribuir para uma experiência agradável em um ambiente gamificado, pois favorecem a participação de maneira voluntária por parte do indivíduo (BUSARELLO, 2016).
+Elementos de jogos aplicados a gamificação como, narrativas, metas, regras, feedbacks e desafíos podem contribuir para uma experiência agradável em um ambiente gamificado, pois favorecem a participação de maneira voluntária por parte do indivíduo \cite{busarello2016gamificaccao}.
 
 Nesta seção será apresentado os principais elementos utilizados em soluções gamificadas. Como já foi descrito anteriormente, a gamificação faz uso de elementos de jogos, desta forma, os elementos descritos nesta seção são originários de elementos de jogos.
 
 % ---
 \subsection{Narrativas}
 
-A narrativa é um elemento fundamental no contextos de games, pois este é o elemento chave para o acontecimento de eventos e para justificar as ações de jogadores. Uma boa história pode contribuir para o envolvimento do jogador através da interatividade proporcionada por ela  (FARDO, 2016). Sendo Kapp (2012), a utilização de histórias, como um elemento gamificado, fornece relevância e significado para experiências obtidas pelo usuário, fornecendo um cenário propício para a aplicação de tarefas.
+A narrativa é um elemento fundamental no contextos de games, pois este é o elemento chave para o acontecimento de eventos e para justificar as ações de jogadores. Uma boa história pode contribuir para o envolvimento do jogador através da interatividade proporcionada por ela  \cite{fardo2013gamificaccao}. Sendo Kapp (2012), a utilização de histórias, como um elemento gamificado, fornece relevância e significado para experiências obtidas pelo usuário, fornecendo um cenário propício para a aplicação de tarefas.
 
 Segundo Fardo (2016) é mais agradável aprender novas informações e adquirir novos conhecimento que estejam relacionados a um determinado contexto, e a narrativa pode ser uma fonte para fornecer contextos. Além disso, segundo Andre (2018), envolver o aluno em uma história pode contribuir para que a aprendizagem se torne mais poderosa, sendo que uma história focada em ajudar os alunos a resolver problemas, contribui para a educação do aluno e facilita a memorização do conteúdo abordado.
 
@@ -841,11 +841,11 @@ Histórias utilizadas para aprendizagem devem possuir um final feliz e uma nota 
 % ---
 \subsection{Metas, Regras e Objetivos}
 
-A meta consiste no propósito pelo qual um indivíduo realiza uma determinada tarefa, é aquilo que o indivíduo persegue constantemente. Desta forma, a atividade se apresenta como sendo o desejo pelo qual um indivíduo possui em atuar em uma determinada atividade (BUNCHBALL, 2016). Segundo Kapp (2012), metas contribuem para a visualização de propósitos, foco e resultados.
+A meta consiste no propósito pelo qual um indivíduo realiza uma determinada tarefa, é aquilo que o indivíduo persegue constantemente. Desta forma, a atividade se apresenta como sendo o desejo pelo qual um indivíduo possui em atuar em uma determinada atividade \cite{bunchball2016gamification}. Segundo Kapp (2012), metas contribuem para a visualização de propósitos, foco e resultados.
 
-As regras têm como objetivo restringir ações por parte do indivíduo, desta forma, determinado a maneira de como o indivíduo irá agir para completar os desafios do ambiente. As regras buscam equilibrar o nível de complexidade com o nível de conhecimento do sujeito, favorecendo, desta forma, a criatividade e o pensamento estratégico (BUNCHBALL, 2016).
+As regras têm como objetivo restringir ações por parte do indivíduo, desta forma, determinado a maneira de como o indivíduo irá agir para completar os desafios do ambiente. As regras buscam equilibrar o nível de complexidade com o nível de conhecimento do sujeito, favorecendo, desta forma, a criatividade e o pensamento estratégico \cite{bunchball2016gamification}.
 
-O objetivo é aquilo que o indivíduo deve realizar. Objetivos devem ser apresentados de forma clara, para que não haja confusão e aumento da complexidade devido a ambiguidade do objetivo. Normalmente, um jogo possui mais de um objetivo, que vão sendo organizados ao decorrer da iteração. Quando há objetivos muito complexos, estes podem ser quebrados em objetivos menores, para que o indivíduo consiga atingir o objetivo maior. Esta subdivisão de desafios permite ao indivíduo identificar seu progresso em relação ao objetivos maiores (FARDO, 2016).
+O objetivo é aquilo que o indivíduo deve realizar. Objetivos devem ser apresentados de forma clara, para que não haja confusão e aumento da complexidade devido a ambiguidade do objetivo. Normalmente, um jogo possui mais de um objetivo, que vão sendo organizados ao decorrer da iteração. Quando há objetivos muito complexos, estes podem ser quebrados em objetivos menores, para que o indivíduo consiga atingir o objetivo maior. Esta subdivisão de desafios permite ao indivíduo identificar seu progresso em relação ao objetivos maiores \cite{fardo2013gamificaccao}.
 
 Segundo André (2018), quando se aplica gamificação na aprendizagem e ensino é importante estabelecer objetivos claros, uma meta com finalidade, foco e resultados que podem ser mensuráveis. O autor definir alguns itens importantes para a aplicação de metas, regras e objetivos:
 
@@ -876,9 +876,9 @@ Medalhas são a comprovação de que uma determinada tarefa foi realizada com m�
 % ---
 \subsection{Recompensas e Conquistas}    
 
-Recompensas apresentadas após a finalização de ações podem estimular o comportamento e o envolvimento da pessoa em um sistema gamificado. Na gamificação, o mecanismo de recompensas ocorre através do ganho de pontos ou algo equivalente (KAPP, 2012). Os seres humanos são motivados pelo recebimento de recompensas, seja pela satisfação pessoal ou através de medalhas ou presentes (QUADROS, 2016).
+Recompensas apresentadas após a finalização de ações podem estimular o comportamento e o envolvimento da pessoa em um sistema gamificado. Na gamificação, o mecanismo de recompensas ocorre através do ganho de pontos ou algo equivalente (KAPP, 2012). Os seres humanos são motivados pelo recebimento de recompensas, seja pela satisfação pessoal ou através de medalhas ou presentes \cite{quadros2016gamificaccao}.
 
-A conquista é um importante elemento para a motivação, sendo que através da resolução de tarefas de alta dificuldade é possível obter a gratificação e reconhecimento da realização conquistada (QUADROS, 2016). Para Busarello (2016), recompensar são um forma de medir o desempenho do jogador utilizando pontuação e formas de prêmios, após a finalização de tarefas ou níveis no jogo.
+A conquista é um importante elemento para a motivação, sendo que através da resolução de tarefas de alta dificuldade é possível obter a gratificação e reconhecimento da realização conquistada \cite{quadros2016gamificaccao}. Para Busarello (2016), recompensar são um forma de medir o desempenho do jogador utilizando pontuação e formas de prêmios, após a finalização de tarefas ou níveis no jogo.
 
 Recompensas podem ser adquiridas após a conclusão de uma tarefas ou através da medição de desempenho do aluno ao completar uma tarefa. De acordo com André (2018), a utilização de recompensas através de uma medição podem aumentar a motivação intrínseca, pois o aluno terá um feedback de quão bem ele está. Se as recompensas forem aplicadas corretamente podem ter um grande efeito motivacional aos alunos.
     
@@ -894,19 +894,19 @@ A utilização de rankings permite aos jogadores um forma de interagir socialmen
 % ---
 \subsection{Feedback}            
 
-O Feedback é um recurso pelo qual jogadores podem visualizar o resultado de suas ações, tornando-se um poderoso elemento para tornar o jogador mais focado e permitir modificar suas estratégias para melhorar seu desempenho. Este elemento, auxilia na construção do conhecimento através da integração entre o indivíduo e o sistema, onde o retorno do sistema pode ao aumentar a experiência do jogador (FARDO, 2016).
+O Feedback é um recurso pelo qual jogadores podem visualizar o resultado de suas ações, tornando-se um poderoso elemento para tornar o jogador mais focado e permitir modificar suas estratégias para melhorar seu desempenho. Este elemento, auxilia na construção do conhecimento através da integração entre o indivíduo e o sistema, onde o retorno do sistema pode ao aumentar a experiência do jogador \cite{fardo2013gamificaccao}.
     
 % ---
 \subsection{Desafios}                
 
-Os desafios são impostos aos jogadores para direcionar o que deve ser feito dentro do cenário proposto. É importante que o jogador sempre tenha algo interessante para fazer, contribuindo para uma melhor experiência. Além disso, é interessante disponibilizar diversas opções neste ambiente, pois jogadores podem possuir perfis diferentes (FARDO, 2016).
+Os desafios são impostos aos jogadores para direcionar o que deve ser feito dentro do cenário proposto. É importante que o jogador sempre tenha algo interessante para fazer, contribuindo para uma melhor experiência. Além disso, é interessante disponibilizar diversas opções neste ambiente, pois jogadores podem possuir perfis diferentes \cite{fardo2013gamificaccao}.
 
 Segundo Busarello (2016) os indivíduos têm interesse em resolver desafios que possuem um nível de dificuldade equilibrado, ou seja, não podem ser nem muito fáceis nem muito difíceis. Este equilíbrio entre os níveis de dificuldade e habilidade podem colaborar para o fluxo da atividade, contribuindo para o motivação.
     
 % ---
 \subsection{Conflito, Competição e Cooperação}                    
 
-As pessoas atingem um nível mais elevado de satisfação ao comparar seu desempenho com o de outras pessoas. Este ambiente competitivo pode aumentar o desempenho. Elementos de jogos instigam esse tipo de desejo, fazendo uso de rankings para exibir os resultados e celebrando os vencedores  (BUNCHBALL, 2016). Alguns jogos fazem uso de uma lista contendo os 10 mais bem classificados, utilizando a exposição para indicar novos níveis e recompensas alcançadas.
+As pessoas atingem um nível mais elevado de satisfação ao comparar seu desempenho com o de outras pessoas. Este ambiente competitivo pode aumentar o desempenho. Elementos de jogos instigam esse tipo de desejo, fazendo uso de rankings para exibir os resultados e celebrando os vencedores  \cite{bunchball2016gamification}. Alguns jogos fazem uso de uma lista contendo os 10 mais bem classificados, utilizando a exposição para indicar novos níveis e recompensas alcançadas.
 
 % ----------------------------------------------------------
 % Trabalhos correlatos
@@ -975,7 +975,7 @@ Figura 3.X- Exemplos de tarefa aplicada aos estudantes
 Fonte: Cazorla e Viejo  (2013)
 
 % ---
-\section{Classroom Live: a software-assisted gamification tool (FREITAS; FREITAS, 2013)}
+\section{Classroom Live: a software-assisted gamification tool \cite{de2013classroom}}
 
 A pesquisa de Freitas e Freitas (2013) tem por objetivo conseguir engajar os estudantes da US Air Force Academy. Para isso, foi desenvolvido um sistema cliente/servidor para servir como aporte para aulas gamificadas. O sistema é chamado de Classroom Live, e este faz uso do de computadores e acesso wireless para prover uma experiência online e interativa de aprendizagem. Ao acessar o software, o aluno recebe “quests” que são preparadas pelo instrutor. O instrutor pode acessar uma aplicação diferente para analisar a performance do estudante e recompensas em tempo real.
 
@@ -1038,13 +1038,13 @@ O objetivo principal deste trabalho é o desenvolvimento de uma ferramenta gamif
 % ---
 \section{VISNode}
 
-Para o desenvolvimento deste trabalho foi utilizado o software VISNode. Esta ferramenta foi desenvolvida por alunos da Universidade Feevale após concluírem a disciplina de Processamento Digital de Imagem. Eles identificaram uma dificuldade para realizar a comparação de técnicas, com o mesmo objetivo, e escolher o parâmetro adequada para cada situação. Desta forma, foi desenvolvido um ferramenta que tem por objetivo demonstrar, de forma visual,  a execução de técnicas de PDI e como elas se conectam (VISNODE, 2018).
+Para o desenvolvimento deste trabalho foi utilizado o software VISNode. Esta ferramenta foi desenvolvida por alunos da Universidade Feevale após concluírem a disciplina de Processamento Digital de Imagem. Eles identificaram uma dificuldade para realizar a comparação de técnicas, com o mesmo objetivo, e escolher o parâmetro adequada para cada situação. Desta forma, foi desenvolvido um ferramenta que tem por objetivo demonstrar, de forma visual,  a execução de técnicas de PDI e como elas se conectam \cite{visnode}.
 
-O VISNode utiliza o conceito de processos, que consiste em operações que podem ser executados em entradas (inputs) e gerar saídas (outputs). Estas saídas podem ser imagens, valores numéricos, ou qualquer outra estrutura de dados necessária para a execução do processo. Os processos podem ser qualquer função de possa ser aplicar a um input e gerar um output, como por exemplo: de manipulação da imagem, como desfoque de Gauss, limiarização ou de inversão de cores; obtenção de informações, como a obtenção de estatísticas de cor;  extração de objetos (VISNODE, 2018).
+O VISNode utiliza o conceito de processos, que consiste em operações que podem ser executados em entradas (inputs) e gerar saídas (outputs). Estas saídas podem ser imagens, valores numéricos, ou qualquer outra estrutura de dados necessária para a execução do processo. Os processos podem ser qualquer função de possa ser aplicar a um input e gerar um output, como por exemplo: de manipulação da imagem, como desfoque de Gauss, limiarização ou de inversão de cores; obtenção de informações, como a obtenção de estatísticas de cor;  extração de objetos \cite{visnode}.
 
-Cada processo da ferramenta é considerado um nodo, como em uma árvore ou grafo. Cada nodo possui entradas e saídas que podem ser conectadas a entradas e saídas de outros nodos para a execução sequencial. Para um processo de Threshold, por exemplos, a imagem de origem e o limiar numérico são os parâmetros de entrada, enquanto a imagem resultante da operação consiste no parâmetro de saída (VISNODE, 2018). 
+Cada processo da ferramenta é considerado um nodo, como em uma árvore ou grafo. Cada nodo possui entradas e saídas que podem ser conectadas a entradas e saídas de outros nodos para a execução sequencial. Para um processo de Threshold, por exemplos, a imagem de origem e o limiar numérico são os parâmetros de entrada, enquanto a imagem resultante da operação consiste no parâmetro de saída \cite{visnode}. 
 
-Para determinados tipos de entrada é possível informar o valor manualmente no nodo ou via conexão. Por exemplo, para o nodo de limiarização é possível informar um valor numérico para o limiar diretamente no nodo, utilizando a interface gráfica, ou obter à partir da saída de outro nodo, como, por exemplo, a cor média da imagem (VISNODE, 2018).
+Para determinados tipos de entrada é possível informar o valor manualmente no nodo ou via conexão. Por exemplo, para o nodo de limiarização é possível informar um valor numérico para o limiar diretamente no nodo, utilizando a interface gráfica, ou obter à partir da saída de outro nodo, como, por exemplo, a cor média da imagem \cite{visnode}.
 
 Segundo os criadores, estrutura em nodos foi criada com o intuito de facilitar a compreensão em relação a como diversos processos podem ser executados de forma sequencial para chegar a um objetivo final. Na tela principal de edição do software, o usuário pode mover, inserir e remover nodos de processos, criar e remover conexões entre as entradas e saídas de forma visual e realizar ajustes nos parâmetros dos processos, visualizando em tempo real o resultado de suas modificações.
 
@@ -1059,11 +1059,11 @@ Fonte: Do autor
 
 O software VISNode foi construído utilizando a arquitetura modular proposta por Reis et al. (2017), onde é construída uma linha de produtos de software (Software Product Line ou SPL) (SEI, 2018)  para a extração e apresentação de características em exames médicos por imagem. Na arquitetura existem cinco módulos, cada um com um objetivo específico, que podem ser usados de forma independente para diversos tipos de aplicações que trabalham com imagens. Dos módulos construídos, três foram utilizados no desenvolvimento do VISNode, descritos a seguir:
 
-PDI: implementações de algoritmos de processamento de imagens, que são aplicados aos exames médicos no processo de extração de características, como, por exemplo: histograma, limiarização, remoção e redução de ruídos, operações de convolução, métodos de classificação, entre outros (REIS et al., 2018); 
+PDI: implementações de algoritmos de processamento de imagens, que são aplicados aos exames médicos no processo de extração de características, como, por exemplo: histograma, limiarização, remoção e redução de ruídos, operações de convolução, métodos de classificação, entre outros \cite{reisferramenta}; 
 
-Uso Comum: classes de uso  comum  por todos os outros módulos, como classes utilitárias ou estruturas de dados utilizadas na troca de informações entre módulos (REIS et al., 2018); 
+Uso Comum: classes de uso  comum  por todos os outros módulos, como classes utilitárias ou estruturas de dados utilizadas na troca de informações entre módulos \cite{reisferramenta}; 
 
-Acesso a Arquivos: camada de acesso arquivos do tipo DICOM(REIS et al., 2018).
+Acesso a Arquivos: camada de acesso arquivos do tipo DICOM\cite{reisferramenta}.
 
 
 % ---
