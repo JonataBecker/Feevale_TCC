@@ -291,27 +291,27 @@ Uma imagem colorida pode ser transformada em uma imagem monocromática em escala
 Fonte: do autor
 \end{figure}
 
-O cálculo da distribuição de níveis cor de uma imagem é denominado histograma (Figura 1.1). O histograma de uma imagem, normalmente é representado de maneira gráfica, onde é indicada a quantidade de pixels para cada nível de cor. Através do histograma de uma imagem é possível obter medidas estatísticas como os valores mínimo e máximo, valor médio, variância e o desvio padrão (GONZALES; WOODS, 2010). Na Figura 1.1 é demonstrado o histograma de um segmento de uma imagem. 
+O cálculo da distribuição de níveis cor de uma imagem é denominado histograma (Figura 1.1). O histograma de uma imagem, normalmente é representado de maneira gráfica, onde é indicada a quantidade de pixels para cada nível de cor. Através do histograma de uma imagem é possível obter medidas estatísticas como os valores mínimo e máximo, valor médio, variância e o desvio padrão \cite{gonzalesWoods:2008}. Na Figura 1.1 é demonstrado o histograma de um segmento de uma imagem. 
 Segundo Conci, Azevedo e Leta (2008), o histograma pode ser obtido da seguinte forma: analisa-se o tom de cada pixel; realiza-se a contagem do número de pixels de cada intensidade de cor; representa-se esses valores na forma gráfica, correspondendo a frequência de cada tom.
 
 Um processo comumente aplicado em técnicas de PDI é a convolução. Segundo Pedrini e Schwartz (2008), o processo de convolução faz uso de matrizes, que são denominadas máscaras, para aplicar modificações na imagem pixel a pixel. A máscara, também conhecida como kernel é uma matriz bidimensional quadrada. Usualmente, esta matriz possui um tamanho ímpar e dimensões quadradas, estas características são importantes para que a máscara possua um pixel central.
 
-O processo de convolução utiliza os coeficientes desta máscaras para realizar uma multiplicação pelos níveis de cor dos pixels. O pixel central é modificado pela média de todas as multiplicações. Este processo percorre a imagem aplicando a máscara em todos os pixels da imagem. Outro processo semelhante é o processo de correlação, onde este possui o mesmo princípio da convolução, mas com a diferença da máscara ser rotacionada em 180º (GONZALES; WOODS, 2010). A implementação em java para o algoritmo pode ser acessado através do link: https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/ConvolutionProcess.java.
+O processo de convolução utiliza os coeficientes desta máscaras para realizar uma multiplicação pelos níveis de cor dos pixels. O pixel central é modificado pela média de todas as multiplicações. Este processo percorre a imagem aplicando a máscara em todos os pixels da imagem. Outro processo semelhante é o processo de correlação, onde este possui o mesmo princípio da convolução, mas com a diferença da máscara ser rotacionada em 180º \cite{gonzalesWoods:2008}. A implementação em java para o algoritmo pode ser acessado através do link: https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/ConvolutionProcess.java.
 
 Neste capítulo serão apresentadas algumas das principais técnicas de PDI. Dentre elas estarão transformações geométricas, filtro de passa baixa e passa alta, morfologia matemática, afinamento e técnicas de classificação.
 % ---
 \section{Limiarização}
 
-Limiarização ou Threshold é uma técnica que consiste em comparar cada pixel da imagem com um Threshold e a partir deste, gerar um novo valor para o pixel em processamento. Esta técnica tem como objetivo separar objetos da imagem que correspondem a um determinado nível de intensidade. Desta forma, esta técnica permite que, em uma imagem composta por objetos claros e com fundo escuro, os objetos desta imagem possam ser facilmente extraídos aplicando um threshold com intensidade entre a cor de fundo e a cor dos objetos (GONZALES; WOODS, 2010). A Figura 1.2 exemplifica este procedimento.
+Limiarização ou Threshold é uma técnica que consiste em comparar cada pixel da imagem com um Threshold e a partir deste, gerar um novo valor para o pixel em processamento. Esta técnica tem como objetivo separar objetos da imagem que correspondem a um determinado nível de intensidade. Desta forma, esta técnica permite que, em uma imagem composta por objetos claros e com fundo escuro, os objetos desta imagem possam ser facilmente extraídos aplicando um threshold com intensidade entre a cor de fundo e a cor dos objetos \cite{gonzalesWoods:2008}. A Figura 1.2 exemplifica este procedimento.
 
 Na Figura 1.2 é aplicado um Threshold de 190, desta forma, os pixels com valor maior que 190 recebem a cor branca, enquanto os pixels com valor inferior recebem a cor preta. A imagem resultante será composta por pixels pretos e brancos variando, sendo 0 ou 255.A implementação em java para o algoritmo pode ser acessado através do link:
 https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/ThresholdProcess.java 
 
-Uma maneira comum para a identificação do Threshold a ser utilizado é através do histograma da imagem, sendo que através do histograma se tem uma visão geral da distribuição das tonalidades da imagem. Em um histograma com dois picos, o valor entre os dois picos pode ser utilizado com sendo o Threshold, onde os picos representam as cores com maior ocorrência  (GONZALES; WOODS, 2010). 
+Uma maneira comum para a identificação do Threshold a ser utilizado é através do histograma da imagem, sendo que através do histograma se tem uma visão geral da distribuição das tonalidades da imagem. Em um histograma com dois picos, o valor entre os dois picos pode ser utilizado com sendo o Threshold, onde os picos representam as cores com maior ocorrência  \cite{gonzalesWoods:2008}. 
 
 % ---
 \section{Brilho e Contraste}
-O conceito de brilho está relacionado com a intensidade luminosa de uma fonte, quando é trabalhado com imagens digitais. Esta intensidade está relacionada com os pixels da imagem. O contraste está relacionado com a medida de variação da intensidade luminosa por unidade de área (GONZALES; WOODS, 2010).
+O conceito de brilho está relacionado com a intensidade luminosa de uma fonte, quando é trabalhado com imagens digitais. Esta intensidade está relacionada com os pixels da imagem. O contraste está relacionado com a medida de variação da intensidade luminosa por unidade de área \cite{gonzalesWoods:2008}.
 
 O brilho e contraste podem ser definidos através de uma função matemática. Esta função é definida por g =.f + , onde o g é o pixel resultante,  é o coeficiente de contraste e  é o coeficiente de brilho e f é o pixel analisado (PEDRINI; SCHWARTZ, 2008).
 
@@ -404,14 +404,14 @@ O efeito visual resultante da aplicação de um filtro passa baixa é o da suavi
 
 % ---
 \subsection{Média}
-Filtros de média são utilizadas para fins de suavização de imagens, sendo utilizados para o borramento e a redução de ruídos. A ideia por trás desta técnica é aplicar uma operação estatística na vizinhança de uma máscara, calculando um novo valor do pixel analisado (GONZALES; WOODS, 2010). 
-O filtro de média calcula a média aritmética da máscara em processamento, o valor resultante será aplicado no pixel central. Este filtro diminui variações da imagem, removendo, desta forma, seu ruído desta (GONZALES; WOODS, 2010).
+Filtros de média são utilizadas para fins de suavização de imagens, sendo utilizados para o borramento e a redução de ruídos. A ideia por trás desta técnica é aplicar uma operação estatística na vizinhança de uma máscara, calculando um novo valor do pixel analisado \cite{gonzalesWoods:2008}. 
+O filtro de média calcula a média aritmética da máscara em processamento, o valor resultante será aplicado no pixel central. Este filtro diminui variações da imagem, removendo, desta forma, seu ruído desta \cite{gonzalesWoods:2008}.
 
 A implementação em java para o algoritmo pode ser acessado através do link: https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/AverageBlurProcess.java 
 
 % ---
 \subsection{Moda}
-O filtro de moda calcula o ponto médio entre os valores máximos e mínimos da aŕea em processamento. É indicado para a remoção de ruídos aleatoriamente distribuídos como o ruído gaussiano ou o uniforme (GONZALES; WOODS, 2010). Neste filtro, os valores existentes na máscara são ordenado e é utilizado o como novo valor o valor mais frequente (CONCI; AZEVEDO; LETA, 2008).
+O filtro de moda calcula o ponto médio entre os valores máximos e mínimos da aŕea em processamento. É indicado para a remoção de ruídos aleatoriamente distribuídos como o ruído gaussiano ou o uniforme \cite{gonzalesWoods:2008}. Neste filtro, os valores existentes na máscara são ordenado e é utilizado o como novo valor o valor mais frequente (CONCI; AZEVEDO; LETA, 2008).
 
 A implementação em java para o algoritmo pode ser acessado através do link:
 https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/ModeBlurProcess.java 
@@ -419,7 +419,7 @@ https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/ModeBlu
 % ---
 \subsection{Mediana}
 
- O filtro de mediana é o filtro estatístico mais conhecido, onde substitui o valor de um determinado pixel pela mediana dos níveis de intensidade da vizinhança. Este tipo de filtro é utilizado quando se deseja reduzir ruídos aleatórios de uma imagem. O filtro propicia um menor borramento do que filtros lineares de suavização como o filtro de média (GONZALES; WOODS, 2010).
+ O filtro de mediana é o filtro estatístico mais conhecido, onde substitui o valor de um determinado pixel pela mediana dos níveis de intensidade da vizinhança. Este tipo de filtro é utilizado quando se deseja reduzir ruídos aleatórios de uma imagem. O filtro propicia um menor borramento do que filtros lineares de suavização como o filtro de média \cite{gonzalesWoods:2008}.
 
 A mediana m de um conjunto contendo um número nde elementos é definida pelo valor central destes elementos, desta forma, a metade dos elementos situam-se acima de me a outra metade abaixo. Quando nfor par, é necessário realizar a média aritmética dos elementos mais próximos aos centro (CONCI; AZEVEDO; LETA, 2008).
 
@@ -556,7 +556,7 @@ As operações de morfologia matemática são realizadas a partir de um elemento
 
 % ---
 \subsection{Erosão}
-O processo de erosão é responsável por afinar ou diminuir objetos de uma imagem. Pode ser utilizada para remover componentes de uma imagem que não se tem interesse. A erosão pode ser definida como uma operação de filtragem, em que os elementos da imagem menores que o elemento estruturante são removidos (GONZALES; WOODS, 2010).
+O processo de erosão é responsável por afinar ou diminuir objetos de uma imagem. Pode ser utilizada para remover componentes de uma imagem que não se tem interesse. A erosão pode ser definida como uma operação de filtragem, em que os elementos da imagem menores que o elemento estruturante são removidos \cite{gonzalesWoods:2008}.
 
 De acordo com Pedrini e Schwartz (2008), a fórmula que representa a operação de erosão em imagens em tons de cinza é definida por:
 
@@ -568,7 +568,7 @@ https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/Erosion
 % ---
 \subsection{Dilatação}
 
-A dilatação é um processo que, ao contrário da erosão, aumenta os objetos em uma imagem binária. Um exemplo de utilização pode ser a união de lacunas de uma imagem, onde após a aplicação de uma dilatação, a distância entre estas lacunas diminui ou deixa de existir (GONZALES; WOODS, 2010). 
+A dilatação é um processo que, ao contrário da erosão, aumenta os objetos em uma imagem binária. Um exemplo de utilização pode ser a união de lacunas de uma imagem, onde após a aplicação de uma dilatação, a distância entre estas lacunas diminui ou deixa de existir \cite{gonzalesWoods:2008}. 
 De acordo com Pedrini e Schwartz (2008), a fórmula que representa a operação de dilatação em imagens em tons de cinza é definida por:
 
 Onde f representa a imagem de origem e (s, t) pertencem ao elemento estruturante b. Este elemento estruturante é aplicado na imagem e a cada ciclo, o pixel analisado é substituído pelo pixel resultante de maior valor.
@@ -581,7 +581,7 @@ https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/Dilatio
 % ---
 \subsection{Abertura}
 
-A abertura é geralmente utilizada para suavizar os contornos de um objeto, eliminando, desta forma, as saliências finas. Na operação de abertura as imagens que são menores que os elementos estruturantes são removidas da imagem (GONZALES; WOODS, 2010).
+A abertura é geralmente utilizada para suavizar os contornos de um objeto, eliminando, desta forma, as saliências finas. Na operação de abertura as imagens que são menores que os elementos estruturantes são removidas da imagem \cite{gonzalesWoods:2008}.
 Segundo Pedrini e Schwartz (2008), o processo de abertura consiste na aplicação de uma erosão, seguida de uma dilatação na mesma imagem, utilizando o mesmo elemento estruturante.
  A implementação em java para o algoritmo pode ser acessado através do link:
 https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/OpeningProcess.java 
@@ -589,7 +589,7 @@ https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/Opening
 % ---
 \subsection{Fechamento}
 
-A operação de fechamento também realiza a suavização da imagem, mas ao contrário da abertura, o fechamento elimina os pequenos buracos e preenche as colunas de um contorno. Sendo assim, separações e áreas menores que o elemento estruturante são completadas (GONZALES; WOODS, 2010).
+A operação de fechamento também realiza a suavização da imagem, mas ao contrário da abertura, o fechamento elimina os pequenos buracos e preenche as colunas de um contorno. Sendo assim, separações e áreas menores que o elemento estruturante são completadas \cite{gonzalesWoods:2008}.
 Segundo Pedrini e Schwartz (2008), o processo de fechamento consiste na aplicação de uma dilatação, seguida de uma erosão na mesma imagem, utilizando o mesmo elemento estruturante.
  A implementação em java para o algoritmo pode ser acessado através do link:
 https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/ClosingProcess.java 
