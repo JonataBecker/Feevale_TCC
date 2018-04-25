@@ -276,7 +276,7 @@ A etapa de representação e descrição é responsável  pelo armazenamento e m
 
 Para o processamento digital de imagens é necessário que a imagem possa ser manipulada digitalmente. Segundo Pedrini e Schwartz (2008), uma imagem digital pode ser representada através de uma matriz bidimensional, onde cada elemento desta matriz corresponde a um ponto da imagem. Cada um destes pontos representa uma cor ou um tom de cinza e são denominados pixels. 
 
-Imagens monocromáticas são imagens onde seus pixels possuem somente uma banda espectral, ou seja, seu pixel é representado somente por uma grandeza. Estas imagens podem ser binárias ou em escala de cinza. Imagens binárias são imagens onde seus pixels assumem somente dois valores, normalmente 0 ou 1. Já uma imagem em escala de cinza, é uma imagem onde seus pixels podem assumir uma faixa de valores. Caso a imagem utilize 1 byte, seus valores podem variam de 0 a 255, onde 0 representa a cor preta e 255 a cor branca, e o intervalo é representado por tonalidades de cinza, desta forma, haverá 256 tons diferentes (CONCI; AZEVEDO; LETA, 2008).
+Imagens monocromáticas são imagens onde seus pixels possuem somente uma banda espectral, ou seja, seu pixel é representado somente por uma grandeza. Estas imagens podem ser binárias ou em escala de cinza. Imagens binárias são imagens onde seus pixels assumem somente dois valores, normalmente 0 ou 1. Já uma imagem em escala de cinza, é uma imagem onde seus pixels podem assumir uma faixa de valores. Caso a imagem utilize 1 byte, seus valores podem variam de 0 a 255, onde 0 representa a cor preta e 255 a cor branca, e o intervalo é representado por tonalidades de cinza, desta forma, haverá 256 tons diferentes \cite{conciAzevedoLeta:2008}.
 
 Imagens coloridas são imagens que possuem mais de uma banda, ou seja, multibanda. Seus pixels possuem mais de um canal. Cada canal representa uma cor, desta forma, uma imagem RGB será representada por canais que representam a cor vermelha, verde e azul respectivamente. Digitalmente, esta imagem pode ser representada por 3 matrizes, cada uma representando um canal da imagem, a combinação das três matrizes representa uma cor (CONCI; AZEVEDO; LETA, 2008).
 
@@ -292,6 +292,7 @@ Fonte: do autor
 \end{figure}
 
 O cálculo da distribuição de níveis cor de uma imagem é denominado histograma (Figura 1.1). O histograma de uma imagem, normalmente é representado de maneira gráfica, onde é indicada a quantidade de pixels para cada nível de cor. Através do histograma de uma imagem é possível obter medidas estatísticas como os valores mínimo e máximo, valor médio, variância e o desvio padrão \cite{gonzalesWoods:2008}. Na Figura 1.1 é demonstrado o histograma de um segmento de uma imagem. 
+
 Segundo Conci, Azevedo e Leta (2008), o histograma pode ser obtido da seguinte forma: analisa-se o tom de cada pixel; realiza-se a contagem do número de pixels de cada intensidade de cor; representa-se esses valores na forma gráfica, correspondendo a frequência de cada tom.
 
 Um processo comumente aplicado em técnicas de PDI é a convolução. Segundo Pedrini e Schwartz (2008), o processo de convolução faz uso de matrizes, que são denominadas máscaras, para aplicar modificações na imagem pixel a pixel. A máscara, também conhecida como kernel é uma matriz bidimensional quadrada. Usualmente, esta matriz possui um tamanho ímpar e dimensões quadradas, estas características são importantes para que a máscara possua um pixel central.
@@ -405,6 +406,7 @@ O efeito visual resultante da aplicação de um filtro passa baixa é o da suavi
 % ---
 \subsection{Média}
 Filtros de média são utilizadas para fins de suavização de imagens, sendo utilizados para o borramento e a redução de ruídos. A ideia por trás desta técnica é aplicar uma operação estatística na vizinhança de uma máscara, calculando um novo valor do pixel analisado \cite{gonzalesWoods:2008}. 
+
 O filtro de média calcula a média aritmética da máscara em processamento, o valor resultante será aplicado no pixel central. Este filtro diminui variações da imagem, removendo, desta forma, seu ruído desta \cite{gonzalesWoods:2008}.
 
 A implementação em java para o algoritmo pode ser acessado através do link: https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/AverageBlurProcess.java 
@@ -508,7 +510,8 @@ O operador Kirsch (KIRSCH, 1971) consiste na utilização de oito máscaras orie
 
 
 Outras máscaras maiores podem ser aplicadas, como máscaras de tamanho 5 x 5 ou 7 x 7 pixel, mas estas abordagens são menos sensíveis a ruído e o tempo para a realização dos cálculos destas máscaras aumenta significamente (PEDRINI; SCHWARTZ, 2008).
- A implementação em java para o algoritmo pode ser acessado através do link:
+
+A implementação em java para o algoritmo pode ser acessado através do link:
 https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/KirshProcess.java 
 
 % ---
@@ -522,13 +525,15 @@ https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/Robinso
 \subsection{Frei-Chein}
 O operador Frei-Chein utiliza um conjunto de nove máscaras de tamanho 3 x 3. As máscara M1 a M4 são utilizadas para realizar a detecção de bordas, já a M5 a M8 realizam a detecção de retas, e a M9 representa uma médias dos pixels na região da matriz (PEDRINI; SCHWARTZ, 2008). 
 
- A implementação em java para o algoritmo pode ser acessado através do link:
+A implementação em java para o algoritmo pode ser acessado através do link:
 https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/FreiChenProcess.java 
 
 A Figura 1.xx apresenta o resultado da aplicação de detecção de bordas. O primeiro algoritmo é o Sobel (b), seguido de Kircsh (c), Robinson (d), Frei Chen (e) e Prewitt.
 
 % ---
 \subsection{Canny}
+% Adicionar referentecia inline
+
 O operador de Canny (1986) propõem um método que tem como objetivo otimizar a detecção de bordas em uma imagem que possui ruídos. Este método é o mais complexo, mas geralmente tem resultados superiores aos demais métodos de mesma finalidade. Esta técnica é dividida em etapas. Inicialmente a imagem é suavizada através a aplicação de um filtro Gaussiano. Após esta suavização, são calculadas a magnitude e a direção do gradiente. Após o cálculo do gradiente, a borda é encontrada utilizando apenas os pontos onde a magnitude seja máxima na direção do gradiente, reduzindo assim, a espessura da borda (PEDRINI; SCHWARTZ, 2008).
 
 A após a identificação da borda, é possível que a imagem ainda contenha certos fragmentos causadores de ruído. Para solucionar este problema, o operador Canny (1986) faz uso de dois limiares T1e T2, constituindo a etapa denominada limiarização com histerese. Desta forma, os pontos da borda que possuem gradiente maiores que T2são mantidos na imagem. Pontos que estão conectados a estes pontos e que possuem magnitude de gradiente maior que T1também são considerados como pertencentes a borda (PEDRINI; SCHWARTZ, 2008).
@@ -569,6 +574,7 @@ https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/Erosion
 \subsection{Dilatação}
 
 A dilatação é um processo que, ao contrário da erosão, aumenta os objetos em uma imagem binária. Um exemplo de utilização pode ser a união de lacunas de uma imagem, onde após a aplicação de uma dilatação, a distância entre estas lacunas diminui ou deixa de existir \cite{gonzalesWoods:2008}. 
+
 De acordo com Pedrini e Schwartz (2008), a fórmula que representa a operação de dilatação em imagens em tons de cinza é definida por:
 
 Onde f representa a imagem de origem e (s, t) pertencem ao elemento estruturante b. Este elemento estruturante é aplicado na imagem e a cada ciclo, o pixel analisado é substituído pelo pixel resultante de maior valor.
@@ -582,16 +588,20 @@ https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/Dilatio
 \subsection{Abertura}
 
 A abertura é geralmente utilizada para suavizar os contornos de um objeto, eliminando, desta forma, as saliências finas. Na operação de abertura as imagens que são menores que os elementos estruturantes são removidas da imagem \cite{gonzalesWoods:2008}.
+
 Segundo Pedrini e Schwartz (2008), o processo de abertura consiste na aplicação de uma erosão, seguida de uma dilatação na mesma imagem, utilizando o mesmo elemento estruturante.
- A implementação em java para o algoritmo pode ser acessado através do link:
+
+A implementação em java para o algoritmo pode ser acessado através do link:
 https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/OpeningProcess.java 
 
 % ---
 \subsection{Fechamento}
 
 A operação de fechamento também realiza a suavização da imagem, mas ao contrário da abertura, o fechamento elimina os pequenos buracos e preenche as colunas de um contorno. Sendo assim, separações e áreas menores que o elemento estruturante são completadas \cite{gonzalesWoods:2008}.
+
 Segundo Pedrini e Schwartz (2008), o processo de fechamento consiste na aplicação de uma dilatação, seguida de uma erosão na mesma imagem, utilizando o mesmo elemento estruturante.
- A implementação em java para o algoritmo pode ser acessado através do link:
+
+A implementação em java para o algoritmo pode ser acessado através do link:
 https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/ClosingProcess.java 
 
 Figura 1.17 - Aplicações de operações de morfologia matemática em um imagem 
@@ -603,19 +613,21 @@ Na imagem 1.17 é apresentada a aplicação de operações de morfologia matemá
 \section{Afinamento de bordas}    
 
 Os algoritmos de afinamento de bordas tem como objetivo a remoção de pixels redundantes das imagens, produzindo, desta forma, uma simplificação dos objetos da imagem. O principal problema que estes algoritmos enfrentam é determinar com exatidão quais são os pixels redundantes da imagem (GUILHERME, 2007).
-	Uma das características mais importantes em um processo de afinamento de bordas é a conectividade. O número de conectividade pode ser definido como sendo o número de transições de branco para preto dentro de uma área ao redor do pixel central (GUILHERME, 2007).
+
+Uma das características mais importantes em um processo de afinamento de bordas é a conectividade. O número de conectividade pode ser definido como sendo o número de transições de branco para preto dentro de uma área ao redor do pixel central (GUILHERME, 2007).
     
 % ---
 \subsection{Stentiford}    
 
-	O algoritmo de Stentiford adota uma abordagem baseada na utilização de máscaras para o afinamento de objetos. São utilizadas quatro máscaras que são aplicadas de forma sucessiva e ordenada (GUILHERME, 2007).
+O algoritmo de Stentiford adota uma abordagem baseada na utilização de máscaras para o afinamento de objetos. São utilizadas quatro máscaras que são aplicadas de forma sucessiva e ordenada (GUILHERME, 2007).
 
 Figura 1.18 - Representa máscaras utilizadas pelo algoritmo de Stentiford
 
 Fonte: Guilherme (2007, p. 13)
 
-	Na Figura 1.18 são demonstradas as máscaras utilizadas pelo algoritmo, os círculos brancos representam pixels de valor zero, os círculos pretos representam os pixels de valor 1 e os Xrepresentam os pixels com valores irrelevantes.
-	Segundo Guilherme (2007), o algoritmo de Stentiford é composto por seis passos:
+Na Figura 1.18 são demonstradas as máscaras utilizadas pelo algoritmo, os círculos brancos representam pixels de valor zero, os círculos pretos representam os pixels de valor 1 e os Xrepresentam os pixels com valores irrelevantes.
+
+Segundo Guilherme (2007), o algoritmo de Stentiford é composto por seis passos:
 
 Percorrer a imagem até encontrar um pixel que se encaixe na máscara M1;
 Marca o ponto como apagado caso o pixel não seja um ponto final e sua conectividade seja igual a 1;
@@ -624,7 +636,7 @@ Repetir os passos 1, 2 e 3 para as máscaras M2, M3 e M4;
 Apagar todos os pixels que estejam marcados para serem apagado;
 Se algum ponto foi apagado no passo 5, os passos a partir do passo 1 devem ser repetidos.
 
- A implementação em java para o algoritmo pode ser acessado através do link:
+A implementação em java para o algoritmo pode ser acessado através do link:
 https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/StentifordProcess.java
 
 % ---
@@ -661,25 +673,25 @@ Figura 1.24 - Pixels P8 ou P6 ou P4 devem ser um pixel branco
 
 Fonte: Guilherme Guilherme (2007, p. 17)
 
- A implementação em java para o algoritmo pode ser acessado através do link:
+A implementação em java para o algoritmo pode ser acessado através do link:
 https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/ZhangSuenProcess.java 
 
 % ---
 \subsection{Holt}    
 
-	O algoritmo de Holt (HOLT et al., 1987) utiliza uma vizinhança 3 x 3para a análise dos pixels a serem removidos. O formato da matriz permite que seja feita uma análise do pixel central C e seus vizinhos NO, N, NE, O, L, SO, S e SE.
+O algoritmo de Holt (HOLT et al., 1987) utiliza uma vizinhança 3 x 3para a análise dos pixels a serem removidos. O formato da matriz permite que seja feita uma análise do pixel central C e seus vizinhos NO, N, NE, O, L, SO, S e SE.
 
 Figura 1.26 - Janela utilizada para a análise dos pixels vizinhos no algoritmo de Holt
 
 Fonte: Guilherme Guilherme (2007, p. 21)
 
-	O algoritmo possui duas funções que são definidas por:
+O algoritmo possui duas funções que são definidas por:
 
 v(): Retorna verdadeiro se o valor do ponto for o mesmo valor do objeto (valor preto) e falso se o valor do ponto for igual ao valor do plano de fundo (valor branco)
 edge():Retorna verdadeiro se o valor processado estiver na borda do objeto e falso se não estiver
 Um pixel está na borda quando sua conectividade é igual a 1 e quando possuir de 2 a 6 vizinhos conectados. 
 
-	Segundo Guilherme (2007), o algoritmo de Holt é composto por duas expressões lógicas, onde uma é aplicada na primeira iteração do algoritmo e a outra na segunda iteração. Para um ponto ser removido, o resultado das expressões lógicas devem ser verdadeiros.
+Segundo Guilherme (2007), o algoritmo de Holt é composto por duas expressões lógicas, onde uma é aplicada na primeira iteração do algoritmo e a outra na segunda iteração. Para um ponto ser removido, o resultado das expressões lógicas devem ser verdadeiros.
 
 Primeira iteração: 
 %v(C) ∧ (∼ edge(C) ∨ (v(L) ∨ v(S) ∨ (v(N ) ∨ v(O))))
@@ -687,7 +699,7 @@ Primeira iteração:
  Segunda iteração:
 %v(C) ∧ (∼ edge(C) ∨ (v(O) ∨ v(N ) ∨ (v(S) ∨ v(L))))
 
- A implementação em java para o algoritmo pode ser acessado através do link:
+A implementação em java para o algoritmo pode ser acessado através do link:
 https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/HoltProcess.java 
 
 Figura 1.27 - Aplicação de algoritmos de afinamento
@@ -699,15 +711,19 @@ Na Figura 1.27 são apresentados as aplicações de algoritmos de afinamento. A 
 % ---
 \section{Segmentação}  
 
-	Segmentação é um processo de consiste em dividir a imagem em regiões. O objetivo deste processo é fazer com que os objetos e áreas de interesse de uma imagem tenham seus pixels agrupados e destacados do restante da imagem. A segmentação é um tema de extrema importância na área de análise de imagens, pois a identificação de partes de imagens que representam elementos de interesse é fundamental (CONCI; AZEVEDO; LETA, 2008).  
-	A segmentação de imagens é convencionalmente baseada em propriedades dos níveis de cinza de imagens, a descontinuidade e similaridade. Os métodos da descontinuidade visam a identificação de objetos a partir de mudanças abruptas dos níveis de cinza da imagem, que caracterizam a borda de um objeto. Estes métodos foram tratados do seção XXX. Os métodos de similaridade tem como objetivo agrupar pontos semelhantes da imagem para um determinado conjunto de características (PEDRINI; SCHWARTZ, 2008). Este métodos serão tratados nesta seção.
+Segmentação é um processo de consiste em dividir a imagem em regiões. O objetivo deste processo é fazer com que os objetos e áreas de interesse de uma imagem tenham seus pixels agrupados e destacados do restante da imagem. A segmentação é um tema de extrema importância na área de análise de imagens, pois a identificação de partes de imagens que representam elementos de interesse é fundamental (CONCI; AZEVEDO; LETA, 2008).  
+
+A segmentação de imagens é convencionalmente baseada em propriedades dos níveis de cinza de imagens, a descontinuidade e similaridade. Os métodos da descontinuidade visam a identificação de objetos a partir de mudanças abruptas dos níveis de cinza da imagem, que caracterizam a borda de um objeto. Estes métodos foram tratados do seção XXX. Os métodos de similaridade tem como objetivo agrupar pontos semelhantes da imagem para um determinado conjunto de características (PEDRINI; SCHWARTZ, 2008). Este métodos serão tratados nesta seção.
     
 % ---
 \subsection{Segmentação baseada em regiões}     
 
-	Segmentações baseadas em regiões são métodos que detectam diretamente regiões na imagem, ao invés de detectar bordas que delimitam regiões. Estes algoritmos agrupam pontos que possuem propriedades similares, formando, desta forma, regiões. Um dos principais métodos de segmentação baseada em regiões é o método de crescimento de regiões (PEDRINI; SCHWARTZ, 2008).
-	O método de crescimento de regiões é um processo de segmentação que tem como início um pixel ou um conjuntos de pixels, que são denominados sementes. Para cada semente, os pixels vizinhos são analisados, caso possuam um nível de similaridade, os pixels são definidos como pertencentes a região da semente. As regiões devem possuir características em comum, considerando algum fator de tolerância. Além disso, regiões devem estar fechadas, possuindo bordas bem delimitadas, de forma que seu interior esteja separado de outros segmentos. (CONCI; AZEVEDO; LETA, 2008).
+Segmentações baseadas em regiões são métodos que detectam diretamente regiões na imagem, ao invés de detectar bordas que delimitam regiões. Estes algoritmos agrupam pontos que possuem propriedades similares, formando, desta forma, regiões. Um dos principais métodos de segmentação baseada em regiões é o método de crescimento de regiões (PEDRINI; SCHWARTZ, 2008).
+
+O método de crescimento de regiões é um processo de segmentação que tem como início um pixel ou um conjuntos de pixels, que são denominados sementes. Para cada semente, os pixels vizinhos são analisados, caso possuam um nível de similaridade, os pixels são definidos como pertencentes a região da semente. As regiões devem possuir características em comum, considerando algum fator de tolerância. Além disso, regiões devem estar fechadas, possuindo bordas bem delimitadas, de forma que seu interior esteja separado de outros segmentos. (CONCI; AZEVEDO; LETA, 2008).
+
 De acordo com Conci, Azevedo e Leta (2008), alguns fatores devem ser considerados na execução do processo de crescimento de regiões. Inicialmente, é necessário que a escolha de semente seja realizada da maneira adequada, representando corretamente a região de interesse, sendo que a semente é o ponto de partida para a execução do método. A definição de critérios de parada do método é outro fator de extrema importância, pois o crescimento deve parar quando não houver mais pixels vizinhos que satisfaçam estes critérios. Estes critérios podem estar relacionados a comparação dos pixels vizinhos, a forma e ao tamanho.
+
 Após a detecção da regiões, comumente é realizada a identificação destas regiões (label). Esta identificação consiste em definir um identificador para cada região encontrada na imagem. 
 
 Figura 1.xx - Exemplo de crescimento de regiões
@@ -717,19 +733,20 @@ Fonte: Pedrini e Schwartz (2008)
 Na Figura 1.xxx é apresentado um exemplo de uma aplicação de crescimento de regiões. (a) representa a imagem origem. (b) representa uma segmentação utilizando como limiar (T) 4, desta forma, a diferença absoluta entre a semente e o valor do pixel analisado deve ser menor do que 4 para que o pixel seja considerado pertencente a região da semente. Os pontos (1, 1) e (1,5) representam as sementes utilizadas para o método. O predicado P, utilizado para adicionar um pixel em uma região, pode ser observado na fórmula:
 
 
-	Onde f(r,s)representa a semente e f(x, y)representam os pixels conectados a semente.
+Onde f(r,s)representa a semente e f(x, y)representam os pixels conectados a semente.
     
 % ---
 \subsection{Método de Contornos Ativos}     
 
-	Os métodos de contornos ativos, também conhecidos como Snakes, são técnicas que tem como objetivo a extração das bordas de objetos da imagem. Estas técnicas são caracterizadas para uma curva, que é ajustada de acordo com o contorno do objeto. A técnica é iniciada a partir de um contorno arbitrário que é evoluído até a correta identificação do objeto de interesse (CONCI; AZEVEDO; LETA, 2008).
-	O ajuste da curva é realizado levando em consideração forças internas e externas a curva. O objetivo da energia interna é manter a continuidade e suavidade do contorno, levando em consideração o formato do objeto. Já a energia externa é responsável por buscar valores onde há maior variável entre o pixel e seus vizinhos, o que caracteriza uma borda (KASS, 1988).
+Os métodos de contornos ativos, também conhecidos como Snakes, são técnicas que tem como objetivo a extração das bordas de objetos da imagem. Estas técnicas são caracterizadas para uma curva, que é ajustada de acordo com o contorno do objeto. A técnica é iniciada a partir de um contorno arbitrário que é evoluído até a correta identificação do objeto de interesse (CONCI; AZEVEDO; LETA, 2008).
+
+O ajuste da curva é realizado levando em consideração forças internas e externas a curva. O objetivo da energia interna é manter a continuidade e suavidade do contorno, levando em consideração o formato do objeto. Já a energia externa é responsável por buscar valores onde há maior variável entre o pixel e seus vizinhos, o que caracteriza uma borda (KASS, 1988).
 
 Figura 1.xx - Exemplo na execução do método Snakes
 
 Fonte: Pedrini e Schwartz (2008)	
 
-	Na Figura 1.xxx é demonstrado uma execução do método de Snakes. (a) contorno inicial. (b) contorno resultante após aplicação de algumas etapas. (c) contorno final.
+Na Figura 1.xxx é demonstrado uma execução do método de Snakes. (a) contorno inicial. (b) contorno resultante após aplicação de algumas etapas. (c) contorno final.
 
 A implementação em java para o algoritmo pode ser acessado através do link:
 https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/CannyProcess.java 
@@ -740,18 +757,26 @@ https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/CannyPr
 \chapter{Gamificação}
 
 A gamificação é um tópico bastante discutido nos últimos anos, estando presente no meio empresarial, acadêmico e nas mais diversas áreas de conhecimento. A gamificação é encarada como uma ferramenta de auxílio para o estímulo e engajamento de pessoas no desenvolvimento de atividades, fazendo uso de elementos de jogos e suas características (QUADROS, 2016).
-	A gamificação tem sido aplicada com o objetivo de melhorar a experiência e engajamento de usuários (QUADROS, 2016). Segundo Deterding et. al (2011), a gamificação é um conceito que pode ser aplicado nos mais diversos campos de pesquisa, estando presente em áreas de ciências humanas, computação, finanças, saúde e educação. É um termo que deve ser utilizado para sistemas que utilizam elementos de jogos, e não para cenários que utilizam games. 
-	Levando em consideração este cenário propício, a gamificação se apresenta como uma ferramenta com grande potencialidade de aplicação. Isso se faz possível devido a linguagem e metodologia dos games serem bastante populares, sendo aceitos naturalmente pelas gerações que cresceram interagindo com esse tipo de entretenimento (FARDO, 2013). Segundo Deterding et al. (2011), a gamificação é um fenômeno emergente, que se aproveita da popularidade dos jogos digitais e de suas capacidades de motivar ações, resolver problemas e potencializar aprendizagens em diversas áreas do conhecimento
-	Um dos autores precursores na teorização da gamificação foi McGonigal (2011), afirmando que promover o engajamentos das pessoas em atividades do cotidianos, fazendo uso da lógica de jogos na vida real, pode auxiliar no desenvolvimento de um mundo melhor.
+
+A gamificação tem sido aplicada com o objetivo de melhorar a experiência e engajamento de usuários (QUADROS, 2016). Segundo Deterding et. al (2011), a gamificação é um conceito que pode ser aplicado nos mais diversos campos de pesquisa, estando presente em áreas de ciências humanas, computação, finanças, saúde e educação. É um termo que deve ser utilizado para sistemas que utilizam elementos de jogos, e não para cenários que utilizam games. 
+
+Levando em consideração este cenário propício, a gamificação se apresenta como uma ferramenta com grande potencialidade de aplicação. Isso se faz possível devido a linguagem e metodologia dos games serem bastante populares, sendo aceitos naturalmente pelas gerações que cresceram interagindo com esse tipo de entretenimento (FARDO, 2013). Segundo Deterding et al. (2011), a gamificação é um fenômeno emergente, que se aproveita da popularidade dos jogos digitais e de suas capacidades de motivar ações, resolver problemas e potencializar aprendizagens em diversas áreas do conhecimento
+
+Um dos autores precursores na teorização da gamificação foi McGonigal (2011), afirmando que promover o engajamentos das pessoas em atividades do cotidianos, fazendo uso da lógica de jogos na vida real, pode auxiliar no desenvolvimento de um mundo melhor.
+
 Dentre as principais características da gamificação estão a utilização de elementos de jogos digitais, tais como: narrativa, sistema de feedback, sistema de recompensas, gerenciamento de conflito, cooperação, competição dirigida, objetivos e regras claras, níveis, tentativa e erro, diversão, interação, interatividade, etc. Estas características são importantes para obter o envolvimento do sujeito, o que pode ser encontrado na relação entre jogadores e jogos (DETERDING et al., 2011).
+
 Este capítulo trata de conceitos referente a gamificação. É abordado sua diferença em relação a simulação e jogo, sua aplicação na educação, elementos de jogos e elementos da gamificação.
 
 % ---
 \section{Jogo, Simulação, Gamificação}
 
-	Jogo, simulação e gamificação são conceitos que muitas vezes são confundidos. Esta confusão acontece por estes conceitos compartilharem características comuns.
-	Definir o que é um jogo não é uma tarefa fácil devido a grande quantidade e diversidade de jogos existente. Há, por exemplo, jogos de tabuleiro, como xadrez e damas, também há jogos digitais, como jogos de console e computador e também há jogos esportivos como Futebol, Rugby entre outros. Desta forma, o fato de um produto ser eletrônico não o define como sendo um jogo. Um jogo normalmente é caracterizado pela existência de um objetivo, além de regras específicas. Sendo assim, um jogo pode ser definido como sendo um sistema onde jogadores estão engajados em um desafio que é definido por regras, interatividade e feedback (KAPP, 2014). 
+Jogo, simulação e gamificação são conceitos que muitas vezes são confundidos. Esta confusão acontece por estes conceitos compartilharem características comuns.
+
+Definir o que é um jogo não é uma tarefa fácil devido a grande quantidade e diversidade de jogos existente. Há, por exemplo, jogos de tabuleiro, como xadrez e damas, também há jogos digitais, como jogos de console e computador e também há jogos esportivos como Futebol, Rugby entre outros. Desta forma, o fato de um produto ser eletrônico não o define como sendo um jogo. Um jogo normalmente é caracterizado pela existência de um objetivo, além de regras específicas. Sendo assim, um jogo pode ser definido como sendo um sistema onde jogadores estão engajados em um desafio que é definido por regras, interatividade e feedback (KAPP, 2014). 
+
 Dentro da área de jogos existe uma categoria denominada Serious Game, que são jogos desenvolvidos com o objetivo de resolver problemas reais. A gamificação e os serious game estão relacionadas, pois ambos fazem uso de conceitos de jogos para conquistar algo a mais. Um Serious Game é um jogo real, enquanto a gamificação faz uso de uma série de ferramentas relacionadas a jogos, como, por exemplo a mecânica ou dinâmica de jogo, design do jogo, psicologia dos jogos, entre outros (DORLING; MCCAFFERY, 2012)
+
 A simulação também está relacionada com a ideia de jogo. Mas diferente de um jogo, a simulação é um ambiente onde jogadores podem praticar ações e comportamentos do mundo real em um mundo virtual. Um simulador de vôo é um exemplo, a partir dele é possível que um piloto simule diversas manobras como a decolagem e a aterrissagem de uma aeronave.
 
 Figura 2.1 - Contextualização da gamificação 
@@ -759,41 +784,56 @@ Figura 2.1 - Contextualização da gamificação
 Fonte: Adaptado de Deterding et al. (2014)
 
 	%A Figura 2.1  contextualiza a gamificação, fazendo uma divisão em 4 sessões. As sessões acima do eixo horizontal compõem abordagens que fazem uso de conceitos de jogos (mais formal), já as sessões abaixo do eixo horizontal compoẽm abordagens que fazem uso de brincadeiras (livre e descontraída).  Também há outra divisão realizada no eixo vertical separando abordagens que fazem uso de jogos ou brincadeiras por completo de abordagens que somente utilizam elementos.
+
 A gamificação é uma abordagem que visa facilitar a aprendizagem e incrementar a motivação, através da utilização de conceitos provenientes dos jogos como superar desafios, receber recompensas e ganhar pontuação. Um dos objetivos da gamificação é atrair a atenção da pessoa e motivá-la a executar a tarefa proposta, criando um ambiente onde haja um maior envolvimento (KAPP, 2014). Semelhante ao que acontece com o uso de serious game, a gamificação utiliza jogos para um propósito diferente do uso normal para o entretenimento (DETERDING et al., 2011).
 
 % ---
 \section{Gamificação na educação}
 
-	O sistema de educação formal apresenta uma área bastante fértil para a aplicação da gamificação, pois é uma área que apresenta diversas falhas em engajar estudantes que estão cada vez mais inseridos no contexto tecnológico e das mídias sociais. Além disso, estes indivíduos já possuem grande interação com jogos, o que facilitaria na aplicação desta metodologia. Outro fator é o de que os estudantes se mostram mais desinteressados pelos métodos passivos de ensino, onde os educadores transmitem o conhecimento (FARDO, 2013). 
+O sistema de educação formal apresenta uma área bastante fértil para a aplicação da gamificação, pois é uma área que apresenta diversas falhas em engajar estudantes que estão cada vez mais inseridos no contexto tecnológico e das mídias sociais. Além disso, estes indivíduos já possuem grande interação com jogos, o que facilitaria na aplicação desta metodologia. Outro fator é o de que os estudantes se mostram mais desinteressados pelos métodos passivos de ensino, onde os educadores transmitem o conhecimento (FARDO, 2013). 
+
 Uma das grandes vantagens de utilizar a gamificação para estudantes é de proporcionar um sistema onde eles consigam visualizar o efeito de suas ações e aprendizagens na medida que vão aprendendo. Desta forma, os indivíduos sentem que estão contribuido para algo maior e de maior importância. Estes objetivos podem ser alcançados através da aplicação de elementos de jogos, se aplicados cuidadosamente (FARDO, 2013). Conforme Kapp (2012), a gamificação pode ser utilizada com a finalidade de encorajar o aprendizado através de todos os elementos de jogos digitais que se demonstrarem apropriados para tal finalidade.  
-	Segundo Fardo (2013), um dos grandes desafios da utilização da gamificação para o ensino é aplicá-la corretamente. Uma prática pedagógica pouco eficaz é focar somente em um mecanismo de pontuação e recompensas, visando apenas a obtenção de resultados finais, e não levando em consideração a construção da aprendizagem e a experiência obtida por parte dos estudantes. O autor salienta que o importante é buscar práticas pedagógicas que não se limitem a motivar os estudantes na busca por recompensas, sem levar em consideração o processos de reflexão, colaboração e de cooperação.
-	Segundo Fardo (2013), a utilização da gamificação como uma ferramenta pedagógica não deve ser encarada como a solução de todos os problemas da educação. Sua utilização requer compreensão por parte dos educadores, sendo que estes são responsáveis por sua aplicação e devem identificar se sua utilização está realmente potencializando a aprendizagem e a participação dos estudantes. Para o autor, a gamificação pode ser vista como um caminho na busca por soluções que são necessárias para o atual sistema de educação
+
+Segundo Fardo (2013), um dos grandes desafios da utilização da gamificação para o ensino é aplicá-la corretamente. Uma prática pedagógica pouco eficaz é focar somente em um mecanismo de pontuação e recompensas, visando apenas a obtenção de resultados finais, e não levando em consideração a construção da aprendizagem e a experiência obtida por parte dos estudantes. O autor salienta que o importante é buscar práticas pedagógicas que não se limitem a motivar os estudantes na busca por recompensas, sem levar em consideração o processos de reflexão, colaboração e de cooperação.
+
+Segundo Fardo (2013), a utilização da gamificação como uma ferramenta pedagógica não deve ser encarada como a solução de todos os problemas da educação. Sua utilização requer compreensão por parte dos educadores, sendo que estes são responsáveis por sua aplicação e devem identificar se sua utilização está realmente potencializando a aprendizagem e a participação dos estudantes. Para o autor, a gamificação pode ser vista como um caminho na busca por soluções que são necessárias para o atual sistema de educação
+
 Portanto, a ideia por trás da aplicação da gamificação na educação é adicionar elementos de jogos para envolver os alunos e motivar seu engajamento, permitindo um feedback imediato e a oportunidade de fracassar. A abordagem tem com objetivo transformar aprendizagem passiva em um processo ativo, motivando os alunos a estudar o conteúdo trabalhado.
 
 % ---
 \subsection{Motivação intrínseca e extrínseca}
 
 Uma questão bastante polêmica em torno da gamificação é comparação entre motivação intrínseca e motivação extrínseca. É argumentado que a gamificação faz uso de muitos fatores externos (extrínsecos) para motivar os alunos e é deixado de lado os fatores internos (intrínsecos) (ANDRE, 2018).
+
 A motivação intrínseca é aquela originada pelo próprio indivíduo. O envolvimento do indivíduo ocorre por vontade própria,  pois é motivado por interesse, desafio ou prazer. Além da busca por novidades, curiosidade e vontade de aprender algo novo. Desta forma, o indivíduo participa de uma atividade pois ela proporciona satisfação (BUSARELLO, 2016).
+
 De maneira contrária, a motivação extrínseca é baseada no mundo que envolve o indivíduo de forma externa. Tem como origem o desejo em obter alguma recompensa externa, como, por exemplo, pontos, prêmios e classificações ou evitar uma punição. Desta forma, através da motivação extrínseca, um indivíduo não é motivado por fatores interno, em vez disso, é motivação pela recompensa que será obtida por realizar uma determinada tarefa (BUSARELLO, 2016).
+
 Segundo Andre (2018), alguns críticos da gamificação argumentam que a gamificação é baseada em motivações extrínsecas. E, por este motivo, o aluno irá perder o interesse a partir do momento que a motivação externar ser interrompida. Portanto, é importante equilibrar elementos motivacionais intrínsecos e extrínsecos na implementação da gamificação. O autor apresenta algumas recomendações:
+
 Utilizar um sistema de pontos e recompensas (extrínseca) para motivar o aluno e demonstrar feedback (intrínseca) sobre a execução das tarefas;
+
 Para atividades de baixo interesse para os alunos, fazer um uso maior da motivação extrínseca;
+
 Sempre que possível, combinar elementos motivacionais intrínsecos (senso de realização, oportunidade de sucesso) com elementos extrínsecos (pontos, troféus);
+
 O uso adequado de ambas as motivação aumenta a probabilidade de envolvimento do aluno.
   
 % ---
 \section{Elementos gamificação}
 
-	Elementos de jogos aplicados a gamificação como, narrativas, metas, regras, feedbacks e desafíos podem contribuir para uma experiência agradável em um ambiente gamificado, pois favorecem a participação de maneira voluntária por parte do indivíduo (BUSARELLO, 2016).
-	Nesta seção será apresentado os principais elementos utilizados em soluções gamificadas. Como já foi descrito anteriormente, a gamificação faz uso de elementos de jogos, desta forma, os elementos descritos nesta seção são originários de elementos de jogos.
+Elementos de jogos aplicados a gamificação como, narrativas, metas, regras, feedbacks e desafíos podem contribuir para uma experiência agradável em um ambiente gamificado, pois favorecem a participação de maneira voluntária por parte do indivíduo (BUSARELLO, 2016).
+
+Nesta seção será apresentado os principais elementos utilizados em soluções gamificadas. Como já foi descrito anteriormente, a gamificação faz uso de elementos de jogos, desta forma, os elementos descritos nesta seção são originários de elementos de jogos.
 
 % ---
 \subsection{Narrativas}
 
 A narrativa é um elemento fundamental no contextos de games, pois este é o elemento chave para o acontecimento de eventos e para justificar as ações de jogadores. Uma boa história pode contribuir para o envolvimento do jogador através da interatividade proporcionada por ela  (FARDO, 2016). Sendo Kapp (2012), a utilização de histórias, como um elemento gamificado, fornece relevância e significado para experiências obtidas pelo usuário, fornecendo um cenário propício para a aplicação de tarefas.
-	Segundo Fardo (2016) é mais agradável aprender novas informações e adquirir novos conhecimento que estejam relacionados a um determinado contexto, e a narrativa pode ser uma fonte para fornecer contextos. Além disso, segundo Andre (2018), envolver o aluno em uma história pode contribuir para que a aprendizagem se torne mais poderosa, sendo que uma história focada em ajudar os alunos a resolver problemas, contribui para a educação do aluno e facilita a memorização do conteúdo abordado.
-	Segundo André (2018), ao construir uma história para o aprendizado gamificado é importante:
+
+Segundo Fardo (2016) é mais agradável aprender novas informações e adquirir novos conhecimento que estejam relacionados a um determinado contexto, e a narrativa pode ser uma fonte para fornecer contextos. Além disso, segundo Andre (2018), envolver o aluno em uma história pode contribuir para que a aprendizagem se torne mais poderosa, sendo que uma história focada em ajudar os alunos a resolver problemas, contribui para a educação do aluno e facilita a memorização do conteúdo abordado.
+
+Segundo André (2018), ao construir uma história para o aprendizado gamificado é importante:
 Os personagens da história devem se assemelhar ao aluno para que os alunos consigam se relacionar;
 Fornecer detalhes a ponto que o aluno fique imerso;
 Histórias utilizadas para aprendizagem devem possuir um final feliz e uma nota positiva.
@@ -802,51 +842,66 @@ Histórias utilizadas para aprendizagem devem possuir um final feliz e uma nota 
 \subsection{Metas, Regras e Objetivos}
 
 A meta consiste no propósito pelo qual um indivíduo realiza uma determinada tarefa, é aquilo que o indivíduo persegue constantemente. Desta forma, a atividade se apresenta como sendo o desejo pelo qual um indivíduo possui em atuar em uma determinada atividade (BUNCHBALL, 2016). Segundo Kapp (2012), metas contribuem para a visualização de propósitos, foco e resultados.
+
 As regras têm como objetivo restringir ações por parte do indivíduo, desta forma, determinado a maneira de como o indivíduo irá agir para completar os desafios do ambiente. As regras buscam equilibrar o nível de complexidade com o nível de conhecimento do sujeito, favorecendo, desta forma, a criatividade e o pensamento estratégico (BUNCHBALL, 2016).
+
 O objetivo é aquilo que o indivíduo deve realizar. Objetivos devem ser apresentados de forma clara, para que não haja confusão e aumento da complexidade devido a ambiguidade do objetivo. Normalmente, um jogo possui mais de um objetivo, que vão sendo organizados ao decorrer da iteração. Quando há objetivos muito complexos, estes podem ser quebrados em objetivos menores, para que o indivíduo consiga atingir o objetivo maior. Esta subdivisão de desafios permite ao indivíduo identificar seu progresso em relação ao objetivos maiores (FARDO, 2016).
-	Segundo André (2018), quando se aplica gamificação na aprendizagem e ensino é importante estabelecer objetivos claros, uma meta com finalidade, foco e resultados que podem ser mensuráveis. O autor definir alguns itens importantes para a aplicação de metas, regras e objetivos:
+
+Segundo André (2018), quando se aplica gamificação na aprendizagem e ensino é importante estabelecer objetivos claros, uma meta com finalidade, foco e resultados que podem ser mensuráveis. O autor definir alguns itens importantes para a aplicação de metas, regras e objetivos:
+
 Os objetivos devem ser claros e explítos para que todos tenham indentimento;
+
 As regras devem ser simples para que não haja confusão;
+
 Metas, regras e objetivos são fundamentais para a aplicação de soluções gamificadas, e portanto, devem ser cuidadosamente aplicados.
 
 % ---
 \subsection{Pontos}
 
-	Este elemento pode ser utilizado para diversos propósitos. Uma de suas aplicações é demonstrar o progresso do usuário, servindo como feedback, de forma que seja possível identificar se o usuário está agindo de maneira correta. Este elemento também pode servir como estímulo, de forma que o usuário irá buscar uma maior pontuação (KAPP, 2012). 
-	Segundo André (2018), sem pontuação, os alunos terão dificuldade para avaliar o desempenho e progresso em um evento gamificado. Para o autor, para aplicar a pontuação é importante considerar:
+Este elemento pode ser utilizado para diversos propósitos. Uma de suas aplicações é demonstrar o progresso do usuário, servindo como feedback, de forma que seja possível identificar se o usuário está agindo de maneira correta. Este elemento também pode servir como estímulo, de forma que o usuário irá buscar uma maior pontuação (KAPP, 2012). 
+
+Segundo André (2018), sem pontuação, os alunos terão dificuldade para avaliar o desempenho e progresso em um evento gamificado. Para o autor, para aplicar a pontuação é importante considerar:
+
 A pontuação e a vitória devem ser transparentes. O aluno precisa ser capaz que criar um vínculo entre suas ações e uma pontuação;
+
 A pontuação indica o que é valorizado, desta forma, deve ser atribuir mais pontuação para atividade de maior importância;
+
 Os pontos devem ser relacionados a atividade de aprendizagem.
 
 % ---
 \subsection{Medalhas}
 
-	Medalhas são a comprovação de que uma determinada tarefa foi realizada com mérito ou excelência. Em um sistema gamificado, o uso de medalha ocorre através de um indicação visual de que se tenha alcançado um determinado nível ou se tenha comprido um determinado conjunto de objetivos. Para Deterding (2011), medalhas são apresentadas em algum lugar ou de alguma forma para que outros jogadores podem observar as conquistas e a realização do jogador. O uso de medalhas pode motivar um maior envolvimento por parte dos usuários do sistema, devido a busca por um determinado emblema.
+Medalhas são a comprovação de que uma determinada tarefa foi realizada com mérito ou excelência. Em um sistema gamificado, o uso de medalha ocorre através de um indicação visual de que se tenha alcançado um determinado nível ou se tenha comprido um determinado conjunto de objetivos. Para Deterding (2011), medalhas são apresentadas em algum lugar ou de alguma forma para que outros jogadores podem observar as conquistas e a realização do jogador. O uso de medalhas pode motivar um maior envolvimento por parte dos usuários do sistema, devido a busca por um determinado emblema.
     
 % ---
 \subsection{Recompensas e Conquistas}    
 
-	Recompensas apresentadas após a finalização de ações podem estimular o comportamento e o envolvimento da pessoa em um sistema gamificado. Na gamificação, o mecanismo de recompensas ocorre através do ganho de pontos ou algo equivalente (KAPP, 2012). Os seres humanos são motivados pelo recebimento de recompensas, seja pela satisfação pessoal ou através de medalhas ou presentes (QUADROS, 2016).
+Recompensas apresentadas após a finalização de ações podem estimular o comportamento e o envolvimento da pessoa em um sistema gamificado. Na gamificação, o mecanismo de recompensas ocorre através do ganho de pontos ou algo equivalente (KAPP, 2012). Os seres humanos são motivados pelo recebimento de recompensas, seja pela satisfação pessoal ou através de medalhas ou presentes (QUADROS, 2016).
+
 A conquista é um importante elemento para a motivação, sendo que através da resolução de tarefas de alta dificuldade é possível obter a gratificação e reconhecimento da realização conquistada (QUADROS, 2016). Para Busarello (2016), recompensar são um forma de medir o desempenho do jogador utilizando pontuação e formas de prêmios, após a finalização de tarefas ou níveis no jogo.
-	Recompensas podem ser adquiridas após a conclusão de uma tarefas ou através da medição de desempenho do aluno ao completar uma tarefa. De acordo com André (2018), a utilização de recompensas através de uma medição podem aumentar a motivação intrínseca, pois o aluno terá um feedback de quão bem ele está. Se as recompensas forem aplicadas corretamente podem ter um grande efeito motivacional aos alunos.
+
+Recompensas podem ser adquiridas após a conclusão de uma tarefas ou através da medição de desempenho do aluno ao completar uma tarefa. De acordo com André (2018), a utilização de recompensas através de uma medição podem aumentar a motivação intrínseca, pois o aluno terá um feedback de quão bem ele está. Se as recompensas forem aplicadas corretamente podem ter um grande efeito motivacional aos alunos.
     
 % ---
 \subsection{Níveis e rankings}        
 
-	Os níveis são caracterizados por diferentes categorias que envolvem graus de habilidade e conhecimento. Um nível demonstra um grau de realização, comprovamento um determinado nível de conhecimento (KAPP, 2012). Segundo Quadros (2016), níveis podem ser definidos como sendo um sistema pelo qual ocorre a recompensa através do acúmulo de pontos.
-	O uso de níveis é um dos maiores componentes para a ocorrência de motivação. Pessoas conseguem determinar seus esforços para a realização de um determinado desafio e através disso se motivar e se esforçar cada vez mais. Podem ser utilizados para identificar o nível de habilidade e conhecimento do indivíduo no sistema.
-	A utilização de rankings permite aos jogadores um forma de interagir socialmente em torno do jogos, podendo comparar seu progresso com outros jogadores. Também fornece uma forma para que os jogadores possam se vanglórias quando alcançarem resultados melhores. É importante que este ranking esteja inserido dentro do contexto do jogos, de forma que ele possa competir com os demais jogadores (ANDRE, 2018).
+Os níveis são caracterizados por diferentes categorias que envolvem graus de habilidade e conhecimento. Um nível demonstra um grau de realização, comprovamento um determinado nível de conhecimento (KAPP, 2012). Segundo Quadros (2016), níveis podem ser definidos como sendo um sistema pelo qual ocorre a recompensa através do acúmulo de pontos.
+
+O uso de níveis é um dos maiores componentes para a ocorrência de motivação. Pessoas conseguem determinar seus esforços para a realização de um determinado desafio e através disso se motivar e se esforçar cada vez mais. Podem ser utilizados para identificar o nível de habilidade e conhecimento do indivíduo no sistema.
+
+A utilização de rankings permite aos jogadores um forma de interagir socialmente em torno do jogos, podendo comparar seu progresso com outros jogadores. Também fornece uma forma para que os jogadores possam se vanglórias quando alcançarem resultados melhores. É importante que este ranking esteja inserido dentro do contexto do jogos, de forma que ele possa competir com os demais jogadores (ANDRE, 2018).
     
 % ---
 \subsection{Feedback}            
 
-	O Feedback é um recurso pelo qual jogadores podem visualizar o resultado de suas ações, tornando-se um poderoso elemento para tornar o jogador mais focado e permitir modificar suas estratégias para melhorar seu desempenho. Este elemento, auxilia na construção do conhecimento através da integração entre o indivíduo e o sistema, onde o retorno do sistema pode ao aumentar a experiência do jogador (FARDO, 2016).
+O Feedback é um recurso pelo qual jogadores podem visualizar o resultado de suas ações, tornando-se um poderoso elemento para tornar o jogador mais focado e permitir modificar suas estratégias para melhorar seu desempenho. Este elemento, auxilia na construção do conhecimento através da integração entre o indivíduo e o sistema, onde o retorno do sistema pode ao aumentar a experiência do jogador (FARDO, 2016).
     
 % ---
 \subsection{Desafios}                
 
-	Os desafios são impostos aos jogadores para direcionar o que deve ser feito dentro do cenário proposto. É importante que o jogador sempre tenha algo interessante para fazer, contribuindo para uma melhor experiência. Além disso, é interessante disponibilizar diversas opções neste ambiente, pois jogadores podem possuir perfis diferentes (FARDO, 2016).
-	Segundo Busarello (2016) os indivíduos têm interesse em resolver desafios que possuem um nível de dificuldade equilibrado, ou seja, não podem ser nem muito fáceis nem muito difíceis. Este equilíbrio entre os níveis de dificuldade e habilidade podem colaborar para o fluxo da atividade, contribuindo para o motivação.
+Os desafios são impostos aos jogadores para direcionar o que deve ser feito dentro do cenário proposto. É importante que o jogador sempre tenha algo interessante para fazer, contribuindo para uma melhor experiência. Além disso, é interessante disponibilizar diversas opções neste ambiente, pois jogadores podem possuir perfis diferentes (FARDO, 2016).
+
+Segundo Busarello (2016) os indivíduos têm interesse em resolver desafios que possuem um nível de dificuldade equilibrado, ou seja, não podem ser nem muito fáceis nem muito difíceis. Este equilíbrio entre os níveis de dificuldade e habilidade podem colaborar para o fluxo da atividade, contribuindo para o motivação.
     
 % ---
 \subsection{Conflito, Competição e Cooperação}                    
@@ -862,15 +917,19 @@ Neste capítulo são apresentados trabalhos relacionados à área de pesquisa de
 
 % ---
 \section{JavaVis: An Integrated Computer Vision Library for Teaching Computer Vision (CAZORLA; VIEJO, 2013)}
-	A pesquisa de Cazorla e Viejo (2013) propõe o desenvolvimento de um framework para estudar visão computacional e tópicos semelhantes. Esta ferramenta foi chamada de JavaVis. Está ferramenta é dividida em 3 áreas. A primeira área é denominada JavaVis2D, por onde o sistema é iniciado. Esta área está relacionada com a visão computacional tradicional, onde é possível utilizar diversos algoritmos já implementados, e também que os próprios alunos criem novos algoritmos. 
+
+A pesquisa de Cazorla e Viejo (2013) propõe o desenvolvimento de um framework para estudar visão computacional e tópicos semelhantes. Esta ferramenta foi chamada de JavaVis. Está ferramenta é dividida em 3 áreas. A primeira área é denominada JavaVis2D, por onde o sistema é iniciado. Esta área está relacionada com a visão computacional tradicional, onde é possível utilizar diversos algoritmos já implementados, e também que os próprios alunos criem novos algoritmos. 
+
 JavaVIsDesktop é uma outra área do software, que permite a conexão de uma sequência de algoritmos e a manipulação de seus parâmetros. Esta área foi construída para facilitar a manipulação dos algoritmos por parte do aluno, tendo em vista que a manipulação individual de algoritmos através de área 2D pode ser difícil, devido a grande quantidade de tentativas para ajustar corretamente os parâmetros. Por final, existe a área 3D que tem como objetivo permitir a manipulação de imagens 3D.
+
 O objetivo do JavaVis é prover uma ferramenta que seja fácil de utilizar e aprender conceitos relacionados à visão computacional, sempre tendo em vista que o desenvolvimento de novos algoritmos deve ser uma tarefa fácil. O JavaVis permite a manipulação de algoritmos através de uma interface gráfica, possibilitando alteração de parâmetros de algoritmos visualmente. É uma ferramenta que foi construída objetivando facilitar a aprendizagem de estudantes.
 
 % ---
 \subsection{JavaVis2D}
 
-	O JavaVis2D é uma área da ferramenta que possui diversos algoritmos de visão computacional implementados. Dentre eles podem ser encontrados funções de manipulação e transformações de cores, como rotação, espelhamento, ruído, conversão para tons de cinza, etc. Também são encontrados algoritmos de convolução, ajuste de imagem como brilho e contraste, segmentação como Binarização e Kmeans, manipulação geométrica, detecção de bordas como Canny, Susan e Grad, morfologia matemática como erosão e dilatação e também algoritmos de esqueletização. 
-	A biblioteca permite a criação de funções por parte do aluno, isso é possível através da implementação de uma classe Java contendo a implementação de uma função, juntamente com seus parâmetros de entrada e saída. Desta forma, segundo os autores, o aluno precisa somente se concentrar no desenvolvimento da função, a biblioteca se encarrega exibir as imagens na interface e aceitar os parâmetros de entrada.
+O JavaVis2D é uma área da ferramenta que possui diversos algoritmos de visão computacional implementados. Dentre eles podem ser encontrados funções de manipulação e transformações de cores, como rotação, espelhamento, ruído, conversão para tons de cinza, etc. Também são encontrados algoritmos de convolução, ajuste de imagem como brilho e contraste, segmentação como Binarização e Kmeans, manipulação geométrica, detecção de bordas como Canny, Susan e Grad, morfologia matemática como erosão e dilatação e também algoritmos de esqueletização. 
+
+A biblioteca permite a criação de funções por parte do aluno, isso é possível através da implementação de uma classe Java contendo a implementação de uma função, juntamente com seus parâmetros de entrada e saída. Desta forma, segundo os autores, o aluno precisa somente se concentrar no desenvolvimento da função, a biblioteca se encarrega exibir as imagens na interface e aceitar os parâmetros de entrada.
 
 Figura 3.X- Aplicação do processo de binarização. 
 
@@ -879,10 +938,13 @@ Fonte: Cazorla e Viejo  (2013)
 % ---
 \subsection{JavaVisDesktop}
 
-	Está área do projeto tem como objetivo proporcionar ao aluno uma melhor maneira para visualizar partes de um processamento de imagem. Portanto, é possível utilizar diferentes algoritmos em ordem para construir outro de maior complexidade. É possível construir uma sequência de funções, semelhante a um autômato. Cada estado na sequência corresponde a um algoritmo da biblioteca JavaVis2D, e este estado apresenta o resultado de execução de seu algoritmo, possibilitando a visualização de cada etapa do processo.
-	Esta abordagem em etapas permite ao estudante ajustar facilmente os parâmetros de cada algoritmo, sendo possível observar a consequência de cada alteração na sequência completa. Após a conclusão do sequenciamento dos algoritmos e dos ajustes de parâmetros, é possível gerar uma nova função para a biblioteca JavaVis2D. Esta nova função irá conter a sequência de funções com seus respectivos parâmetros.
+Está área do projeto tem como objetivo proporcionar ao aluno uma melhor maneira para visualizar partes de um processamento de imagem. Portanto, é possível utilizar diferentes algoritmos em ordem para construir outro de maior complexidade. É possível construir uma sequência de funções, semelhante a um autômato. Cada estado na sequência corresponde a um algoritmo da biblioteca JavaVis2D, e este estado apresenta o resultado de execução de seu algoritmo, possibilitando a visualização de cada etapa do processo.
+
+Esta abordagem em etapas permite ao estudante ajustar facilmente os parâmetros de cada algoritmo, sendo possível observar a consequência de cada alteração na sequência completa. Após a conclusão do sequenciamento dos algoritmos e dos ajustes de parâmetros, é possível gerar uma nova função para a biblioteca JavaVis2D. Esta nova função irá conter a sequência de funções com seus respectivos parâmetros.
+
 Segundo os autores, JavaVisDesktop é uma ferramenta interessante para identificar os diferentes comportamos de cada algoritmo. Por exemplo, o estudante é capaz de verificar a diferença da aplicação do algoritmos de Canny utilizando diferentes valores para o parâmetro de sigma, possibilitando, desta forma, a escolha o valor mais adequado para o problema enfrentado. Os autores relatam que esta funcionalidade é amplamente apreciada pelos estudantes, pois agiliza a implementação de novos algoritmos.
-	Na Figura 3.x é demonstrado a sequência de três funções, que são: carregamento da imagem, suavização Gaussiana e Canny. Na figura existe uma janela que possibilita a alteração dos parâmetros da função de Canny. Também é possível visualizar o resultado da execução de cada função.
+
+Na Figura 3.x é demonstrado a sequência de três funções, que são: carregamento da imagem, suavização Gaussiana e Canny. Na figura existe uma janela que possibilita a alteração dos parâmetros da função de Canny. Também é possível visualizar o resultado da execução de cada função.
 Figura 3.X- Ambiente JavaVisDesktop
 
 Fonte: Cazorla e Viejo  (2013)
@@ -890,7 +952,8 @@ Fonte: Cazorla e Viejo  (2013)
 % ---
 \subsection{JavaVis3D}
 
-	Esta área do ferramenta tem como objetivo permitir a manipulação de imagens 3D. A maior parte de entidades geométricas estão implementadas no core do JavaVis3D. Entidades como pontos, vetores, segmentos e planos estão incluídos neste pacote, sendo possível utilizados para a aplicação de manipulações nas imagens. A interface foi construída utilizando a API 3D do Java. baseada em OpenGL.
+Esta área do ferramenta tem como objetivo permitir a manipulação de imagens 3D. A maior parte de entidades geométricas estão implementadas no core do JavaVis3D. Entidades como pontos, vetores, segmentos e planos estão incluídos neste pacote, sendo possível utilizados para a aplicação de manipulações nas imagens. A interface foi construída utilizando a API 3D do Java. baseada em OpenGL.
+
 A Figura 3.x demonstra o JavaVis3D framework. A janela a direita controla a posição da cena. O usuário pode navegar pela cena utilizando esta janela.
 Figura 3.X- Ambiente JavaVis3D
 
@@ -899,10 +962,13 @@ Fonte: Cazorla e Viejo  (2013)
 % ---
 \subsection{Resultados obtidos}
 
-	Segundo os autores, o JavaVis foi utilizado em diversos cenário relacionados à visão computacional, como inteligência artificial e diversos trabalhos de conclusão da universidade de Alicante (Espanha). Esta ferramenta foi utilizada em dois níveis. O primeiro consiste na utilização dos algoritmos já implementados na biblioteca, possibilitando a observação de seus funcionamentos quando a teoria é apresentada. O segundo nível consiste no desenvolvimento de novos algoritmos pelos alunos.
-	A ferramenta foi utilizada em sala de aula. Os autores, primeiramente, introduziram a ferramenta para a turma, demonstrando as principais funcionalidades e a aplicação de um exemplo guiado da utilização do JavaVis. Após esta introdução, foi solicitado para os alunos desenvolverem suas próprias funções. Esta abordagem contribuiu para melhorar o entendimento dos algoritmos pelos alunos, sendo que os estudantes puderam identificar o comportamento de diversas funções e tiveram a oportunidade de desenvolver suas próprias funções.
-	Os autores aplicaram diversas tarefas ao longo de 10 anos. Um exemplo pode ser observado na Figura 3.x, onde os alunos tiveram que construir uma função capaz de identificar a quantidade de moedas existentes na imagem. Primeiramente, os estudantes utilizaram a área de Desktop para identificar os melhores métodos e seus respectivos parâmetros. Posteriormente, os alunos criaram uma nova função no JavaVis capaz de executar a tarefa proposta.
-	Para os autores, o JavaVis possui algumas funcionalidades que permitem ao estudante uma maneira mais simples de se aprender visão computacional. Uma delas é a simplicidade de implementação de novos métodos. Outra é a possibilidade do estudante visualizar cada etapa do processamento de algoritmos, devido a sequenciamento de técnicas para a composição de um algoritmo de maior complexidade.
+Segundo os autores, o JavaVis foi utilizado em diversos cenário relacionados à visão computacional, como inteligência artificial e diversos trabalhos de conclusão da universidade de Alicante (Espanha). Esta ferramenta foi utilizada em dois níveis. O primeiro consiste na utilização dos algoritmos já implementados na biblioteca, possibilitando a observação de seus funcionamentos quando a teoria é apresentada. O segundo nível consiste no desenvolvimento de novos algoritmos pelos alunos.
+
+A ferramenta foi utilizada em sala de aula. Os autores, primeiramente, introduziram a ferramenta para a turma, demonstrando as principais funcionalidades e a aplicação de um exemplo guiado da utilização do JavaVis. Após esta introdução, foi solicitado para os alunos desenvolverem suas próprias funções. Esta abordagem contribuiu para melhorar o entendimento dos algoritmos pelos alunos, sendo que os estudantes puderam identificar o comportamento de diversas funções e tiveram a oportunidade de desenvolver suas próprias funções.
+
+Os autores aplicaram diversas tarefas ao longo de 10 anos. Um exemplo pode ser observado na Figura 3.x, onde os alunos tiveram que construir uma função capaz de identificar a quantidade de moedas existentes na imagem. Primeiramente, os estudantes utilizaram a área de Desktop para identificar os melhores métodos e seus respectivos parâmetros. Posteriormente, os alunos criaram uma nova função no JavaVis capaz de executar a tarefa proposta.
+
+Para os autores, o JavaVis possui algumas funcionalidades que permitem ao estudante uma maneira mais simples de se aprender visão computacional. Uma delas é a simplicidade de implementação de novos métodos. Outra é a possibilidade do estudante visualizar cada etapa do processamento de algoritmos, devido a sequenciamento de técnicas para a composição de um algoritmo de maior complexidade.
 
 Figura 3.X- Exemplos de tarefa aplicada aos estudantes
 
@@ -911,11 +977,16 @@ Fonte: Cazorla e Viejo  (2013)
 % ---
 \section{Classroom Live: a software-assisted gamification tool (FREITAS; FREITAS, 2013)}
 
-	A pesquisa de Freitas e Freitas (2013) tem por objetivo conseguir engajar os estudantes da US Air Force Academy. Para isso, foi desenvolvido um sistema cliente/servidor para servir como aporte para aulas gamificadas. O sistema é chamado de Classroom Live, e este faz uso do de computadores e acesso wireless para prover uma experiência online e interativa de aprendizagem. Ao acessar o software, o aluno recebe “quests” que são preparadas pelo instrutor. O instrutor pode acessar uma aplicação diferente para analisar a performance do estudante e recompensas em tempo real.
-	Os autores desenvolveram o software visando a utilização em aulas do curso de ciência da computação, e que pudesse utilizar a infraestrutura já existente, como computadores e acesso a internet. O desenvolvimento da aplicação foi influenciado pelo feedback de alunos e instrutores, servindo como guia para o desenvolvimento. Os autores citam alguns pontos que foram considerados durante o desenvolvimento do software:
+A pesquisa de Freitas e Freitas (2013) tem por objetivo conseguir engajar os estudantes da US Air Force Academy. Para isso, foi desenvolvido um sistema cliente/servidor para servir como aporte para aulas gamificadas. O sistema é chamado de Classroom Live, e este faz uso do de computadores e acesso wireless para prover uma experiência online e interativa de aprendizagem. Ao acessar o software, o aluno recebe “quests” que são preparadas pelo instrutor. O instrutor pode acessar uma aplicação diferente para analisar a performance do estudante e recompensas em tempo real.
+
+Os autores desenvolveram o software visando a utilização em aulas do curso de ciência da computação, e que pudesse utilizar a infraestrutura já existente, como computadores e acesso a internet. O desenvolvimento da aplicação foi influenciado pelo feedback de alunos e instrutores, servindo como guia para o desenvolvimento. Os autores citam alguns pontos que foram considerados durante o desenvolvimento do software:
+
 Estética: Alunos possuem uma experiência mais agradável com um ferramenta educacional que possui um apelo visual. Por este motivo, autores desenvolveram um sistema de controle de avatares. No começo, o estudante começa com um avatar básico e um limite de customizações possíveis. A medida que os alunos completam as tarefas e desafios, eles são recompensados com itens adicionais que podem ser utilizados para customizar a aparência de seus avatares.
+
 Realizar tarefas em background: Os autores perceberam que o Classroom live seria uma das muitas aplicações sendo executadas nos computadores do alunos. Tendo como objetivo manter os alunos engajados, a aplicação precisa ser capaz de automaticamente baixar novas quests criadas pelo instrutor e notificá-las para o aluno. O Classroom Live foi desenvolvida de forma standalone suportando comunicações assíncronas. Os autores optaram por esta abordagem ao invés de construir um sistema web devido a possibilidade dos estudantes ignorar ou até fechar o sistema acidentalmente caso fosse utilizado uma abordagem web.
+
 Fácil de utilizar: O Classroom Live foi projetado para prover um experiência de aprendizagem que seja tanto divertida quando intuitiva. Quando o estudante acesso o sistema, ele pode observar quais quests ele precisa completar e quais ele já completou. Na visão do instrutor, sistema foi construído para facilitar a criação de novas quests, monitorar o progresso do aluno e monitoras as conquistas dos alunos.
+
 Monitorar todos os eventos: O sistema possui a característica de monitorar a performance do aluno em múltiplas aulas. Estas informações são armazenadas em uma base de dados que serve como repositório de quests concluídas, customização de avatares e respostas de usuários. Esta abordagem permite ao instrutor analisar as submissões dos alunos, sendo possível identificar dificuldades individuais de cada aluno. 
 
 Figura 3.X- Exemplos de tarefa aplicada aos estudantes
@@ -924,10 +995,15 @@ Fonte: Freitas e Freitas (2013)
 
 A Figura 3.X demonstra as funcionalidades existe no sistema para o aluno e o instrutor.
 Após o instrutor acessar o sistema, ele utiliza cinco áreas do sistema para planejar uma nova aula. Na área ”Manage Student Accounts”, o instrutor pode criar novas contas de usuário e configurar contas já existentes. A área “Create Quest” é onde o instrutor irá passar a maior parte do tempo, pois é nesta área onde é realizado a criação de novas quest a serem completadas pelo alunos. Neste processo, o instrutor tem a possibilidade de relacionar recompensas e pontos de experiência que o aluno irá receber ao completar a quest. 
+
 A área “Create Achievements”, permite ao instrutor cria uma biblioteca de recompensas e associar pontos de experiência a elas. As áreas “Manage Itens” e “Manage zones” permite ao instrutor manipular os itens virtuais e os ambiente visuais que o aluno irá encontrar durante utilização do sistema.
+
 Durante as aulas, o instrutor terá quatro áreas para gerenciar as atividades dos alunos. Na área “Issue Quest”, o instrutor poderá controlar as quests existentes, podendo inativa-las, definir um tempo limite para a conclusão. Na área ”Award Achievements”, o instrutor tem a possibilidade de definir prêmios para os alunos. Na área “Track Student Progress”, o instrutor pode observar o avanço dos alunos. Na última área, Mark quest complete, o instrutor analisa o trabalho realizado pelo estudante e defini que se este cumprir com a especificação determinada ou não.
+
 Na sessão do alunos, existem 4 funcionalidades. A principal delas é a “Manege Active Quests”, esta é a funcionalidade que permite o alunos visualizar suas quests e enviar suas respectivas respostas. A funcionalidade “View Completed Quests” possibilita ao aluno visualizar sua própria performance em quests já concluídas, e também permite a visualização das respostas corretas paras as quests. A funcionalidade “View Achievements” permite a visualização de todas as conquista recebidas pelo usuário. Por final, a funcionalidade “Customize Avatar” é onde o aluno pode customizar a aparência de seu avatar a partir dos itens conquistados.
+
 Para avaliar a eficácia do Classroom Live, os autores aplicaram a ferramenta em uma parte do curso de introdução a programação. A Figura XXX, demonstra a sequência de eventos utilizados nesta experiência de aplicação em sala de aula. Cada lição começa com a criação de dois tipos de quests por parte do instrutor. O primeiro corresponde a uma tarefa onde o aluno deve desenvolver e enviar um trecho de código fonte que corresponda a tarefa atribuída. O instrutor também desenvolve quests que múltiplas escolhas relacionadas ao material ensinado na aula daquele dia. O instrutor tem a possibilidade de adicionar recompensas em ambas quests.
+
 Quando o aluno submete suas respostas, os resultados são enviados automaticamente para o servidor para que instrutor possa realizar a revisão do que foi feito. Dependendo da performance dos estudantes o instrutor por decidir se deve ou não voltar para a explicação teórica ou mover para o próximo tópico. Enquanto isso, os alunos recebem feedback de suas ações realizadas. A atribuição de recompensas é realizada pelo instrutor após ele realizar a revisão da tarefa completada pelo aluno.
 
 
@@ -937,7 +1013,9 @@ Figura - Sequência de eventos aplicados em sala de aula
 Fonte: Freitas e Freitas (2013)
 
 Durante a aplicação do sistema Classroom Live no curso de introdução a programação durante 5 meses, os autores identificaram diversas lições aprendidas de quão eficiente pode ser a utilização de gamificação na sala de aula. Dentre elas estão:
+
 O conteúdo é muito importante: A eficácia da aplicação da ferramenta depende da habilidade de gerar conteúdo atraente para os alunos. Os estudantes demonstram um maior interesse quando as quest eram instigantes e eram recompensados. Os autores encontraram uma relação entre o engajamento dos alunos e conteúdo, como grande volumes que quests e recompensas os alunos demonstravam maior participação.
+
 Gamificação demanda tempo: Segundo os autores, as utilização de gamificação na sala de aula aumentou o tempo necessário para a preparação das aulas, mesmo com a utilização de um software como Classroom Live para auxiliar. Para estas aulas, os instrutores tiveram que popular o sistema com itens e quests que deveriam ser atraentes para os alunos e relevantes para o curso. Os autores acreditam que este tempo irá diminuir à medida que é construída uma base de dados de quests que possam ser reutilizadas em outros semestres.
 
 Para avaliar a aplicação, foi solicita para que os alunos responder algumas questões referente a utilização do Classroom Live como pode ser visualizado na Figura x. O estudo realizado em 15 alunos.
@@ -946,7 +1024,8 @@ Figura - Avaliação da ferramenta
 
 Fonte: Freitas e Freitas (2013)
 
-Segundo os autores, aparentemente os alunos gostaram de utilizar o Classroom Live. As respostas das duas primeiras questões indicam que os alunos acharam o Classroom Live divertido e acreditam que o software auxiliou a mantê-los engajados na aula. Levando em consideração que o uso do software foi totalmente voluntário, os autores constataram o entorno de 85% dos alunos utilizaram a aplicação e participaram de quests durante todas as aulas. 
+Segundo os autores, aparentemente os alunos gostaram de utilizar o Classroom Live. As respostas das duas primeiras questões indicam que os alunos acharam o Classroom Live divertido e acreditam que o software auxiliou a mantê-los engajados na aula. Levando em consideração que o uso do software foi totalmente voluntário, os autores constataram o entorno de 85\% dos alunos utilizaram a aplicação e participaram de quests durante todas as aulas. 
+
 Os autores não conseguiram constatar se a utilização da ferramenta aumentou a performance dos estudantes, mas eles observaram que a aplicação obteve êxito em relação a melhorar o interesse e engajamento dos estudantes nas aula.
 
 % ----------------------------------------------------------
@@ -954,20 +1033,22 @@ Os autores não conseguiram constatar se a utilização da ferramenta aumentou a
 % ----------------------------------------------------------
 \chapter{Proposta} 
 
-	O objetivo principal deste trabalho é o desenvolvimento de uma ferramenta gamificada para o auxílio ao ensino de processamento digital de imagens. Primeiramente foi realizado um estudo de sistemas com objetivos semelhantes e os principais conceitos de gamificação que serviram como aporte para o desenvolvimento da proposta. Estes estudos foram apresentados nos capítulos anteriores.
+O objetivo principal deste trabalho é o desenvolvimento de uma ferramenta gamificada para o auxílio ao ensino de processamento digital de imagens. Primeiramente foi realizado um estudo de sistemas com objetivos semelhantes e os principais conceitos de gamificação que serviram como aporte para o desenvolvimento da proposta. Estes estudos foram apresentados nos capítulos anteriores.
     
 % ---
 \section{VISNode}
 
-	Para o desenvolvimento deste trabalho foi utilizado o software VISNode. Esta ferramenta foi desenvolvida por alunos da Universidade Feevale após concluírem a disciplina de Processamento Digital de Imagem. Eles identificaram uma dificuldade para realizar a comparação de técnicas, com o mesmo objetivo, e escolher o parâmetro adequada para cada situação. Desta forma, foi desenvolvido um ferramenta que tem por objetivo demonstrar, de forma visual,  a execução de técnicas de PDI e como elas se conectam (VISNODE, 2018).
-	O VISNode utiliza o conceito de processos, que consiste em operações que podem ser executados em entradas (inputs) e gerar saídas (outputs). Estas saídas podem ser imagens, valores numéricos, ou qualquer outra estrutura de dados necessária para a execução do processo. Os processos podem ser qualquer função de possa ser aplicar a um input e gerar um output, como por exemplo: de manipulação da imagem, como desfoque de Gauss, limiarização ou de inversão de cores; obtenção de informações, como a obtenção de estatísticas de cor;  extração de objetos (VISNODE, 2018).
+Para o desenvolvimento deste trabalho foi utilizado o software VISNode. Esta ferramenta foi desenvolvida por alunos da Universidade Feevale após concluírem a disciplina de Processamento Digital de Imagem. Eles identificaram uma dificuldade para realizar a comparação de técnicas, com o mesmo objetivo, e escolher o parâmetro adequada para cada situação. Desta forma, foi desenvolvido um ferramenta que tem por objetivo demonstrar, de forma visual,  a execução de técnicas de PDI e como elas se conectam (VISNODE, 2018).
+
+O VISNode utiliza o conceito de processos, que consiste em operações que podem ser executados em entradas (inputs) e gerar saídas (outputs). Estas saídas podem ser imagens, valores numéricos, ou qualquer outra estrutura de dados necessária para a execução do processo. Os processos podem ser qualquer função de possa ser aplicar a um input e gerar um output, como por exemplo: de manipulação da imagem, como desfoque de Gauss, limiarização ou de inversão de cores; obtenção de informações, como a obtenção de estatísticas de cor;  extração de objetos (VISNODE, 2018).
+
 Cada processo da ferramenta é considerado um nodo, como em uma árvore ou grafo. Cada nodo possui entradas e saídas que podem ser conectadas a entradas e saídas de outros nodos para a execução sequencial. Para um processo de Threshold, por exemplos, a imagem de origem e o limiar numérico são os parâmetros de entrada, enquanto a imagem resultante da operação consiste no parâmetro de saída (VISNODE, 2018). 
+
 Para determinados tipos de entrada é possível informar o valor manualmente no nodo ou via conexão. Por exemplo, para o nodo de limiarização é possível informar um valor numérico para o limiar diretamente no nodo, utilizando a interface gráfica, ou obter à partir da saída de outro nodo, como, por exemplo, a cor média da imagem (VISNODE, 2018).
+
 Segundo os criadores, estrutura em nodos foi criada com o intuito de facilitar a compreensão em relação a como diversos processos podem ser executados de forma sequencial para chegar a um objetivo final. Na tela principal de edição do software, o usuário pode mover, inserir e remover nodos de processos, criar e remover conexões entre as entradas e saídas de forma visual e realizar ajustes nos parâmetros dos processos, visualizando em tempo real o resultado de suas modificações.
 
-
-
-	A Figura 5.x demonstra a utilização do software VISNode. Nesta figura é possível visualizar um painel, à direita do software, de onde é possível selecionar as técnicas de PDI a serem aplicadas na imagem. Também é demonstrado um fluxo de execução utilizado duas técnicas: Grayscale e Threshold. No processo de Threshold é possível observar um input slider por onde é realizado a mudança do parâmetro do limiar.
+A Figura 5.x demonstra a utilização do software VISNode. Nesta figura é possível visualizar um painel, à direita do software, de onde é possível selecionar as técnicas de PDI a serem aplicadas na imagem. Também é demonstrado um fluxo de execução utilizado duas técnicas: Grayscale e Threshold. No processo de Threshold é possível observar um input slider por onde é realizado a mudança do parâmetro do limiar.
 
 Figura 5.x - Demonstrativo do VISNode
 
@@ -977,8 +1058,11 @@ Fonte: Do autor
 \subsection{Arquitetura}
 
 O software VISNode foi construído utilizando a arquitetura modular proposta por Reis et al. (2017), onde é construída uma linha de produtos de software (Software Product Line ou SPL) (SEI, 2018)  para a extração e apresentação de características em exames médicos por imagem. Na arquitetura existem cinco módulos, cada um com um objetivo específico, que podem ser usados de forma independente para diversos tipos de aplicações que trabalham com imagens. Dos módulos construídos, três foram utilizados no desenvolvimento do VISNode, descritos a seguir:
-	PDI: implementações de algoritmos de processamento de imagens, que são aplicados aos exames médicos no processo de extração de características, como, por exemplo: histograma, limiarização, remoção e redução de ruídos, operações de convolução, métodos de classificação, entre outros (REIS et al., 2018); 
+
+PDI: implementações de algoritmos de processamento de imagens, que são aplicados aos exames médicos no processo de extração de características, como, por exemplo: histograma, limiarização, remoção e redução de ruídos, operações de convolução, métodos de classificação, entre outros (REIS et al., 2018); 
+
 Uso Comum: classes de uso  comum  por todos os outros módulos, como classes utilitárias ou estruturas de dados utilizadas na troca de informações entre módulos (REIS et al., 2018); 
+
 Acesso a Arquivos: camada de acesso arquivos do tipo DICOM(REIS et al., 2018).
 
 
@@ -986,29 +1070,43 @@ Acesso a Arquivos: camada de acesso arquivos do tipo DICOM(REIS et al., 2018).
 \section{Proposta gamificada}
 
 
-	O presente trabalho se propõe a desenvolver uma ferramenta que faça uso de conceitos de gamificação visando auxiliar o ensino e aprendizagem. Este trabalho foca no ensino de processamento digital de imagens, pretendendo servir como aporte para alunos de disciplinas que abordam esses conceitos.
-	O principal objetivo do trabalho é desenvolver um ferramenta que motive os alunos a participarem das aulas e engaja-los na busca por conhecimentos relacionado a área de estudo. Para isso será utilizado a gamificação, portando, a ferramenta irá proporcionar um ambiente para que isso seja possível, utilizando elementos como:
+O presente trabalho se propõe a desenvolver uma ferramenta que faça uso de conceitos de gamificação visando auxiliar o ensino e aprendizagem. Este trabalho foca no ensino de processamento digital de imagens, pretendendo servir como aporte para alunos de disciplinas que abordam esses conceitos.
+
+O principal objetivo do trabalho é desenvolver um ferramenta que motive os alunos a participarem das aulas e engaja-los na busca por conhecimentos relacionado a área de estudo. Para isso será utilizado a gamificação, portando, a ferramenta irá proporcionar um ambiente para que isso seja possível, utilizando elementos como:
 Recompensas
 Narrativas
 Feedback
 Desafios
 Missões
 
-	Para o usuário acessar a parte gamificada da ferramenta, este terá de realizar um cadastro e logar no sistema. Após o usuário logado, ele terá acesso a todas as funcionalidades do VISNode, como prototipação e experimentação de algoritmos e também a parte gamificada da ferramenta.
-	Logado no sistema, o usuário possui acesso ao menu de missões. Neste local o usuário irá encontrar diversas missões com diferentes objetivos e graus de dificuldades diferentes.	
+Para o usuário acessar a parte gamificada da ferramenta, este terá de realizar um cadastro e logar no sistema. Após o usuário logado, ele terá acesso a todas as funcionalidades do VISNode, como prototipação e experimentação de algoritmos e também a parte gamificada da ferramenta.
 
-	Quando a ferramenta for utilizado dentro da sala de aula, o educador poderá criar um grupo de trabalho e definir quais usuário e quais desafios este grupo irá compor. Desta forma, o usuário poderá controlar o progresso de cada participante do grupo, podendo visualizar quantas tarefas o usuário já realizou, como ele solucionou os desafios, quais recompensas ele já ganhou.
-	Um desafio consistem em uma tarefa que o usuário deverá realizar. Cada desafio irá possuir uma narrativa, na qual deve contextualizar o problema visando motivar o usuário a resolução do mesmo.
-	A resolução do desafio deve ser realizada utilizando o VISNode, sendo que o usuário deverá conectar as técnicas existente para obter o resultado esperado. O próprio software irá realizar a conferência se a solução proposta pelo usuário condiz com o resultado esperado. Informação como número de tentativa e duração serão armazenadas para análises por parte do educador.
-	Visando ser utilizada em outras instituições, a ferramenta permite a criação de novas missões e desafios. Ampliando, desta forma, o uso da ferramenta para mais usuários.
+Logado no sistema, o usuário possui acesso ao menu de missões. Neste local o usuário irá encontrar diversas missões com diferentes objetivos e graus de dificuldades diferentes.	
+
+Quando a ferramenta for utilizado dentro da sala de aula, o educador poderá criar um grupo de trabalho e definir quais usuário e quais desafios este grupo irá compor. Desta forma, o usuário poderá controlar o progresso de cada participante do grupo, podendo visualizar quantas tarefas o usuário já realizou, como ele solucionou os desafios, quais recompensas ele já ganhou.
+
+Um desafio consistem em uma tarefa que o usuário deverá realizar. Cada desafio irá possuir uma narrativa, na qual deve contextualizar o problema visando motivar o usuário a resolução do mesmo.
+
+A resolução do desafio deve ser realizada utilizando o VISNode, sendo que o usuário deverá conectar as técnicas existente para obter o resultado esperado. O próprio software irá realizar a conferência se a solução proposta pelo usuário condiz com o resultado esperado. Informação como número de tentativa e duração serão armazenadas para análises por parte do educador.
+
+Visando ser utilizada em outras instituições, a ferramenta permite a criação de novas missões e desafios. Ampliando, desta forma, o uso da ferramenta para mais usuários.
+
 A ideia da ferramenta é que possa ser utilizada dentro da sala de aula, como já descrito, mas também fora. Para isso, a ferramenta irá contar com áreas que podem ser acessíveis por pessoas fora da disciplina. Desta forma, qualquer indivíduo que tenha interesse em utilizar a ferramenta poderá.
+
 Tendo como objetivo dar assistência ao usuário no entendimento dos algoritmos utilizados, a ferramenta provê informações detalhadas dos algoritmos implementados, sendo possível visualizar uma explicação textual de seu funcionamento, além do código de sua implementação. Esta funcionalidade também pode servir como material didático, auxiliando na etapa de aprendizado de usuários como pouca conhecimento na área.
+
 Recompensas
+
 Pontos de experiência
+
 Descrever as funcionalidades do sistema
+
 Rankins
+
 Progresso
+
 Exemplos de narrativas
+
 Como o software vai ser validado
 
 % ----------------------------------------------------------
