@@ -261,11 +261,11 @@ A etapa de aquisição tem como objetivo a capturar a imagem por meio de um disp
 
 A etapa de representação e descrição é responsável  pelo armazenamento e manipulação dos objetos extraídos da imagem. Além disso, este processo visa a extração de características dos objetivos extraídos. A utiliza etapa, reconhecimento e interpretação, é a etapa que rotula os objetivos da imagem, utilizando, para isso, as características extraídas na etapa anterior. Além da rotulação, é responsabilidade desta etapa atribuir um significado ao conjunto de objetos reconhecidos \cite{pedriniSchwartz:2008}. 
 
-Para o processamento digital de imagens é necessário que a imagem possa ser manipulada digitalmente. Segundo Pedrini e Schwartz (2008), uma imagem digital pode ser representada através de uma matriz bidimensional, onde cada elemento desta matriz corresponde a um ponto da imagem. Cada um destes pontos representa uma cor ou um tom de cinza e são denominados \textit{pixels}. 
+Para o processamento digital de imagens é necessário que a imagem possa ser manipulada digitalmente. Segundo Pedrini e Schwartz (2008), uma imagem digital pode ser representada através de uma matriz bidimensional, onde cada elemento desta matriz corresponde a um ponto da imagem. Cada um destes pontos representa uma cor ou um tom de cinza e são denominados pixeis. 
 
-Imagens monocromáticas são imagens onde seus \textit{pixels} possuem somente uma banda espectral, ou seja, seu pixel é representado somente por uma grandeza. Estas imagens podem ser binárias ou em escala de cinza. Imagens binárias são imagens onde seus \textit{pixels} assumem somente dois valores, normalmente 0 ou 1. Já uma imagem em escala de cinza, é uma imagem onde seus \textit{pixels} podem assumir uma faixa de valores. Caso a imagem utilize 1 \textit{byte}, seus valores podem variam de 0 a 255, onde 0 representa a cor preta e 255 a cor branca, e o intervalo é representado por tonalidades de cinza, desta forma, haverá 256 tons diferentes \cite{conciAzevedoLeta:2008}.
+Imagens monocromáticas são imagens onde seus pixeis possuem somente uma banda espectral, ou seja, seu pixel é representado somente por uma grandeza. Estas imagens podem ser binárias ou em escala de cinza. Imagens binárias são imagens onde seus pixeis assumem somente dois valores, normalmente 0 ou 1. Já uma imagem em escala de cinza, é uma imagem onde seus pixeis podem assumir uma faixa de valores. Caso a imagem utilize 1 \textit{byte}, seus valores podem variam de 0 a 255, onde 0 representa a cor preta e 255 a cor branca, e o intervalo é representado por tonalidades de cinza, desta forma, haverá 256 tons diferentes \cite{conciAzevedoLeta:2008}.
 
-Imagens coloridas são imagens que possuem mais de uma banda, ou seja, multibanda. Seus \textit{pixels} possuem mais de um canal. Cada canal representa uma cor, desta forma, uma imagem RGB será representada por canais que representam a cor vermelha, verde e azul respectivamente. Digitalmente, esta imagem pode ser representada por 3 matrizes, cada uma representando um canal da imagem, a combinação das três matrizes representa uma cor \cite{conciAzevedoLeta:2008}.
+Imagens coloridas são imagens que possuem mais de uma banda, ou seja, multibanda. Seus pixeis possuem mais de um canal. Cada canal representa uma cor, desta forma, uma imagem RGB será representada por canais que representam a cor vermelha, verde e azul respectivamente. Digitalmente, esta imagem pode ser representada por 3 matrizes, cada uma representando um canal da imagem, a combinação das três matrizes representa uma cor \cite{conciAzevedoLeta:2008}.
 
 Uma imagem colorida pode ser transformada em uma imagem monocromática em escala de cinza ou em uma imagem binária. A transformação em escala de cinza realiza uma combinação dos valores RGB de cada pixel, definido um valor para cada pixel que representa a média dos valores RGB. A conversão para uma imagem binária pode ser realizada através do processo de Limiarização (explicado na seção \ref{sec:limiarizacao}), onde cada pixel da imagem será testado e verificado se seu valor será preto ou branco \cite{mossmann2010extraccao}.
 
@@ -278,13 +278,13 @@ Uma imagem colorida pode ser transformada em uma imagem monocromática em escala
 Fonte: do autor
 \end{figure}
 
-O cálculo da distribuição de níveis cor de uma imagem é denominado histograma (Figura \ref{fig:histograma}). O histograma de uma imagem, normalmente é representado de maneira gráfica, onde é indicada a quantidade de \textit{pixels} para cada nível de cor. Através do histograma de uma imagem é possível obter medidas estatísticas como os valores mínimo e máximo, valor médio, variância e o desvio padrão \cite{gonzalesWoods:2008}. Na Figura 1.1 é demonstrado o histograma de um segmento de uma imagem. 
+O cálculo da distribuição de níveis cor de uma imagem é denominado histograma (Figura \ref{fig:histograma}). O histograma de uma imagem, normalmente é representado de maneira gráfica, onde é indicada a quantidade de pixeis para cada nível de cor. Através do histograma de uma imagem é possível obter medidas estatísticas como os valores mínimo e máximo, valor médio, variância e o desvio padrão \cite{gonzalesWoods:2008}. Na Figura \ref{fig:histograma} é demonstrado o histograma de um segmento de uma imagem. 
 
-Segundo Conci, Azevedo e Leta (2008), o histograma pode ser obtido da seguinte forma: analisa-se o tom de cada pixel; realiza-se a contagem do número de \textit{pixels} de cada intensidade de cor; representa-se esses valores na forma gráfica, correspondendo a frequência de cada tom.
+Segundo Conci, Azevedo e Leta (2008), o histograma pode ser obtido da seguinte forma: analisa-se o tom de cada pixel; realiza-se a contagem do número de pixeis de cada intensidade de cor; representa-se esses valores na forma gráfica, correspondendo a frequência de cada tom.
 
 Um processo comumente aplicado em técnicas de PDI é a convolução. Segundo Pedrini e Schwartz (2008), o processo de convolução faz uso de matrizes, que são denominadas máscaras, para aplicar modificações na imagem pixel a pixel. A máscara, também conhecida como \textit{kernel} é uma matriz bidimensional quadrada. Usualmente, esta matriz possui um tamanho ímpar e dimensões quadradas, estas características são importantes para que a máscara possua um pixel central.
 
-O processo de convolução utiliza os coeficientes desta máscaras para realizar uma multiplicação pelos níveis de cor dos \textit{pixels}. O pixel central é modificado pela média de todas as multiplicações. Este processo percorre a imagem aplicando a máscara em todos os pixel da imagem. Outro processo semelhante é o processo de correlação, onde este possui o mesmo princípio da convolução, mas com a diferença da máscara ser rotacionada em 180º \cite{gonzalesWoods:2008}. A implementação em java para o algoritmo pode ser acessado através do link: \url{https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/ConvolutionProcess.java}.
+O processo de convolução utiliza os coeficientes desta máscaras para realizar uma multiplicação pelos níveis de cor dos pixeis. O pixel central é modificado pela média de todas as multiplicações. Este processo percorre a imagem aplicando a máscara em todos os pixel da imagem. Outro processo semelhante é o processo de correlação, onde este possui o mesmo princípio da convolução, mas com a diferença da máscara ser rotacionada em 180º \cite{gonzalesWoods:2008}. A implementação em java para o algoritmo pode ser acessado através do link: \url{https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/ConvolutionProcess.java}.
 
 Neste capítulo serão apresentadas algumas das principais técnicas de PDI. Dentre elas estarão transformações geométricas, filtro de passa baixa e passa alta, morfologia matemática, afinamento e técnicas de classificação.
 % ---
@@ -302,14 +302,14 @@ Limiarização ou \textit{Threshold} é uma técnica que consiste em comparar ca
 Fonte: do autor
 \end{figure}
 
-Na Figura \ref{fig:limiarizacao} é aplicado um \textit{Threshold} de 190, desta forma, os pixels com valor maior que 190 recebem a cor branca, enquanto os \textit{pixels} com valor inferior recebem a cor preta. A imagem resultante será composta por \textit{pixels} pretos e brancos variando, sendo 0 ou 255.A implementação em java para o algoritmo pode ser acessado através do link:
-https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/ThresholdProcess.java 
+Na Figura \ref{fig:limiarizacao} é aplicado um \textit{Threshold} de 190, desta forma, os pixeis com valor maior que 190 recebem a cor branca, enquanto os pixeis com valor inferior recebem a cor preta. A imagem resultante será composta por pixeis pretos e brancos variando, sendo 0 ou 255.A implementação em java para o algoritmo pode ser acessado através do link:
+\url{https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/ThresholdProcess.java}
 
 Uma maneira comum para a identificação do \textit{Threshold} a ser utilizado é através do histograma da imagem, sendo que através do histograma se tem uma visão geral da distribuição das tonalidades da imagem. Em um histograma com dois picos, o valor entre os dois picos pode ser utilizado com sendo o \textit{Threshold}, onde os picos representam as cores com maior ocorrência  \cite{gonzalesWoods:2008}. 
 
 % ---
 \section{Brilho e Contraste}
-O conceito de brilho está relacionado com a intensidade luminosa de uma fonte, quando é trabalhado com imagens digitais. Esta intensidade está relacionada com os \textit{pixels} da imagem. O contraste está relacionado com a medida de variação da intensidade luminosa por unidade de área \cite{gonzalesWoods:2008}.
+O conceito de brilho está relacionado com a intensidade luminosa de uma fonte, quando é trabalhado com imagens digitais. Esta intensidade está relacionada com os pixeis da imagem. O contraste está relacionado com a medida de variação da intensidade luminosa por unidade de área \cite{gonzalesWoods:2008}.
 
 O brilho e contraste podem ser definidos através de uma função matemática. Esta função é definida por \(g = \alpha.f + \beta\), onde o \(g\) é o pixel resultante, \(\alpha\) é o coeficiente de contraste e \(\beta\) é o coeficiente de brilho e \(f\) é o pixel analisado \cite{pedriniSchwartz:2008}.
 
@@ -340,7 +340,7 @@ A Figura \ref{fig:brilho} apresenta imagens que representam a imagem original (d
 % ---
 \section{Transformações geométricas}
 
-Operações geométricas são aquelas que possuem o objetivo de permitir o mapeamento entre posições espaciais da imagem e a imagem modificada. Estas transformações consistem em aplicar operações responsáveis pela reorganização dos \textit{pixels} da imagem \cite{pedriniSchwartz:2008}. São operações que modificam os tons dos pixel na posição (\(x_o, y_o\)) da imagem de origem para outra imagem (\(x_d, y_d\))de destino, alterando, desta forma, a posição dos \textit{pixels} \cite{conciAzevedoLeta:2008}.
+Operações geométricas são aquelas que possuem o objetivo de permitir o mapeamento entre posições espaciais da imagem e a imagem modificada. Estas transformações consistem em aplicar operações responsáveis pela reorganização dos pixeis da imagem \cite{pedriniSchwartz:2008}. São operações que modificam os tons dos pixel na posição (\(x_o, y_o\)) da imagem de origem para outra imagem (\(x_d, y_d\))de destino, alterando, desta forma, a posição dos pixeis \cite{conciAzevedoLeta:2008}.
 
 Transformações espaciais podem ser realizadas através da multiplicação de matrizes, expressa por:
 
@@ -373,7 +373,7 @@ Os valores X’, Y’, Z representam as coordenadas da imagem de destino que rec
 % ---
 \subsection{Translação}
 
-O processo de transladar um objeto consistem em deslocar ou somar a cada um dos \textit{pixels} da imagem um determinado valor (\(tx,ty,tz\)) \cite{conciAzevedoLeta:2008}. Segundo Pedrini e Schwartz (2008), a translação de uma imagem, utilizando o deslocamento \(tx\),\(ty\) e \(tz\), pode ser expressa na forma matricial por:
+O processo de transladar um objeto consistem em deslocar ou somar a cada um dos pixeis da imagem um determinado valor (\(tx,ty,tz\)) \cite{conciAzevedoLeta:2008}. Segundo Pedrini e Schwartz (2008), a translação de uma imagem, utilizando o deslocamento \(tx\),\(ty\) e \(tz\), pode ser expressa na forma matricial por:
 
 T
 \begin{tabular}{|c|c|c|c|}
@@ -390,7 +390,7 @@ A implementação em java para o algoritmo pode ser acessado através do link:
 % ---
 \subsection{Mudança de escala}
 
-O processo de mudança de escala (zoom in, zoom out) consiste na multiplicação de cada um dos \textit{pixels} da imagem por um uma escala (\(s_x\), \(s_y\), \(s_z\))  \cite{conciAzevedoLeta:2008}. Segundo Pedrini e Schwartz (2008), a mudança de escala de uma imagem, utilizando os fatores \(s_x\), \(s_y\) e \(s_z\), pode ser expressa na forma matricial por:
+O processo de mudança de escala (zoom in, zoom out) consiste na multiplicação de cada um dos pixeis da imagem por um uma escala (\(s_x\), \(s_y\), \(s_z\))  \cite{conciAzevedoLeta:2008}. Segundo Pedrini e Schwartz (2008), a mudança de escala de uma imagem, utilizando os fatores \(s_x\), \(s_y\) e \(s_z\), pode ser expressa na forma matricial por:
 
 T
 \begin{tabular}{|c|c|c|c|}
@@ -488,7 +488,7 @@ A implementação em java para o algoritmo pode ser acessado através do link: \
 Fonte: do autor
 \end{figure}
 
-Na Figura \ref{fig:transformacoesgeometricas} é apresentado a aplicação de transformações geométricas. O primeiro processo apresentado é a translação (b), onde a imagem original é transladada 50 \textit{pixels} no \(eixo x\) e 100 \textit{pixels} no \(eixo y\). Sequencialmente é apresentado o processo de mudança de escala utilizando o valor o fator 2 (c), a reflexão horizontalmente (d) e a rotação da imagem (e). 
+Na Figura \ref{fig:transformacoesgeometricas} é apresentado a aplicação de transformações geométricas. O primeiro processo apresentado é a translação (b), onde a imagem original é transladada 50 pixeis no \(eixo x\) e 100 pixeis no \(eixo y\). Sequencialmente é apresentado o processo de mudança de escala utilizando o valor o fator 2 (c), a reflexão horizontalmente (d) e a rotação da imagem (e). 
 
 % ---
 \section{Filtros passa baixa (Suavização)}
@@ -518,7 +518,7 @@ O filtro de mediana é o filtro estatístico mais conhecido, onde substitui o va
 
 A mediana m de um conjunto contendo um número \(n\) de elementos é definida pelo valor central destes elementos, desta forma, a metade dos elementos situam-se acima de \(m\) e a outra metade abaixo. Quando \(n\) for par, é necessário realizar a média aritmética dos elementos mais próximos aos centro \cite{conciAzevedoLeta:2008}.
 
-Este filtro realiza a ordenação das intensidades dos \textit{pixels} existentes dentro da máscara, utilizando como valor para o pixel analizado o valor central dos elementos ordenados \cite{conciAzevedoLeta:2008}.
+Este filtro realiza a ordenação das intensidades dos pixeis existentes dentro da máscara, utilizando como valor para o pixel analizado o valor central dos elementos ordenados \cite{conciAzevedoLeta:2008}.
 
 O filtro de mediana possui resultados melhores do que o filtro de média. Isso ocorre devido ao fato de que, se existe um ruído entre os elementos da máscara, este valor estará presente nas primeiras ou últimas posições. Desta forma, pontos discrepantes têm grande chance de serem considerados ruídos e suavizados \cite{conciAzevedoLeta:2008}.
 
@@ -527,7 +527,7 @@ A implementação em java para o algoritmo pode ser acessado através do link:
 
 % ---
 \subsection{Filtro Gaussiano}
-Filtros Gaussianos possuem características que são úteis para o processamento de imagens. As funções Gaussianas são simétricas, o que significa que o grau de suavização é aplicado da mesma forma em todas as direções (isotrópico). A suavização da imagem é obtida através da substituição de cada pixel da imagem pela média ponderada dos \textit{pixels} vizinhos \cite{pedriniSchwartz:2008}. 
+Filtros Gaussianos possuem características que são úteis para o processamento de imagens. As funções Gaussianas são simétricas, o que significa que o grau de suavização é aplicado da mesma forma em todas as direções (isotrópico). A suavização da imagem é obtida através da substituição de cada pixel da imagem pela média ponderada dos pixeis vizinhos \cite{pedriniSchwartz:2008}. 
 
 Este filtro é utilizado para reduzir quantidades de variação de intensidades entre o pixel e seus vizinhos, minimizando e até eliminado informações indesejadas. É um dos filtros de passa-baixa mais importantes, pois seu nível de suavização ocorre de maneira mais uniforme, o que não ocorre nos outros filtros, como, por exemplo, no filtro de média. Este filtro é adequado para a aplicação em conjunto com outros filtros em aplicações de detecção de bordas \cite{conciAzevedoLeta:2008}.   
 
@@ -794,7 +794,7 @@ A implementação em java para o algoritmo pode ser acessado através do link:
 
 % ---
 \subsection{Frei-Chein}
-O operador Frei-Chein utiliza um conjunto de nove máscaras de tamanho 3 x 3. As máscara M1 a M4 são utilizadas para realizar a detecção de bordas, já a M5 a M8 realizam a detecção de retas, e a M9 representa uma médias dos \textit{pixels} na região da matriz \cite{pedriniSchwartz:2008}. 
+O operador Frei-Chein utiliza um conjunto de nove máscaras de tamanho 3 x 3. As máscara M1 a M4 são utilizadas para realizar a detecção de bordas, já a M5 a M8 realizam a detecção de retas, e a M9 representa uma médias dos pixeis na região da matriz \cite{pedriniSchwartz:2008}. 
 
 \begin{center}
 M1
@@ -932,7 +932,7 @@ A Morfologia matemática é uma metodologia utilizada para a análise de imagens
 
 Segundo Gonzales e Woods (2010) a morfologia matemática utiliza como linguagem a teoria dos conjuntos. Para a realização de uma operação morfológica é realizado um mapeamento entre um conjunto \(a\) que define a imagem analisada e um conjunto \(b\) chamado de objeto estruturante, que são pequenos conjuntos utilizados para buscar propriedades de interesse (Figura \ref{fig:elementro_estruturante}). 
 
-As operações de morfologia matemática são realizadas a partir de um elemento estruturante que é utilizado para percorrer a imagem processada. A cada ciclo, é realizada uma operação matemática sobre os \textit{pixels} do elementos estruturante, alterando a imagem \cite{pedriniSchwartz:2008}.
+As operações de morfologia matemática são realizadas a partir de um elemento estruturante que é utilizado para percorrer a imagem processada. A cada ciclo, é realizada uma operação matemática sobre os pixeis do elementos estruturante, alterando a imagem \cite{pedriniSchwartz:2008}.
 
 \begin{figure}[ht]
 \centering
@@ -1012,7 +1012,7 @@ Na imagem \ref{fig:morfologia} é apresentada a aplicação de operações de mo
 % ---
 \section{Afinamento de bordas}    
 
-Os algoritmos de afinamento de bordas tem como objetivo a remoção de \textit{pixels} redundantes das imagens, produzindo, desta forma, uma simplificação dos objetos da imagem. O principal problema que estes algoritmos enfrentam é determinar com exatidão quais são os \textit{pixels} redundantes da imagem \cite{guilherme:2007}.
+Os algoritmos de afinamento de bordas tem como objetivo a remoção de pixeis redundantes das imagens, produzindo, desta forma, uma simplificação dos objetos da imagem. O principal problema que estes algoritmos enfrentam é determinar com exatidão quais são os pixeis redundantes da imagem \cite{guilherme:2007}.
 
 Uma das características mais importantes em um processo de afinamento de bordas é a conectividade. O número de conectividade pode ser definido como sendo o número de transições de branco para preto dentro de uma área ao redor do pixel central \cite{guilherme:2007}.
     
@@ -1030,16 +1030,16 @@ O algoritmo de Stentiford adota uma abordagem baseada na utilização de máscar
 Fonte: Guilherme (2007, p. 13)
 \end{figure}
 
-Na Figura 1.18 são demonstradas as máscaras utilizadas pelo algoritmo, os círculos brancos representam \textit{pixels} de valor zero, os círculos pretos representam os \textit{pixels} de valor 1 e os \(X\) representam os \textit{pixels} com valores irrelevantes.
+Na Figura \ref{fig:stentiford} são demonstradas as máscaras utilizadas pelo algoritmo, os círculos brancos representam pixeis de valor zero, os círculos pretos representam os pixeis de valor 1 e os \(X\) representam os pixeis com valores irrelevantes.
 
 Segundo Guilherme (2007), o algoritmo de Stentiford é composto por seis passos:
 
 \begin{itemize}
 \item Percorrer a imagem até encontrar um pixel que se encaixe na máscara M1;
 \item Marca o ponto como apagado caso o pixel não seja um ponto final e sua conectividade seja igual a 1;
-\item Repetir os passos 1 e 2 para todos os \textit{pixels} da imagem que se encaixem na máscara M1;
+\item Repetir os passos 1 e 2 para todos os pixeis da imagem que se encaixem na máscara M1;
 \item Repetir os passos 1, 2 e 3 para as máscaras M2, M3 e M4;
-\item Apagar todos os \textit{pixels} que estejam marcados para serem apagado;
+\item Apagar todos os pixeis que estejam marcados para serem apagado;
 \item Se algum ponto foi apagado no passo 5, os passos a partir do passo 1 devem ser repetidos.
 \end{itemize}
 
@@ -1049,7 +1049,7 @@ A implementação em java para o algoritmo pode ser acessado através do link:
 % ---
 \subsection{Zhang Suen}
 
-O algoritmo de Zhang Suen (ZHANG; SUEN, 1984) tem como base a comparação do pixel em processamento com seus 8 vizinhos. A exclusão de pixel por parte do algoritmo somente é realizada mediante a quatro regras. Estas regras têm como objetivo obter a exclusão segura dos \textbf{pixels}, garantindo, desta forma, que áreas interligadas não percam a conectividade e que a eliminação ocorrerá nas bordas do objeto \cite{guilherme:2007}.
+O algoritmo de Zhang Suen (ZHANG; SUEN, 1984) tem como base a comparação do pixel em processamento com seus 8 vizinhos. A exclusão de pixel por parte do algoritmo somente é realizada mediante a quatro regras. Estas regras têm como objetivo obter a exclusão segura dos \textbf{pixeis}, garantindo, desta forma, que áreas interligadas não percam a conectividade e que a eliminação ocorrerá nas bordas do objeto \cite{guilherme:2007}.
 
 \begin{figure}[ht]
 \centering
@@ -1060,22 +1060,22 @@ O algoritmo de Zhang Suen (ZHANG; SUEN, 1984) tem como base a comparação do pi
 Fonte: Guilherme (2007, p. 15)
 \end{figure}
 
-O algoritmo é composto por duas iterações que fazem uso das quatro regras descritas na sequência. Na primeira iteração, para as regras C e D, serão utilizada as máscaras descritas pela Figura 1.14 e Figura 1.15, respectivamente, na segunda etapa, serão utilizadas as máscaras descritas pela Figura 1.16 e Figura 1.17, respectivamente.
+O algoritmo é composto por duas iterações que fazem uso das quatro regras descritas na sequência. Na primeira iteração, para as regras C e D, serão utilizada as máscaras descritas pela \ref{fig:zhangsuen1} e Figura \ref{fig:zhangsuen2}, respectivamente, na segunda etapa, serão utilizadas as máscaras descritas pela Figura \ref{fig:zhangsuen3} e Figura \ref{fig:zhangsuen4}, respectivamente.
 
 Segundo Guilherme (2007), para que um pixel seja marcado para exclusão ele deve:
 
 \begin{itemize}
 \item Possuir sua conectividade maior que 1;
-\item O objeto deve ser composto de pelo menos dois e no máximo seis pixels pretos;
-\item Ao menos um dos \textit{pixels} da primeira máscara deve ser branco;
-\item Ao menos um dos pixels da segunda máscara deve ser branco;
+\item O objeto deve ser composto de pelo menos dois e no máximo seis pixeis pretos;
+\item Ao menos um dos pixeis da primeira máscara deve ser branco;
+\item Ao menos um dos pixeis da segunda máscara deve ser branco;
 \end{itemize}
 
 
 \begin{figure}[ht]
 \centering
 \label{fig:zhangsuen1}
-\caption{\textbf{Pixels P2 ou P8 ou P4 devem ser um pixel branco}}
+\caption{\textbf{pixeis P2 ou P8 ou P4 devem ser um pixel branco}}
 \includegraphics[width=0.4\textwidth]{imagens/zhangsuen1.png}
 
 Fonte: Guilherme (2007, p. 16)
@@ -1085,7 +1085,7 @@ Fonte: Guilherme (2007, p. 16)
 \begin{figure}[ht]
 \centering
 \label{fig:zhangsuen2}
-\caption{\textbf{Pixels P2 ou P8 ou P4 devem ser um pixel branco}}
+\caption{\textbf{pixeis P2 ou P8 ou P4 devem ser um pixel branco}}
 \includegraphics[width=0.4\textwidth]{imagens/zhangsuen2.png}
 
 Fonte: Guilherme (2007, p. 16)
@@ -1094,7 +1094,7 @@ Fonte: Guilherme (2007, p. 16)
 \begin{figure}[ht]
 \centering
 \label{fig:zhangsuen3}
-\caption{\textbf{Pixels P2 ou P4 ou P6 devem ser um pixel branco}}
+\caption{\textbf{pixeis P2 ou P4 ou P6 devem ser um pixel branco}}
 \includegraphics[width=0.4\textwidth]{imagens/zhangsuen3.png}
 
 Fonte: Guilherme (2007, p. 16)
@@ -1103,7 +1103,7 @@ Fonte: Guilherme (2007, p. 16)
 \begin{figure}[ht]
 \centering
 \label{fig:zhangsuen4}
-\caption{\textbf{Pixels P8 ou P6 ou P4 devem ser um pixel branco}}
+\caption{\textbf{pixeis P8 ou P6 ou P4 devem ser um pixel branco}}
 \includegraphics[width=0.4\textwidth]{imagens/zhangsuen4.png}
 
 Fonte: Guilherme (2007, p. 16)
@@ -1115,12 +1115,12 @@ A implementação em java para o algoritmo pode ser acessado através do link:
 % ---
 \subsection{Holt}    
 
-O algoritmo de Holt (HOLT et al., 1987) utiliza uma vizinhança 3 x 3para a análise dos pixels a serem removidos. O formato da matriz permite que seja feita uma análise do pixel central C e seus vizinhos NO, N, NE, O, L, SO, S e SE.
+O algoritmo de Holt (HOLT et al., 1987) utiliza uma vizinhança 3 x 3para a análise dos pixeis a serem removidos. O formato da matriz permite que seja feita uma análise do pixel central C e seus vizinhos NO, N, NE, O, L, SO, S e SE.
 
 \begin{figure}[ht]
 \centering
 \label{fig:zhangsuen4}
-\caption{\textbf{Pixels P8 ou P6 ou P4 devem ser um pixel branco}}
+\caption{\textbf{pixeis P8 ou P6 ou P4 devem ser um pixel branco}}
 \includegraphics[width=0.4\textwidth]{imagens/holt.png}
 
 Fonte: Guilherme (2007, p. 21)
@@ -1163,7 +1163,7 @@ Na Figura \ref{fig:esqueletizacao} são apresentados as aplicações de algoritm
 % ---
 \section{Segmentação}  
 
-Segmentação é um processo de consiste em dividir a imagem em regiões. O objetivo deste processo é fazer com que os objetos e áreas de interesse de uma imagem tenham seus pixels agrupados e destacados do restante da imagem. A segmentação é um tema de extrema importância na área de análise de imagens, pois a identificação de partes de imagens que representam elementos de interesse é fundamental \cite{conciAzevedoLeta:2008}.  
+Segmentação é um processo de consiste em dividir a imagem em regiões. O objetivo deste processo é fazer com que os objetos e áreas de interesse de uma imagem tenham seus pixeis agrupados e destacados do restante da imagem. A segmentação é um tema de extrema importância na área de análise de imagens, pois a identificação de partes de imagens que representam elementos de interesse é fundamental \cite{conciAzevedoLeta:2008}.  
 
 A segmentação de imagens é convencionalmente baseada em propriedades dos níveis de cinza de imagens, a descontinuidade e similaridade. Os métodos da descontinuidade visam a identificação de objetos a partir de mudanças abruptas dos níveis de cinza da imagem, que caracterizam a borda de um objeto. Estes métodos foram tratados do seção XXX. Os métodos de similaridade tem como objetivo agrupar pontos semelhantes da imagem para um determinado conjunto de características \cite{pedriniSchwartz:2008}. Este métodos serão tratados nesta seção.
     
@@ -1172,9 +1172,9 @@ A segmentação de imagens é convencionalmente baseada em propriedades dos nív
 
 Segmentações baseadas em regiões são métodos que detectam diretamente regiões na imagem, ao invés de detectar bordas que delimitam regiões. Estes algoritmos agrupam pontos que possuem propriedades similares, formando, desta forma, regiões. Um dos principais métodos de segmentação baseada em regiões é o método de crescimento de regiões \cite{pedriniSchwartz:2008}.
 
-O método de crescimento de regiões é um processo de segmentação que tem como início um pixel ou um conjuntos de pixels, que são denominados sementes. Para cada semente, os pixels vizinhos são analisados, caso possuam um nível de similaridade, os pixels são definidos como pertencentes a região da semente. As regiões devem possuir características em comum, considerando algum fator de tolerância. Além disso, regiões devem estar fechadas, possuindo bordas bem delimitadas, de forma que seu interior esteja separado de outros segmentos. \cite{conciAzevedoLeta:2008}.
+O método de crescimento de regiões é um processo de segmentação que tem como início um pixel ou um conjuntos de pixeis, que são denominados sementes. Para cada semente, os pixeis vizinhos são analisados, caso possuam um nível de similaridade, os pixeis são definidos como pertencentes a região da semente. As regiões devem possuir características em comum, considerando algum fator de tolerância. Além disso, regiões devem estar fechadas, possuindo bordas bem delimitadas, de forma que seu interior esteja separado de outros segmentos. \cite{conciAzevedoLeta:2008}.
 
-De acordo com Conci, Azevedo e Leta (2008), alguns fatores devem ser considerados na execução do processo de crescimento de regiões. Inicialmente, é necessário que a escolha de semente seja realizada da maneira adequada, representando corretamente a região de interesse, sendo que a semente é o ponto de partida para a execução do método. A definição de critérios de parada do método é outro fator de extrema importância, pois o crescimento deve parar quando não houver mais pixels vizinhos que satisfaçam estes critérios. Estes critérios podem estar relacionados a comparação dos pixels vizinhos, a forma e ao tamanho.
+De acordo com Conci, Azevedo e Leta (2008), alguns fatores devem ser considerados na execução do processo de crescimento de regiões. Inicialmente, é necessário que a escolha de semente seja realizada da maneira adequada, representando corretamente a região de interesse, sendo que a semente é o ponto de partida para a execução do método. A definição de critérios de parada do método é outro fator de extrema importância, pois o crescimento deve parar quando não houver mais pixeis vizinhos que satisfaçam estes critérios. Estes critérios podem estar relacionados a comparação dos pixeis vizinhos, a forma e ao tamanho.
 
 Após a detecção da regiões, comumente é realizada a identificação destas regiões (\textit{label}). Esta identificação consiste em definir um identificador para cada região encontrada na imagem. 
 
@@ -1194,7 +1194,7 @@ Na Figura \ref{fig:crescimento_regiao} é apresentado um exemplo de uma aplicaç
 \includegraphics[width=0.5\textwidth]{imagens/crescimentoregiao_formula.png}
 \end{figure}
 
-Onde \(f(r,s)\) representa a semente e \(f(x, y)\) representam os pixels conectados a semente.
+Onde \(f(r,s)\) representa a semente e \(f(x, y)\) representam os pixeis conectados a semente.
     
 % ---
 \subsection{Método de Contornos Ativos}     
@@ -1503,7 +1503,7 @@ Durante as aulas, o instrutor terá quatro áreas para gerenciar as atividades d
 
 Na sessão do alunos, existem 4 funcionalidades. A principal delas é a \textit{“Manege Active Quests”}, esta é a funcionalidade que permite o alunos visualizar suas \textit{quests} e enviar suas respectivas respostas. A funcionalidade \textit{“View Completed Quests”} possibilita ao aluno visualizar sua própria performance em \textit{quests} já concluídas, e também permite a visualização das respostas corretas paras as \textit{quests}. A funcionalidade \textit{“View Achievements”} permite a visualização de todas as conquista recebidas pelo usuário. Por final, a funcionalidade “Customize Avatar” é onde o aluno pode customizar a aparência de seu avatar a partir dos itens conquistados.
 
-Para avaliar a eficácia do Classroom Live, os autores aplicaram a ferramenta em uma parte do curso de introdução a programação. A Figura XXX, demonstra a sequência de eventos utilizados nesta experiência de aplicação em sala de aula. Cada lição começa com a criação de dois tipos de \textit{quests} por parte do instrutor. O primeiro corresponde a uma tarefa onde o aluno deve desenvolver e enviar um trecho de código fonte que corresponda a tarefa atribuída. O instrutor também desenvolve \textit{quests} que múltiplas escolhas relacionadas ao material ensinado na aula daquele dia. O instrutor tem a possibilidade de adicionar recompensas em ambas \textit{quests}.
+Para avaliar a eficácia do Classroom Live, os autores aplicaram a ferramenta em uma parte do curso de introdução a programação. A Figura \ref{fig:classroom_aula}, demonstra a sequência de eventos utilizados nesta experiência de aplicação em sala de aula. Cada lição começa com a criação de dois tipos de \textit{quests} por parte do instrutor. O primeiro corresponde a uma tarefa onde o aluno deve desenvolver e enviar um trecho de código fonte que corresponda a tarefa atribuída. O instrutor também desenvolve \textit{quests} que múltiplas escolhas relacionadas ao material ensinado na aula daquele dia. O instrutor tem a possibilidade de adicionar recompensas em ambas \textit{quests}.
 
 Quando o aluno submete suas respostas, os resultados são enviados automaticamente para o servidor para que instrutor possa realizar a revisão do que foi feito. Dependendo da performance dos estudantes o instrutor por decidir se deve ou não voltar para a explicação teórica ou mover para o próximo tópico. Enquanto isso, os alunos recebem feedback de suas ações realizadas. A atribuição de recompensas é realizada pelo instrutor após ele realizar a revisão da tarefa completada pelo aluno.
 
