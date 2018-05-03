@@ -271,9 +271,11 @@ Fonte: do autor
 \end{figure}
 
 
-Segundo Conci, Azevedo e Leta (2008), o histograma pode ser obtido da seguinte forma: analisa-se o tom de cada pixel; realiza-se a contagem do número de pixeis de cada intensidade de cor; representa-se esses valores na forma gráfica, correspondendo a frequência de cada tom.
+Segundo \citet{conciAzevedoLeta:2008}, o histograma pode ser obtido da seguinte forma: analisa-se o tom de cada pixel; realiza-se a contagem do número de pixeis de cada intensidade de cor; representa-se esses valores na forma gráfica, correspondendo a frequência de cada tom.
 
 Um processo comumente aplicado em técnicas de PDI é a convolução. Segundo Pedrini e Schwartz (2008), o processo de convolução faz uso de matrizes, que são denominadas máscaras, para aplicar modificações na imagem pixel a pixel. A máscara, também conhecida como \textit{kernel} é uma matriz bidimensional quadrada. Usualmente, esta matriz possui um tamanho ímpar e dimensões quadradas, estas características são importantes para que a máscara possua um pixel central.
+
+\citet{fardo2013gamificaccao}
 
 O processo de convolução utiliza os coeficientes desta máscaras para realizar uma multiplicação pelos níveis de cor dos pixeis. O pixel central é modificado pela média de todas as multiplicações. Este processo percorre a imagem aplicando a máscara em todos os pixel da imagem. Outro processo semelhante é o processo de correlação, onde este possui o mesmo princípio da convolução, mas com a diferença da máscara ser rotacionada em 180º \cite{gonzalesWoods:2008}. A implementação em java para o algoritmo pode ser acessado através do link: \url{https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/ConvolutionProcess.java}.
 
