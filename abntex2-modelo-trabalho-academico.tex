@@ -43,29 +43,11 @@
 % ---
 % Pacotes de citações
 % ---
-\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
 \usepackage[alf]{abntex2cite}	% Citações padrão ABNT
 
 % --- 
 % CONFIGURAÇÕES DE PACOTES
 % --- 
-
-% ---
-% Configurações do pacote backref
-% Usado sem a opção hyperpageref de backref
-\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
-% Texto padrão antes do número das páginas
-\renewcommand{\backref}{}
-% Define os textos da citação
-\renewcommand*{\backrefalt}[4]{
-	\ifcase #1 %
-		Nenhuma citação no texto.%
-	\or
-		Citado na página #2.%
-	\else
-		Citado #1 vezes nas páginas #2.%
-	\fi}%
-% ---
 
 
 % ---
@@ -257,17 +239,27 @@ O  processamento digital de imagens (PDI) se refere a utilização de um conjunt
 
 Um sistema de processamento de imagens é composto por um conjunto de etapas, dentre elas estão: aquisição; pré-processamento; segmentação; representação e descrição; reconhecimento e interpretação. Estas etapas possuem a capacidade de produzir um resultado a partir de um domínio do problema. Por exemplo, determinar o número de células sanguíneas em uma amostra digital de sangue \cite{pedriniSchwartz:2008}.
 
-A etapa de aquisição tem como objetivo a capturar a imagem por meio de um dispositivo e converte-la adequadamente para uma representação digital. A etapa de pré-processamento visa a melhora da qualidade da imagem, utilizando técnicas para a diminuição de ruídos, a correção de contraste e a suavização da imagem. A etapa de segmentação é responsável pela extração e identificação de áreas de interesse, geralmente utilizando técnicas de detecção de bordas ou regiões \cite{pedriniSchwartz:2008}.
+A etapa de aquisição tem como objetivo capturar a imagem por meio de um dispositivo e converte-la adequadamente para uma representação digital. A etapa de pré-processamento visa a melhora da qualidade da imagem, utilizando técnicas para a diminuição de ruídos, a correção de contraste e a suavização da imagem. A etapa de segmentação é responsável pela extração e identificação de áreas de interesse, geralmente utilizando técnicas de detecção de bordas ou regiões \cite{pedriniSchwartz:2008}.
 
 A etapa de representação e descrição é responsável  pelo armazenamento e manipulação dos objetos extraídos da imagem. Além disso, este processo visa a extração de características dos objetivos extraídos. A utiliza etapa, reconhecimento e interpretação, é a etapa que rotula os objetivos da imagem, utilizando, para isso, as características extraídas na etapa anterior. Além da rotulação, é responsabilidade desta etapa atribuir um significado ao conjunto de objetos reconhecidos \cite{pedriniSchwartz:2008}. 
+% * <jonatabecker@gmail.com> 2018-05-02T23:43:38.114Z:
+% 
+% > A etapa de representação e descrição é responsável  pelo armazenamento e manipulação dos objetos extraídos da imagem. Além disso, este processo visa a extração de características dos objetivos extraídos. A utiliza etapa, reconhecimento e interpretação, é a etapa que rotula os objetivos da imagem, utilizando, para isso, as características extraídas na etapa anterior. Além da rotulação, é responsabilidade desta etapa atribuir um significado ao conjunto de objetos reconhecidos \cite{pedriniSchwartz:2008}. 
+% 
+% 
+% olhar
+% 
+% ^.
 
-Para o processamento digital de imagens é necessário que a imagem possa ser manipulada digitalmente. Segundo Pedrini e Schwartz (2008), uma imagem digital pode ser representada através de uma matriz bidimensional, onde cada elemento desta matriz corresponde a um ponto da imagem. Cada um destes pontos representa uma cor ou um tom de cinza e são denominados pixeis. 
+Para o processamento digital de imagens é necessário que a imagem possa ser manipulada digitalmente. Segundo \citet{pedriniSchwartz:2008}, uma imagem digital pode ser representada através de uma matriz bidimensional, onde cada elemento desta matriz corresponde a um ponto da imagem. Cada um destes pontos representa uma cor ou um tom de cinza e são denominados pixeis. 
 
 Imagens monocromáticas são imagens onde seus pixeis possuem somente uma banda espectral, ou seja, seu pixel é representado somente por uma grandeza. Estas imagens podem ser binárias ou em escala de cinza. Imagens binárias são imagens onde seus pixeis assumem somente dois valores, normalmente 0 ou 1. Já uma imagem em escala de cinza, é uma imagem onde seus pixeis podem assumir uma faixa de valores. Caso a imagem utilize 1 \textit{byte}, seus valores podem variam de 0 a 255, onde 0 representa a cor preta e 255 a cor branca, e o intervalo é representado por tonalidades de cinza, desta forma, haverá 256 tons diferentes \cite{conciAzevedoLeta:2008}.
 
-Imagens coloridas são imagens que possuem mais de uma banda, ou seja, multibanda. Seus pixeis possuem mais de um canal. Cada canal representa uma cor, desta forma, uma imagem RGB será representada por canais que representam a cor vermelha, verde e azul respectivamente. Digitalmente, esta imagem pode ser representada por 3 matrizes, cada uma representando um canal da imagem, a combinação das três matrizes representa uma cor \cite{conciAzevedoLeta:2008}.
+Imagens coloridas são imagens que possuem mais de uma banda, ou seja, multibanda. Seus pixeis possuem mais de um canal. Cada canal representa uma cor, desta forma, uma imagem RGB será representada por canais que representam a cor vermelha, verde e azul, respectivamente. Digitalmente, esta imagem pode ser representada por 3 matrizes, cada uma representando um canal da imagem, a combinação das três matrizes representa uma cor \cite{conciAzevedoLeta:2008}.
 
 Uma imagem colorida pode ser transformada em uma imagem monocromática em escala de cinza ou em uma imagem binária. A transformação em escala de cinza realiza uma combinação dos valores RGB de cada pixel, definido um valor para cada pixel que representa a média dos valores RGB. A conversão para uma imagem binária pode ser realizada através do processo de Limiarização (explicado na seção \ref{sec:limiarizacao}), onde cada pixel da imagem será testado e verificado se seu valor será preto ou branco \cite{mossmann2010extraccao}.
+
+O cálculo da distribuição de níveis cor de uma imagem é denominado histograma (Figura \ref{fig:histograma}). O histograma de uma imagem, normalmente é representado de maneira gráfica, onde é indicada a quantidade de pixeis para cada nível de cor. Através do histograma de uma imagem é possível obter medidas estatísticas como os valores mínimo e máximo, valor médio, variância e o desvio padrão \cite{gonzalesWoods:2008}. Na Figura \ref{fig:histograma} é demonstrado o histograma de um segmento de uma imagem. 
 
 \begin{figure}[ht]
 \centering
@@ -278,7 +270,6 @@ Uma imagem colorida pode ser transformada em uma imagem monocromática em escala
 Fonte: do autor
 \end{figure}
 
-O cálculo da distribuição de níveis cor de uma imagem é denominado histograma (Figura \ref{fig:histograma}). O histograma de uma imagem, normalmente é representado de maneira gráfica, onde é indicada a quantidade de pixeis para cada nível de cor. Através do histograma de uma imagem é possível obter medidas estatísticas como os valores mínimo e máximo, valor médio, variância e o desvio padrão \cite{gonzalesWoods:2008}. Na Figura \ref{fig:histograma} é demonstrado o histograma de um segmento de uma imagem. 
 
 Segundo Conci, Azevedo e Leta (2008), o histograma pode ser obtido da seguinte forma: analisa-se o tom de cada pixel; realiza-se a contagem do número de pixeis de cada intensidade de cor; representa-se esses valores na forma gráfica, correspondendo a frequência de cada tom.
 
@@ -286,7 +277,7 @@ Um processo comumente aplicado em técnicas de PDI é a convolução. Segundo Pe
 
 O processo de convolução utiliza os coeficientes desta máscaras para realizar uma multiplicação pelos níveis de cor dos pixeis. O pixel central é modificado pela média de todas as multiplicações. Este processo percorre a imagem aplicando a máscara em todos os pixel da imagem. Outro processo semelhante é o processo de correlação, onde este possui o mesmo princípio da convolução, mas com a diferença da máscara ser rotacionada em 180º \cite{gonzalesWoods:2008}. A implementação em java para o algoritmo pode ser acessado através do link: \url{https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/ConvolutionProcess.java}.
 
-Neste capítulo serão apresentadas algumas das principais técnicas de PDI. Dentre elas estarão transformações geométricas, filtro de passa baixa e passa alta, morfologia matemática, afinamento e técnicas de classificação.
+Neste capítulo serão apresentadas algumas das principais técnicas de PDI. Dentre elas estarão limiarização, transformações geométricas, filtro de passa baixa e passa alta, morfologia matemática, afinamento e técnicas de classificação.
 % ---
 \section{Limiarização}
 \label{sec:limiarizacao}
@@ -323,8 +314,7 @@ Fonte: do autor
 \label{fig:contraste}
 \end{figure}
 
-A Figura \ref{fig:contraste} apresenta figuras que representam a imagem original (esquerda), o resultado após a aplicação de contraste utilizando o coeficiente 2 (b) e o resultado após a aplicação de contraste utilizando o coeficiente 0,5, respectivamente (c). A implementação em java para o algoritmo pode ser acessado através do link:
-\url{https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/ContrastProcess.java}
+A Figura \ref{fig:contraste} apresenta figuras que representam a imagem original (esquerda), o resultado após a aplicação de contraste utilizando o coeficiente 2 (b) e o resultado após a aplicação de contraste utilizando o coeficiente 0,5, respectivamente (c). A implementação em java para o algoritmo pode ser acessado através do link: \url{https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/ContrastProcess.java}
 
 \begin{figure}[ht]
 \centering
@@ -335,8 +325,7 @@ Fonte: do autor
 \label{fig:brilho}
 \end{figure}
 
-A Figura \ref{fig:brilho} apresenta imagens que representam a imagem original (direita), o resultado após a aplicação de brilho utilizando o coeficiente 50 (b) e o resultado após a aplicação de brilho utilizando o coeficiente -50, respectivamente (c). A implementação em java para o algoritmo pode ser acessado através do link:
-\url{https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/BrightnessProcess.java}
+A Figura \ref{fig:brilho} apresenta imagens que representam a imagem original (direita), o resultado após a aplicação de brilho utilizando o coeficiente 50 (b) e o resultado após a aplicação de brilho utilizando o coeficiente -50, respectivamente (c). A implementação em java para o algoritmo pode ser acessado através do link: \url{https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/BrightnessProcess.java}
 
 % ---
 \section{Transformações geométricas}
@@ -402,8 +391,7 @@ T
 	0 & 0 & 0 & 1   \\ \hline   
 \end{tabular}
 
-A implementação em java para o algoritmo pode ser acessado através do link:
-\url{https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/ResizeProcess.java}
+A implementação em java para o algoritmo pode ser acessado através do link: \url{https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/ResizeProcess.java}
 
 % ---
 \subsection{Reflexão}
@@ -1215,8 +1203,7 @@ Fonte: Pedrini e Schwartz (2008)
 
 Na Figura \ref{fig:snake} é demonstrado uma execução do método de Snakes. (a) contorno inicial. (b) contorno resultante após aplicação de algumas etapas. (c) contorno final.
 
-A implementação em java para o algoritmo pode ser acessado através do link:
-\url{https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/CannyProcess.java}
+A implementação em java para o algoritmo pode ser acessado através do link: \url{https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/CannyProcess.java}
 
 % ----------------------------------------------------------
 % Gamificação
@@ -1390,7 +1377,7 @@ As pessoas atingem um nível mais elevado de satisfação ao comparar seu desemp
 Neste capítulo são apresentados trabalhos relacionados à área de pesquisa deste projeto. O objetivo é identificar e avaliar os propostas que outros autores utilizaram para tratam do tema do presente estudo.
 
 % ---
-\section{JavaVis: An Integrated Computer Vision Library for Teaching Computer Vision (CAZORLA; VIEJO, 2013)}
+\section{JavaVis: An Integrated Computer Vision Library for Teaching Computer Vision}
 
 A pesquisa de Cazorla e Viejo (2013) propõe o desenvolvimento de um framework para estudar visão computacional e tópicos semelhantes. Esta ferramenta foi chamada de JavaVis. Está ferramenta é dividida em 3 áreas. A primeira área é denominada JavaVis2D, por onde o sistema é iniciado. Esta área está relacionada com a visão computacional tradicional, onde é possível utilizar diversos algoritmos já implementados, e também que os próprios alunos criem novos algoritmos. 
 
@@ -1471,7 +1458,7 @@ Fonte: Cazorla e Viejo  (2013)
 \end{figure}
 
 % ---
-\section{Classroom Live: a software-assisted gamification tool \cite{de2013classroom}}
+\section{Classroom Live: a software-assisted gamification tool}
 
 A pesquisa de Freitas e Freitas (2013) tem por objetivo conseguir engajar os estudantes da US Air Force Academy. Para isso, foi desenvolvido um sistema cliente/servidor para servir como aporte para aulas gamificadas. O sistema é chamado de Classroom Live, e este faz uso do de computadores e acesso wireless para prover uma experiência online e interativa de aprendizagem. Ao acessar o software, o aluno recebe “quests” que são preparadas pelo instrutor. O instrutor pode acessar uma aplicação diferente para analisar a performance do estudante e recompensas em tempo real.
 
