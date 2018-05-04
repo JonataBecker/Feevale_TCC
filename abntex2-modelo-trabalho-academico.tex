@@ -134,7 +134,9 @@
 % ---
 % Agradecimentos
 % ---
-\imprimiragradecimento{Os agradecimentos principais são direcionados a todo mundo...}
+\imprimiragradecimento{Gostaria de agradecer a todos que, de alguma maneira, contribuíram para a realização deste trabalho de conclusão. Muito obrigado!}
+
+%TODO: Definir agradecimentos %
 
 % ---
 
@@ -146,7 +148,7 @@
 
 % resumo em português
 \begin{resumo}
-A área de processamento digital de imagens vem crescendo nas mais diversas áreas de conhecimento, tornando-se uma importante campo de estudo. O estudo desta área não é, muitas vezes, atrativo devido a forma com que o embasamento teórico é apresentado sem que este seja entusiasmante para o aluno. Abordagens como gamificação tem como objetivo auxiliar estudantes a se manterem motivados e envolvidos com o processo de aprendizagem, utilizando conceitos provenientes dos jogos. Ferramentas para o ensino proporcionam um ambiente de simulação e prototipação, servindo como mecanismo para o estudante aplicar na prática aquilo que ele aprendeu na teoria. O VISNode é uma ferramenta para prototipação de técnicas de PDI, que faz uso de nodos e suas conexões para representar técnicas e suas conexões. Desta forma, este trabalho tem como objetivo desenvolver módulos para a ferramenta VISNode, visando o desenvolvimento de uma ferramenta para o aporte ao ensino na área de PDI. Será utilizado conceitos de gamificação para incentivar os estudantes, disponibilizando, também, materiais teóricos para complementar o aprendizado. Os módulos da ferramenta serão desenvolvidos e validados segundo o estilo de aprendizagem dos usuários.
+A área de processamento digital de imagens vem crescendo nas mais diversas áreas de conhecimento, tornando-se um importante campo de estudo. O estudo desta área não é, muitas vezes, atrativo, devido a forma com que o embasamento teórico é apresentado sem que este seja entusiasmante para o aluno. Abordagens como gamificação tem como objetivo auxiliar estudantes a se manterem motivados e envolvidos com o processo de aprendizagem, utilizando conceitos provenientes dos jogos. Ferramentas para o ensino proporcionam um ambiente de simulação e prototipação, servindo como mecanismo para o estudante aplicar na prática aquilo que ele aprendeu na teoria. O VISNode é uma ferramenta para prototipação de técnicas de PDI, que faz uso de nodos e suas conexões para representar técnicas e suas conexões. Desta forma, este trabalho tem como objetivo desenvolver módulos para a ferramenta VISNode, visando o desenvolvimento de uma ferramenta para o aporte ao ensino na área de PDI. Serão utilizados conceitos de gamificação para incentivar os estudantes, disponibilizando, também, materiais teóricos para complementar o aprendizado. Os módulos da ferramenta serão desenvolvidos e validados segundo o estilo de aprendizagem dos usuários.
 
  \vspace{\onelineskip}
     
@@ -241,15 +243,8 @@ Um sistema de processamento de imagens é composto por um conjunto de etapas, de
 
 A etapa de aquisição tem como objetivo capturar a imagem por meio de um dispositivo e converte-la adequadamente para uma representação digital. A etapa de pré-processamento visa a melhora da qualidade da imagem, utilizando técnicas para a diminuição de ruídos, a correção de contraste e a suavização da imagem. A etapa de segmentação é responsável pela extração e identificação de áreas de interesse, geralmente utilizando técnicas de detecção de bordas ou regiões \cite{pedriniSchwartz:2008}.
 
-A etapa de representação e descrição é responsável  pelo armazenamento e manipulação dos objetos extraídos da imagem. Além disso, este processo visa a extração de características dos objetivos extraídos. A utiliza etapa, reconhecimento e interpretação, é a etapa que rotula os objetivos da imagem, utilizando, para isso, as características extraídas na etapa anterior. Além da rotulação, é responsabilidade desta etapa atribuir um significado ao conjunto de objetos reconhecidos \cite{pedriniSchwartz:2008}. 
-% * <jonatabecker@gmail.com> 2018-05-02T23:43:38.114Z:
-% 
-% > A etapa de representação e descrição é responsável  pelo armazenamento e manipulação dos objetos extraídos da imagem. Além disso, este processo visa a extração de características dos objetivos extraídos. A utiliza etapa, reconhecimento e interpretação, é a etapa que rotula os objetivos da imagem, utilizando, para isso, as características extraídas na etapa anterior. Além da rotulação, é responsabilidade desta etapa atribuir um significado ao conjunto de objetos reconhecidos \cite{pedriniSchwartz:2008}. 
-% 
-% 
-% olhar
-% 
-% ^.
+A etapa de representação e descrição é responsável  pelo armazenamento e manipulação dos objetos extraídos da imagem. Além disso, este processo visa a extração de características dos objetivos extraídos. A etapa de reconhecimento e interpretação, é a etapa que rotula os objetivos da imagem, utilizando, para isso, as características extraídas na etapa anterior. Além da rotulação, é responsabilidade desta etapa atribuir um significado ao conjunto de objetos reconhecidos \cite{pedriniSchwartz:2008}. 
+
 
 Para o processamento digital de imagens é necessário que a imagem possa ser manipulada digitalmente. Segundo \citet{pedriniSchwartz:2008}, uma imagem digital pode ser representada através de uma matriz bidimensional, onde cada elemento desta matriz corresponde a um ponto da imagem. Cada um destes pontos representa uma cor ou um tom de cinza e são denominados pixels. 
 
@@ -294,10 +289,10 @@ Fonte: do autor
 \label{fig:limiarizacaofig}
 \end{figure}
 
-Na Figura \ref{fig:limiarizacaofig} é aplicado um \textit{Threshold} de 190, desta forma, os pixels com valor maior que 190 recebem a cor branca, enquanto os pixels com valor inferior recebem a cor preta. A imagem resultante será composta por pixels pretos e brancos variando, sendo 0 ou 255.A implementação em java para o algoritmo pode ser acessado através do link:
+Na Figura \ref{fig:limiarizacaofig} é aplicado um \textit{Threshold} de 190, desta forma, os pixels com valores maiores que 190 recebem a cor branca, enquanto os pixels com valores inferiores recebem a cor preta. A imagem resultante será composta por pixels pretos e brancos variando, sendo 0 ou 255.A implementação em java para o algoritmo pode ser acessado através do link:
 \url{https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/ThresholdProcess.java}
 
-Uma maneira comum para a identificação do \textit{Threshold} a ser utilizado é através do histograma da imagem, sendo que através do histograma se tem uma visão geral da distribuição das tonalidades da imagem. Em um histograma com dois picos, o valor entre os dois picos pode ser utilizado com sendo o \textit{Threshold}, onde os picos representam as cores com maior ocorrência  \cite{gonzalesWoods:2008}. 
+Uma maneira comum para a identificação do \textit{Threshold} a ser utilizado é através do histograma da imagem, sendo que através do histograma se tem uma visão geral da distribuição das tonalidades da imagem. Em um histograma com dois picos, o valor entre os dois picos pode ser utilizado como \textit{Threshold}, onde os picos representam as cores com maior ocorrência \cite{gonzalesWoods:2008}. 
 
 % ---
 \section{Brilho e Contraste}
@@ -307,7 +302,7 @@ O brilho e contraste podem ser definidos através de uma função matemática. E
 
 \begin{figure}[ht]
 \centering
-\caption{\textbf{Imagem colorida (a) e as imagens correspondentes após a aplicação de contraste (b) e (c)}}
+\caption{\textbf{Imagem colorida (a) e as imagens correspondentes após a aplicação de contraste com diferentes valores (b) e (c)}}
 \includegraphics[width=0.9\textwidth]{imagens/contraste.png}
 
 Fonte: do autor
@@ -330,7 +325,7 @@ A Figura \ref{fig:brilho} apresenta imagens que representam a imagem original (d
 % ---
 \section{Transformações geométricas}
 
-Operações geométricas são aquelas que possuem o objetivo de permitir o mapeamento entre posições espaciais da imagem e a imagem modificada. Estas transformações consistem em aplicar operações responsáveis pela reorganização dos pixels da imagem \cite{pedriniSchwartz:2008}. São operações que modificam os tons dos pixel na posição (\(x_o, y_o\)) da imagem de origem para outra imagem (\(x_d, y_d\))de destino, alterando, desta forma, a posição dos pixels \cite{conciAzevedoLeta:2008}.
+Transformações geométricas são aquelas que possuem o objetivo de permitir o mapeamento entre posições espaciais da imagem e a imagem modificada. Estas transformações consistem em aplicar operações responsáveis pela reorganização dos pixels da imagem \cite{pedriniSchwartz:2008}. São operações que modificam os tons dos pixel na posição (\(x_o, y_o\)) da imagem de origem para outra imagem (\(x_d, y_d\))de destino, alterando, desta forma, a posição dos pixels \cite{conciAzevedoLeta:2008}.
 
 Transformações espaciais podem ser realizadas através da multiplicação de matrizes, expressa por:
 
@@ -363,7 +358,7 @@ Os valores X’, Y’, Z representam as coordenadas da imagem de destino que rec
 % ---
 \subsection{Translação}
 
-O processo de transladar um objeto consistem em deslocar ou somar a cada um dos pixels da imagem um determinado valor (\(tx,ty,tz\)) \cite{conciAzevedoLeta:2008}. Segundo \citet{pedriniSchwartz:2008}, a translação de uma imagem, utilizando o deslocamento \(tx\),\(ty\) e \(tz\), pode ser expressa na forma matricial por:
+O processo de transladar um objeto consiste em deslocar ou somar a cada um dos pixels da imagem um determinado valor (\(tx, ty, tz\)) \cite{conciAzevedoLeta:2008}. Segundo \citet{pedriniSchwartz:2008}, a translação de uma imagem, utilizando o deslocamento \(tx\), \(ty\) e \(tz\), pode ser expressa na forma matricial por:
 
 T
 \begin{tabular}{|c|c|c|c|}
@@ -477,7 +472,7 @@ Fonte: do autor
 \label{fig:transformacoesgeometricas}
 \end{figure}
 
-Na Figura \ref{fig:transformacoesgeometricas} é apresentado a aplicação de transformações geométricas. O primeiro processo apresentado é a translação (b), onde a imagem original é transladada 50 pixels no \(eixo x\) e 100 pixels no \(eixo y\). Sequencialmente é apresentado o processo de mudança de escala utilizando o valor o fator 2 (c), a reflexão horizontalmente (d) e a rotação da imagem (e). 
+Na Figura \ref{fig:transformacoesgeometricas} é apresentada a aplicação de transformações geométricas. O primeiro processo apresentado é a translação (b), onde a imagem original é transladada em 50 pixels no \(eixo x\) e 100 pixels no \(eixo y\). Sequencialmente é apresentado a imagem original (a), o processo de mudança de escala utilizando o valor o fator 2 (c), a reflexão horizontalmente (d) e a rotação da imagem (e). 
 
 % ---
 \section{Filtros passa baixa (Suavização)}
@@ -495,7 +490,7 @@ A implementação em java para o algoritmo pode ser acessado através do link: \
 
 % ---
 \subsection{Moda}
-O filtro de moda calcula o ponto médio entre os valores máximos e mínimos da área em processamento. É indicado para a remoção de ruídos aleatoriamente distribuídos como o ruído gaussiano ou o uniforme \cite{gonzalesWoods:2008}. Neste filtro, os valores existentes na máscara são ordenado e é utilizado o como novo valor o valor mais frequente \cite{conciAzevedoLeta:2008}.
+O filtro de moda calcula o ponto de maior frequência entre os da área em processamento. É indicado para a remoção de ruídos aleatoriamente distribuídos como o ruído gaussiano ou o uniforme \cite{gonzalesWoods:2008}. Neste filtro, os valores existentes na máscara são ordenado e é utilizado o como novo valor o valor mais frequente \cite{conciAzevedoLeta:2008}.
 
 A implementação em java para o algoritmo pode ser acessado através do link:
 \url{https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/ModeBlurProcess.java}
@@ -505,7 +500,7 @@ A implementação em java para o algoritmo pode ser acessado através do link:
 
 O filtro de mediana é o filtro estatístico mais conhecido, onde substitui o valor de um determinado pixel pela mediana dos níveis de intensidade da vizinhança. Este tipo de filtro é utilizado quando se deseja reduzir ruídos aleatórios de uma imagem. O filtro propicia um menor borramento do que filtros lineares de suavização como o filtro de média \cite{gonzalesWoods:2008}.
 
-A mediana m de um conjunto contendo um número \(n\) de elementos é definida pelo valor central destes elementos, desta forma, a metade dos elementos situam-se acima de \(m\) e a outra metade abaixo. Quando \(n\) for par, é necessário realizar a média aritmética dos elementos mais próximos aos centro \cite{conciAzevedoLeta:2008}.
+A mediana \(m\) de um conjunto contendo um número \(n\) de elementos é definida pelo valor central destes elementos, desta forma, a metade dos elementos situam-se acima de \(m\) e a outra metade abaixo. Quando \(n\) for par, é necessário realizar a média aritmética dos elementos mais próximos aos centro \cite{conciAzevedoLeta:2008}.
 
 Este filtro realiza a ordenação das intensidades dos pixels existentes dentro da máscara, utilizando como valor para o pixel analizado o valor central dos elementos ordenados \cite{conciAzevedoLeta:2008}.
 
@@ -518,16 +513,16 @@ A implementação em java para o algoritmo pode ser acessado através do link:
 \subsection{Filtro Gaussiano}
 Filtros Gaussianos possuem características que são úteis para o processamento de imagens. As funções Gaussianas são simétricas, o que significa que o grau de suavização é aplicado da mesma forma em todas as direções (isotrópico). A suavização da imagem é obtida através da substituição de cada pixel da imagem pela média ponderada dos pixels vizinhos \cite{pedriniSchwartz:2008}. 
 
-Este filtro é utilizado para reduzir quantidades de variação de intensidades entre o pixel e seus vizinhos, minimizando e até eliminado informações indesejadas. É um dos filtros de passa-baixa mais importantes, pois seu nível de suavização ocorre de maneira mais uniforme, o que não ocorre nos outros filtros, como, por exemplo, no filtro de média. Este filtro é adequado para a aplicação em conjunto com outros filtros em aplicações de detecção de bordas \cite{conciAzevedoLeta:2008}.   
+Este filtro é utilizado para reduzir quantidades de variação de intensidades entre o pixel e seus vizinhos, minimizando e até eliminado informações indesejadas. É um dos filtros de passa-baixa mais importantes, pois seu nível de suavização ocorre de maneira uniforme, o que não ocorre nos outros filtros, como, por exemplo, no filtro de média. Este filtro é adequado para a aplicação em conjunto com outros filtros em aplicações de detecção de bordas \cite{conciAzevedoLeta:2008}.   
 
-Segundo \citet{pedriniSchwartz:2008}, em filtros Gaussianos, os coeficientes da máscara de processamento são obtidos através de uma função Gaussiana bidimensional. A função Gaussiana com média zero e desvio padrão é descrita por:
+Segundo \citet{pedriniSchwartz:2008}, em filtros Gaussianos, os coeficientes da máscara de processamento são obtidos através de uma função Gaussiana bidimensional. A função Gaussiana com média zero e desvio padrão \(\sigma\) é descrita por:
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.8\textwidth]{imagens/gauss_formula.png}
 \end{figure}
 
-A aplicação de um filtro Gaussiano pode ser realizada através de convoluções por meio de matrizes. Abaixo são descritas duas máscaras para este filtro, ambas com = 0.
+A aplicação de um filtro Gaussiano pode ser realizada através de convoluções por meio de matrizes. Abaixo são descritas duas máscaras para este filtro, ambas com \(\sigma\) = 0.
 
 \begin{figure}[ht]
 \centering
@@ -546,10 +541,10 @@ Fonte: do autor
 \label{fig:suavizacao}
 \end{figure}
 
-Na Figura \ref{fig:suavizacao} é apresentado um conjunto de aplicações de filtros passa baixa para a suavização da imagem de origem. O primeiro filtro apresentado é o filtro da média (b), seguido do filtro moda (c), mediana (d) e o filtro Gaussiano (e).
+Na Figura \ref{fig:suavizacao} é apresentado um conjunto de aplicações de filtros passa baixa para a suavização da imagem de origem. A imagem (a) representa a imagem original.  O primeiro filtro apresentado é o filtro da média (b), seguido do filtro moda (c), mediana (d) e o filtro Gaussiano (e).
 
 % ---
-\section{Filtros passa alta}
+\section{Filtros passa-alta}
 
 Filtros passa-alta diminuem ou eliminam baixas frequências, realçando as altas frequências. São filtros que destacam características como bordas, linhas e curvas, indicado mudanças repentinas nos níveis de intensidade entre duas regiões. Em geral, o resultado obtido através destes filtros é o de tornar mais nítidas as transições entre regiões da imagem \cite{conciAzevedoLeta:2008}.
 
@@ -562,6 +557,8 @@ O gradiente de uma imagem, para a função \(f(x,y)\) na coordenadas \(x,y\), po
 \begin{figure}[ht]
 \centering
 \includegraphics[width=0.3\textwidth]{imagens/gradiente.png}
+
+Equação 1.1
 \end{figure}
 
 A magnitude do gradiente se relaciona com a taxa de variação da imagem por unidade de distância. Este valor pode ser definido através da fórmula abaixo:
@@ -572,7 +569,7 @@ A magnitude do gradiente se relaciona com a taxa de variação da imagem por uni
 \end{figure}
 
 
-Onde \(G_x\) e \(G_y\) corresponde ao resultado da multiplicação da matriz Z, que corresponde aos tons de região analisada, com as máscaras de convolução \(G_x\) e \(G_y\) respectivamente
+Onde \(G_x\) e \(G_y\) corresponde ao resultado da multiplicação da matriz Z, que corresponde aos tons da região analisada, com as máscaras de convolução \(G_x\) e \(G_y\) respectivamente
 
 \(Z\)
 \begin{tabular}{|c|c|c|}
@@ -585,7 +582,7 @@ Onde \(G_x\) e \(G_y\) corresponde ao resultado da multiplicação da matriz Z, 
 % ---
 \subsection{Sobel}
 
-O operador de Sobel realiza a aproximação da magnitude do gradiente através da diferença de valores ponderados dos níveis de cinza da imagem. Para isso, são utilizados duas máscaras de tamanho 3 x 3, sendo que uma é aplicada em relação ao \(eixo x\) e a outro é aplicada no \(eixo y\) \cite{pedriniSchwartz:2008}. Este operador realiza um suavização e ao mesmo tempo o realce de bordas.
+O operador de Sobel realiza a aproximação da magnitude do gradiente através da diferença de valores ponderados dos níveis de cinza da imagem. Para isso, são utilizados duas máscaras de tamanho 3 x 3, sendo que uma é aplicada em relação ao \(eixo\) \(x\) e a outro é aplicada no \(eixo\) \(y\) \cite{pedriniSchwartz:2008}. Este operador realiza um suavização, e ao mesmo tempo, o realce de bordas.
 
 \(G_x\)
 \begin{tabular}{|c|c|c|}
@@ -602,17 +599,18 @@ O operador de Sobel realiza a aproximação da magnitude do gradiente através d
 	 1 &  2 & 1   \\ \hline   
 \end{tabular}
 
-Considerando \(z_0\) a \(z_8\) os tons de cinza em torno do pixel que está sendo analisado, este filtro é definido por (Equação 1.1):
+Considerando \(z_0\) a \(z_8\) os tons de cinza em torno do pixel que está sendo analisado, este filtro é definido pela equação (Equação 1.1) onde:
 
 \[Gx = (z_6 + 2z_7 + z_8) - (z_0 + 2z_1 + z_2)\]
 \[Gy = (z_2 + 2z_5 + z_8) - (z_0 + 2z_3 + z_6)\]
 
 A implementação em java para o algoritmo pode ser acessado através do link:
-\url{https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/SobelProcess.java}
+\url{https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi
+ /SobelProcess.java}
 
 % ---
 \subsection{Roberts}
-O operador de Roberts corresponde ao método mais simples de detecção de bordas. Como resultado, em regiões que possuem contraste bem definido, obtém-se uma imagem com intensidades altas, e baixos valores em regiões com pouco contraste. Este operador caracteriza-se por um orientação a 45º, desta forma, bordas inclinadas são mais realçadas que outras. Outra característica deste operador e a sensibilidade a ruído \cite{conciAzevedoLeta:2008}.
+O operador de Roberts corresponde ao método mais simples de detecção de bordas. Como resultado, em regiões que possuem contraste bem definido, obtém-se uma imagem com intensidades altas, e baixos valores em regiões com pouco contraste. Este operador caracteriza-se por um orientação a 45º, desta forma, bordas inclinadas são mais realçadas que outras. Outra característica deste operador é a sensibilidade a ruído \cite{conciAzevedoLeta:2008}.
 
 O operador de Roberts faz uso de duas máscaras de tamanho 2 x 2, sendo que uma é aplicada no sentido horizontal e a outro é aplicada no sentido vertical \cite{pedriniSchwartz:2008}.
 
@@ -634,8 +632,8 @@ Considerando \(z_0\) a \(z_8\) os tons de cinza em torno do pixel que está send
 \[G_x = z_0 - z_4\]
 \[G_y = z_3 -z_1\]
 
-A implementação em java para o algoritmo pode ser acessado através do link:
-
+A implementação em java para o algoritmo pode ser acessado através do link: \url{ https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi
+/Roberts.java}
 % ---
 \subsection{Prewith}
 
@@ -662,7 +660,7 @@ Este filtro faz uso do mesmo conceito de Sobel e Roberts. Considerando z0a z8os 
 \[Gy = (z_2 + z_5 + z_8) - (z_0 + z_3 + z_6)\]
 
 A implementação em java para o algoritmo pode ser acessado através do link:
-\url{https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/RobertsProcess.java} 
+\url{https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/ 	PrewittProcess.java.java} 
 
 % ---
 \subsection{Kirsch}
