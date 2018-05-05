@@ -32,6 +32,7 @@
 \usepackage{color}				% Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage[labelfont=bf,textfont=md]{caption}
+\usepackage{amsmath}
 % ---
 		
 % ---
@@ -85,7 +86,7 @@
     	linkcolor=black,          	% color of internal links
     	citecolor=black,        	% color of links to bibliography
     	filecolor=magenta,    		% color of file links
-		urlcolor=black,
+		urlcolor=blue,
 		bookmarksdepth=4
 }
 \makeatother
@@ -283,7 +284,7 @@ Limiarização ou \textit{Threshold} é uma técnica que consiste em comparar ca
 \centering
 
 \caption{\textbf{Imagem colorida (a) e a imagem correspondente após a aplicação do threshold}}
-\includegraphics[width=0.8\textwidth]{imagens/limiarizacao.png}
+\includegraphics[width=0.6\textwidth]{imagens/limiarizacao.png}
 
 Fonte: do autor
 \label{fig:limiarizacaofig}
@@ -328,29 +329,28 @@ Transformações geométricas são aquelas que possuem o objetivo de permitir o 
 
 Transformações espaciais podem ser realizadas através da multiplicação de matrizes, expressa por:
 
-\begin{tabular}{|c|}
-    \hline
-	X’       \\ \hline
-	Y’       \\ \hline
-	Z’       \\ \hline
-    1        \\ \hline
-\end{tabular}
+\[
+\begin{bmatrix}
+    X’       \\ 
+	Y’       \\ 
+	Z’       \\ 
+    1        \\ 
+\end{bmatrix}
 =
-\begin{tabular}{|c|c|c|c|}
-	\hline
-    \(t_{11}\) & \(t_{12}\) & \(t_{13}\) & \(t_{14}\)   \\ \hline
-	\(t_{21}\) & \(t_{22}\) & \(t_{23}\) & \(t_{24}\)   \\ \hline   
-	\(t_{31}\) & \(t_{32}\) & \(t_{33}\) & \(t_{34}\)   \\ \hline   
-	\(t_{41}\) & \(t_{42}\) & \(t_{43}\) & \(t_{44}\)   \\ \hline   
-\end{tabular}
+\begin{bmatrix}
+    t_{11} & t_{12} & t_{13} & t_{14}   \\ 
+	t_{21} & t_{22} & t_{23} & t_{24}   \\ 
+	t_{31} & t_{32} & t_{33} & t_{34}   \\ 
+	t_{41} & t_{42} & t_{43} & t_{44}   \\ 
+\end{bmatrix}
 .
-\begin{tabular}{|c|}
-    \hline
-	X       \\ \hline
-	Y       \\ \hline
-	Z       \\ \hline
-    1        \\ \hline
-\end{tabular}
+\begin{bmatrix}
+    X       \\ 
+	Y       \\ 
+	Z       \\ 
+    1       \\ 
+\end{bmatrix}
+\]
 
 Os valores X’, Y’, Z representam as coordenadas da imagem de destino que receberão o pixel analisado das coordenadas X, Y, Z da imagem de origem. Os valores \(t_x\), representam a matriz de transformação que deve ser aplicada para o pixel em análise.
 
@@ -359,14 +359,15 @@ Os valores X’, Y’, Z representam as coordenadas da imagem de destino que rec
 
 O processo de transladar um objeto consiste em deslocar ou somar a cada um dos pixels da imagem um determinado valor (\(tx, ty, tz\)) \cite{conciAzevedoLeta:2008}. Segundo \citet{pedriniSchwartz:2008}, a translação de uma imagem, utilizando o deslocamento \(tx\), \(ty\) e \(tz\), pode ser expressa na forma matricial por:
 
+\[
 T
-\begin{tabular}{|c|c|c|c|}
-	\hline
-    1 & 0 & 0 & \(t_x\)   \\ \hline
-	1 & 0 & 1 & \(t_y\)   \\ \hline   
-	0 & 0 & 1 & \(t_z\)   \\ \hline   
-	0 & 0 & 0 & 1        \\ \hline   
-\end{tabular}
+\begin{bmatrix}
+    1 & 0 & 0 & t_x   \\ 
+    1 & 0 & 1 & t_y   \\    
+    0 & 0 & 1 & t_z   \\    
+    0 & 0 & 0 & 1   \\  
+\end{bmatrix} 
+\]
 
 A implementação em java para o algoritmo pode ser acessado através do link:\url{https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/TranslateProcess.java}
 
@@ -375,14 +376,15 @@ A implementação em java para o algoritmo pode ser acessado através do link:\u
 
 O processo de mudança de escala (zoom in, zoom out) consiste na multiplicação de cada um dos pixels da imagem por um uma escala (\(s_x\), \(s_y\), \(s_z\))  \cite{conciAzevedoLeta:2008}. Segundo \citet{pedriniSchwartz:2008}, a mudança de escala de uma imagem, utilizando os fatores \(s_x\), \(s_y\) e \(s_z\), pode ser expressa na forma matricial por:
 
+\[
 T
-\begin{tabular}{|c|c|c|c|}
-	\hline
-    1 & 0 & 0 & \(t_x\)   \\ \hline
-	1 & 0 & 1 & \(t_y\)   \\ \hline   
-	0 & 0 & 1 & \(t_z\)   \\ \hline   
-	0 & 0 & 0 & 1   \\ \hline   
-\end{tabular}
+\begin{bmatrix}
+    1 & 0 & 0 & t_x   \\ 
+	1 & 0 & 1 & t_y   \\ 
+	0 & 0 & 1 & t_z   \\ 
+	0 & 0 & 0 & 1     \\ 
+\end{bmatrix} 
+\]
 
 A implementação em java para o algoritmo pode ser acessado através do link:\url{https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/ResizeProcess.java}
 
@@ -391,30 +393,29 @@ A implementação em java para o algoritmo pode ser acessado através do link:\u
 
 A operação de reflexão ou espelhamento é uma operação que combina operações de rotação múltiplas do ângulo de 90º com uma inversão de coordenadas \cite{conciAzevedoLeta:2008}. Segundo \citet{pedriniSchwartz:2008}, operações de reflexão podem ser expressas na forma matricial por:
 
-\(E_yz\)
-\begin{tabular}{|c|c|c|c|}
-	\hline
-    -1 & 0 & 0 & 0   \\ \hline
-	 0 & 1 & 0 & 0   \\ \hline   
-	 0 & 0 & 1 & 0   \\ \hline   
-	 0 & 0 & 0 & 1   \\ \hline   
-\end{tabular}
-\(E_xz\)
-\begin{tabular}{|c|c|c|c|}
-	\hline
-    0 &  0 & 0 & 0   \\ \hline
-	0 & -1 & 0 & 0   \\ \hline   
-	0 &  0 & 1 & 0   \\ \hline   
-	0 &  0 & 0 & 1   \\ \hline   
-\end{tabular}
-\(E_xy\)
-\begin{tabular}{|c|c|c|c|}
-	\hline
-    0 & 0 &  0 & 0   \\ \hline
-	0 & 1 &  0 & 0   \\ \hline   
-	0 & 0 & -1 & 0   \\ \hline   
-	0 & 0 &  0 & 1   \\ \hline   
-\end{tabular}
+\[
+E_{yz}
+\begin{bmatrix}
+    -1 & 0 & 0 & 0   \\ 
+	 0 & 1 & 0 & 0   \\ 
+	 0 & 0 & 1 & 0   \\ 
+	 0 & 0 & 0 & 1   \\ 
+\end{bmatrix} 
+E_{xz}
+\begin{bmatrix}
+    0 &  0 & 0 & 0   \\ 
+	0 & -1 & 0 & 0   \\ 
+	0 &  0 & 1 & 0   \\ 
+	0 &  0 & 0 & 1   \\ 
+\end{bmatrix} 
+E_{xy}
+\begin{bmatrix}
+    0 & 0 &  0 & 0   \\ 
+	0 & 1 &  0 & 0   \\ 
+	0 & 0 & -1 & 0   \\ 
+	0 & 0 &  0 & 1   \\ 
+\end{bmatrix} 
+\]
 
 Onde \(E_yz\) refere-se a reflexão no eixo \(xy\), \(E_xz\) refere-se a reflexão no eixo \(xz\) e \(E_xy\) refere-se a reflexão no eixo \(xy\).
 
@@ -427,36 +428,39 @@ A implementação em java para o algoritmo pode ser acessado através do link:\u
 
 Segundo \citet{pedriniSchwartz:2008}, a operação de rotação pode ser realizada aplicando a rotação de um ponto em cada eixo de coordenadas. A rotação de um ponto em torno do eixo x utilizando um ângulo \(\alpha\), pode ser descrita por:
 
-\(R_\alpha\)
-\begin{tabular}{|c|c|c|c|}
-	\hline
-    1 &             0 &              0 & 0   \\ \hline
-	0 & \(cos\alpha\) & \(-sen\alpha\) & 0   \\ \hline   
-	0 & \(sen\alpha\) &  \(cos\alpha\) & 0   \\ \hline   
-	0 &             0 &              0 & 1   \\ \hline   
-\end{tabular}
+\[
+R_\alpha
+\begin{bmatrix}
+    1 &         0 &          0 & 0   \\ 
+	0 & cos\alpha & -sen\alpha & 0   \\ 
+	0 & sen\alpha &  cos\alpha & 0   \\ 
+	0 &         0 &          0 & 1   \\ 
+\end{bmatrix} 
+\]
 
 A rotação de um ponto em torno do eixo y utilizando um ângulo \(\beta\), pode ser descrita por:
 
-\(R_\beta\)
-\begin{tabular}{|c|c|c|c|}
-	\hline
-     \(cos\beta\) & 0 & \(sen\beta\) & 0   \\ \hline
-	            0 & 1 & 0            & 0   \\ \hline   
-	\(-sen\beta\) & 0 & \(cos\beta\) & 0   \\ \hline   
-                0 & 0 &            0 & 1   \\ \hline   
-\end{tabular}
+\[
+R_\beta
+\begin{bmatrix}
+     cos\beta & 0 & sen\beta & 0   \\ 
+	        0 & 1 & 0        & 0   \\ 
+	-sen\beta & 0 & cos\beta & 0   \\ 
+            0 & 0 &        0 & 1   \\ 
+\end{bmatrix} 
+\]
 
 A rotação de um ponto em torno do eixo z utilizando um ângulo \(\gamma\), pode ser descrita por:
 
-\(R_\gamma\)
-\begin{tabular}{|c|c|c|c|}
-	\hline
-    \(cos\gamma\) & \(-sen\gamma\) & 0 & 0   \\ \hline
-	\(sen\gamma\) &  \(cos\gamma\) & 0 & 0   \\ \hline   
-	            0 &              0 & 1 & 0   \\ \hline   
-                0 &              0 & 0 & 1   \\ \hline   
-\end{tabular}
+\[
+R_\gamma
+\begin{bmatrix}
+    cos\gamma & -sen\gamma & 0 & 0   \\ 
+	sen\gamma &  cos\gamma & 0 & 0   \\ 
+	        0 &          0 & 1 & 0   \\ 
+            0 &          0 & 0 & 1   \\ 
+\end{bmatrix} 
+\]
 
 A implementação em java para o algoritmo pode ser acessado através do link:\url{https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/RotateProcess.java}
 
@@ -565,33 +569,35 @@ A magnitude do gradiente se relaciona com a taxa de variação da imagem por uni
 
 Onde \(G_x\) e \(G_y\) corresponde ao resultado da multiplicação da matriz Z, que corresponde aos tons da região analisada, com as máscaras de convolução \(G_x\) e \(G_y\) respectivamente
 
-\(Z\)
-\begin{tabular}{|c|c|c|}
-	\hline
-    \(z_0\) & \(z_1\) & \(z_2\)   \\ \hline
-	\(z_3\) & \(z_4\) & \(z_5\)   \\ \hline   
-	\(z_6\) & \(z_7\) & \(z_8\)   \\ \hline   
-\end{tabular}
+
+\[
+Z
+\begin{bmatrix}
+    z_0 & z_1 & z_2   
+	z_3 & z_4 & z_5      
+	z_6 & z_7 & z_8      
+\end{bmatrix} 
+\]
 
 % ---
 \subsection{Sobel}
 
 O operador de Sobel realiza a aproximação da magnitude do gradiente através da diferença de valores ponderados dos níveis de cinza da imagem. Para isso, são utilizados duas máscaras de tamanho 3 x 3, sendo que uma é aplicada em relação ao \(eixo\) \(x\) e a outro é aplicada no \(eixo\) \(y\) \cite{pedriniSchwartz:2008}. Este operador realiza um suavização, e ao mesmo tempo, o realce de bordas.
 
-\(G_x\)
-\begin{tabular}{|c|c|c|}
-	\hline
-    -1 & 0 & 1   \\ \hline
-	-2 & 0 & 1   \\ \hline   
-	-1 & 0 & 1   \\ \hline   
-\end{tabular}
-\(G_y\)
-\begin{tabular}{|c|c|c|}
-    \hline
+\[
+G_x
+\begin{bmatrix}
+    -1 & 0 & 1   \\ 
+	-2 & 0 & 1   \\ 
+	-1 & 0 & 1   \\ 
+\end{bmatrix} 
+G_y
+\begin{bmatrix}
     -1 & -2 & -1   \\ \hline
-	 0 &  0 & 0   \\ \hline   
-	 1 &  2 & 1   \\ \hline   
-\end{tabular}
+	 0 &  0 & 0    \\ \hline   
+	 1 &  2 & 1    \\ \hline   
+\end{bmatrix} 
+\]
 
 Considerando \(z_0\) a \(z_8\) os tons de cinza em torno do pixel que está sendo analisado, este filtro é definido pela equação (Equação 1.1) onde:
 
@@ -606,18 +612,19 @@ O operador de Roberts corresponde ao método mais simples de detecção de borda
 
 O operador de Roberts faz uso de duas máscaras de tamanho 2 x 2, sendo que uma é aplicada no sentido horizontal e a outro é aplicada no sentido vertical \cite{pedriniSchwartz:2008}.
 
-\(G_x\)
-\begin{tabular}{|c|c|}
-	\hline
-    1 &  0    \\ \hline
-	0 & -1    \\ \hline   
-\end{tabular}
-\(G_y\)
-\begin{tabular}{|c|c|}
-    \hline
-    0 & -1   \\ \hline
-	1 &  0   \\ \hline   
-\end{tabular}
+
+\[
+G_x
+\begin{bmatrix}
+    1 &  0    \\ 
+	0 & -1    \\    
+\end{bmatrix} 
+G_y
+\begin{bmatrix}
+    0 & -1   \\ 
+	1 &  0   \\    
+\end{bmatrix} 
+\]
 
 Considerando \(z_0\) a \(z_8\) os tons de cinza em torno do pixel que está sendo analisado, este filtro é definido por (Equação 1.1):
 
@@ -631,20 +638,20 @@ A implementação em java para o algoritmo pode ser acessado através do link:\u
 
 O operador de Prewith faz uso de duas máscaras de tamanho 3 x 3, sendo que uma é aplicada no sentido horizontal e a outro é aplicada no sentido vertical \cite{pedriniSchwartz:2008}.	
 
-\(G_x\)
-\begin{tabular}{|c|c|c|}
-	\hline
-    -1 & 0 & 1   \\ \hline
-	-1 & 0 & 1   \\ \hline   
-	-1 & 0 & 1   \\ \hline   
-\end{tabular}
-\(G_y\)
-\begin{tabular}{|c|c|c|}
-    \hline
-    -1 & -1 & -1   \\ \hline
-	 0 &  0 &  0   \\ \hline   
-	 1 &  1 &  1   \\ \hline   
-\end{tabular}
+\[
+G_x
+\begin{bmatrix}
+    -1 & 0 & 1   \\ 
+	-1 & 0 & 1   \\ 
+	-1 & 0 & 1   \\    
+\end{bmatrix} 
+G_y
+\begin{bmatrix}
+    -1 & -1 & -1   \\ 
+	 0 &  0 &  0   \\ 
+	 1 &  1 &  1   \\    
+\end{bmatrix} 
+\]
 
 Este filtro faz uso do mesmo conceito de Sobel e Roberts. Considerando \(z0\) a \(z8\) os tons de cinza em torno do pixel que está sendo analisado, este filtro é definido por:
 
@@ -657,55 +664,51 @@ A implementação em java para o algoritmo pode ser acessado através do link:\u
 \subsection{Kirsch}
 O operador Kirsch (KIRSCH, 1971) consiste na utilização de oito máscaras orientadas em 45º. Para cada pixel da imagem é realizada a aplicação de uma das oito máscaras e é mantido o valor máximo. Desta forma, o gradiente não é obtido através dos valores de \(G_x\) e \(G_y\) separadamente, e sim, atrás do maior resultado do conjunto de 8 máscaras \cite{pedriniSchwartz:2008}.
 
-\begin{tabular}{|c|c|c|}
-    \hline
-     5 & -3 & -3   \\ \hline
-	 5 &  0 & -3   \\ \hline   
-	 5 & -3 & -3   \\ \hline   
-\end{tabular}
-\begin{tabular}{|c|c|c|}
-    \hline
-    -3 & -3 & -3   \\ \hline
-	 5 &  0 & -3   \\ \hline   
-	 5 &  5 & -3   \\ \hline   
-\end{tabular}
-\begin{tabular}{|c|c|c|}
-    \hline
-    -3 & -3 & -3   \\ \hline
-	-3 &  0 & -3   \\ \hline   
-	 5 &  5 &  5   \\ \hline   
-\end{tabular}
-\begin{tabular}{|c|c|c|}
-    \hline
-    -3 & -3 & -3   \\ \hline
-	-3 &  0 &  5   \\ \hline   
-	-3 &  5 &  5   \\ \hline   
-\end{tabular}
+\[
+\begin{bmatrix}
+     5 & -3 & -3   \\ 
+	 5 &  0 & -3   \\ 
+	 5 & -3 & -3   \\    
+\end{bmatrix} 
+\begin{bmatrix}
+    -3 & -3 & -3   \\
+	 5 &  0 & -3   \\
+	 5 &  5 & -3   \\
+\end{bmatrix}
+\begin{bmatrix}
+    -3 & -3 & -3   \\
+	-3 &  0 & -3   \\
+	 5 &  5 &  5   \\
+\end{bmatrix} 
+\begin{bmatrix}
+    -3 & -3 & -3   \\
+	-3 &  0 &  5   \\
+	-3 &  5 &  5   \\
+\end{bmatrix}
+\]
 
-\begin{tabular}{|c|c|c|}
-    \hline
-    -3 & -3 &  5   \\ \hline
-	-3 &  0 &  5   \\ \hline   
-	-3 & -3 &  5   \\ \hline   
-\end{tabular}
-\begin{tabular}{|c|c|c|}
-    \hline
-    -3 &  5 &  5   \\ \hline
-	-3 &  0 &  5   \\ \hline   
-	-3 & -3 & -3   \\ \hline   
-\end{tabular}
-\begin{tabular}{|c|c|c|}
-    \hline
-     5 &  5 &  5   \\ \hline
-	-3 &  0 & -3   \\ \hline   
-	-3 & -3 & -3   \\ \hline   
-\end{tabular}
-\begin{tabular}{|c|c|c|}
-    \hline
-     5 &  5 & -3   \\ \hline
-	 5 &  0 & -3   \\ \hline   
-	-3 & -3 & -3   \\ \hline   
-\end{tabular}
+\[
+\begin{bmatrix}
+    -3 & -3 &  5   \\ 
+	-3 &  0 &  5   \\ 
+	-3 & -3 &  5   \\ 
+\end{bmatrix} 
+\begin{bmatrix}
+    -3 &  5 &  5   \\ 
+	-3 &  0 &  5   \\ 
+	-3 & -3 & -3   \\ 
+\end{bmatrix}
+\begin{bmatrix}
+     5 &  5 &  5   \\ 
+	-3 &  0 & -3   \\ 
+	-3 & -3 & -3   \\ 
+\end{bmatrix} 
+\begin{bmatrix}
+     5 &  5 & -3   \\ 
+	 5 &  0 & -3   \\ 
+	-3 & -3 & -3   \\ 
+\end{bmatrix}
+\]
 
 Outras máscaras maiores podem ser aplicadas, como máscaras de tamanho 5 x 5 ou 7 x 7 pixel, mas estas abordagens são menos sensíveis a ruído e o tempo para a realização dos cálculos destas máscaras aumenta significamente \cite{pedriniSchwartz:2008}.
 
@@ -715,56 +718,51 @@ A implementação em java para o algoritmo pode ser acessado através do link:\u
 \subsection{Robinson}
 Robson propôs um conjunto de oito máscaras onde a magnitude é calculada de maneira semelhante a realizada por Kirsh, ou seja, utilizando o valor máximo entre as oito máscaras \cite{pedriniSchwartz:2008}. 
 
-\begin{tabular}{|c|c|c|}
-    \hline
-     1 &  0 & -1   \\ \hline
-	 2 &  0 & -2   \\ \hline   
-	 1 &  0 & -1   \\ \hline   
-\end{tabular}
-\begin{tabular}{|c|c|c|}
-    \hline
-     0 & -1 & -2   \\ \hline
-	 1 &  0 & -1   \\ \hline   
-	 2 &  1 &  0   \\ \hline   
-\end{tabular}
-\begin{tabular}{|c|c|c|}
-    \hline
-    -1 & -2 & -1   \\ \hline
-	 0 &  0 &  0   \\ \hline   
-	 1 &  2 &  1   \\ \hline   
-\end{tabular}
-\begin{tabular}{|c|c|c|}
-    \hline
-    -2 & -1 &  0   \\ \hline
-	-1 &  0 &  1   \\ \hline   
-	 0 &  1 &  2   \\ \hline   
-\end{tabular}
+\[
+\begin{bmatrix}
+     1 &  0 & -1   \\ 
+	 2 &  0 & -2   \\ 
+	 1 &  0 & -1   \\ 
+\end{bmatrix} 
+\begin{bmatrix}
+     0 & -1 & -2   \\ 
+	 1 &  0 & -1   \\ 
+	 2 &  1 &  0   \\ 
+\end{bmatrix}
+\begin{bmatrix}
+    -1 & -2 & -1   \\ 
+	 0 &  0 &  0   \\ 
+	 1 &  2 &  1   \\ 
+\end{bmatrix} 
+\begin{bmatrix}
+    -2 & -1 &  0   \\ 
+	-1 &  0 &  1   \\ 
+	 0 &  1 &  2   \\ 
+\end{bmatrix}
+\]
 
-\begin{tabular}{|c|c|c|}
-    \hline
-    -1 & -0 &  1   \\ \hline
-	-2 &  0 &  2   \\ \hline   
-	-1 &  0 &  1   \\ \hline   
-\end{tabular}
-\begin{tabular}{|c|c|c|}
-    \hline
-     0 &  1 &  2   \\ \hline
-	-1 &  0 &  1   \\ \hline   
-	-2 & -1 &  0   \\ \hline   
-\end{tabular}
-\begin{tabular}{|c|c|c|}
-    \hline
-     1 &  2 &  1   \\ \hline
-	 0 &  0 &  0   \\ \hline   
-	-1 & -2 & -1   \\ \hline   
-\end{tabular}
-\begin{tabular}{|c|c|c|}
-    \hline
-     2 &  1 &  0   \\ \hline
-	-1 &  0 & -1   \\ \hline   
-	-0 & -1 & -2   \\ \hline   
-\end{tabular}
-
+\[
+\begin{bmatrix}
+    -1 & -0 &  1   \\ 
+	-2 &  0 &  2   \\ 
+	-1 &  0 &  1   \\ 
+\end{bmatrix} 
+\begin{bmatrix}
+     0 &  1 &  2   \\ 
+	-1 &  0 &  1   \\ 
+	-2 & -1 &  0   \\ 
+\end{bmatrix}
+\begin{bmatrix}
+     1 &  2 &  1   \\ 
+	 0 &  0 &  0   \\ 
+	-1 & -2 & -1   \\ 
+\end{bmatrix} 
+\begin{bmatrix}
+     2 &  1 &  0   \\ 
+	-1 &  0 & -1   \\ 
+	-0 & -1 & -2   \\ 
+\end{bmatrix}
+\]
 
 A implementação em java para o algoritmo pode ser acessado através do link:\url{https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/RobinsonProcess.java}
 
@@ -772,77 +770,68 @@ A implementação em java para o algoritmo pode ser acessado através do link:\u
 \subsection{Frei-Chein}
 O operador Frei-Chein utiliza um conjunto de nove máscaras de tamanho 3 x 3. As máscara M1 a M4 são utilizadas para realizar a detecção de bordas, já a M5 a M8 realizam a detecção de retas, e a M9 representa a média dos pixels na região da matriz \cite{pedriniSchwartz:2008}. 
 
-\begin{center}
+\[
 M1
-\begin{tabular}{|c|c|c|}
-    \hline
-     	 	 	 1 &  \(\sqrt{2}\) &  1            \\ \hline
-	             0 &             0 &  0             \\ \hline   
-	            -1 & -\(\sqrt{2}\) & -1             \\ \hline   
-\end{tabular}
+\begin{bmatrix}
+     	 	 	 1 &  \sqrt{2} &  1         \\ 
+	             0 &         0 &  0         \\ 
+	            -1 & -\sqrt{2} & -1         \\ 
+\end{bmatrix} 
 M2
-\begin{tabular}{|c|c|c|}
-    \hline
-     	 	 	 0 &             1 & -1             \\ \hline
-	  \(\sqrt{2}\) &             0 & -\(\sqrt{2}\)  \\ \hline   
-	             1 &             0 & -1             \\ \hline   
-\end{tabular}
+\begin{bmatrix}
+     	     0 &             1 & -1         \\ 
+	  \sqrt{2} &             0 & -\sqrt{2}  \\ 
+	         1 &             0 & -1         \\ 
+\end{bmatrix}
 M3
-\begin{tabular}{|c|c|c|}
-    \hline
-     	 	 	 0 &            -1 & \(\sqrt{2}\)   \\ \hline
-	             1 &             0 & -1             \\ \hline   
-	 -\(\sqrt{2}\) &             1 &  0             \\ \hline   
-\end{tabular}
-\end{center}
+\begin{bmatrix}
+     	 	 0 &            -1 & \sqrt{2}   \\ 
+	         1 &             0 & -1         \\ 
+	 -\sqrt{2} &             1 &  0         \\ 
+\end{bmatrix} 
+\]
 
-\begin{center}
+\[
 M4
-\begin{tabular}{|c|c|c|}
-    \hline
-      \(\sqrt{2}\) &            -1 &  0             \\ \hline
-	            -1 &             0 & 1              \\ \hline   
-	             0 &             1 & -\(\sqrt{2}\)  \\ \hline   
-\end{tabular}
+\begin{bmatrix}
+      \sqrt{2} &            -1 &  0         \\
+	        -1 &             0 & 1          \\
+	         0 &             1 & -\sqrt{2}  \\
+\end{bmatrix} 
 M5
-\begin{tabular}{|c|c|c|}
-    \hline
-     	 	 	 0 &             1 &  0              \\ \hline
-	            -1 &             0 & -1             \\ \hline   
-	             0 &             1 &  0             \\ \hline   
-\end{tabular}
+\begin{bmatrix}
+    	 	 0 &             1 &  0          \\ 
+	        -1 &             0 & -1          \\ 
+	         0 &             1 &  0          \\ 
+\end{bmatrix}
 M6
-\begin{tabular}{|c|c|c|}
-    \hline
-     	 	 	-1 &             0 &  1            \\ \hline
-	             0 &             0 &  0             \\ \hline   
-	             1 &             0 & -1             \\ \hline   
-\end{tabular}
-\end{center}
+\begin{bmatrix}
+  	 	 	-1 &             0 &  1          \\ 
+             0 &             0 &  0          \\ 
+             1 &             0 & -1          \\ 
+\end{bmatrix} 
+\]
 
-\begin{center}
+\[
 M7
-\begin{tabular}{|c|c|c|}
-    \hline
-                 1 &            -2 &  1              \\ \hline
-	            -2 &             4 & -2              \\ \hline   
-	             1 &            -2 &  1              \\ \hline   
-\end{tabular}
+\begin{bmatrix}
+            1 &            -2 &  1           \\ 
+	       -2 &             4 & -2           \\ 
+	        1 &            -2 &  1           \\ 
+\end{bmatrix} 
 M8
-\begin{tabular}{|c|c|c|}
-    \hline
-     	 	 	-2 &             1 & -2              \\ \hline
-	             1 &             4 &  1             \\ \hline   
-	            -2 &             1 & -2             \\ \hline   
-\end{tabular}
+\begin{bmatrix}
+           -2 &             1 & -2            \\
+	        1 &             4 &  1            \\
+	       -2 &             1 & -2            \\
+\end{bmatrix}
 M9
-\begin{tabular}{|c|c|c|}
-    \hline
-     	 	 	 1 &             1 &  1            \\ \hline
-	             1 &             1 &  0             \\ \hline   
-	             1 &             1 & -1             \\ \hline   
-\end{tabular}
-\end{center}
+\begin{bmatrix}
+     	 	 1 &             1 &  1           \\
+	         1 &             1 &  0           \\
+	         1 &             1 & -1           \\
+\end{bmatrix} 
+\]
 
 A implementação em java para o algoritmo pode ser acessado através do link:\url{https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/FreiChenProcess.java}
 
@@ -870,19 +859,18 @@ A implementação em java para o algoritmo pode ser acessado através do link:\u
 \subsection{Marr and Hildreth}
 Segundo \citet{pedriniSchwartz:2008}, o operador de Marr and Hildreth (MARR; HILDRETH, 1980) faz uso de uma máscara de tamanho 7 x 7 onde é realizado um processo de convolução. Esta matriz pode ser descrita por:
 
-\begin{center}
-H = 
-\begin{tabular}{|c|c|c|c|c|c|c|}
-    \hline
-     0 &  0 & -1 & -1 & -1 &  0 &  0            \\ \hline
-     0 & -2 & -3 & -3 & -3 & -2 &  0            \\ \hline
-    -1 & -3 &  5 &  5 &  5 & -3 & -1            \\ \hline
-    -1 & -3 &  5 & 16 &  5 & -3 & -1            \\ \hline
-    -1 & -3 &  5 &  5 &  5 & -3 & -1            \\ \hline
-     0 & -2 & -3 & -3 & -3 & -2 &  0            \\ \hline
-     0 &  0 & -1 & -1 & -1 &  0 &  0            \\ \hline     
-\end{tabular}
-\end{center}
+\[
+H 
+\begin{bmatrix}
+     0 &  0 & -1 & -1 & -1 &  0 &  0            \\ 
+     0 & -2 & -3 & -3 & -3 & -2 &  0            \\ 
+    -1 & -3 &  5 &  5 &  5 & -3 & -1            \\ 
+    -1 & -3 &  5 & 16 &  5 & -3 & -1            \\ 
+    -1 & -3 &  5 &  5 &  5 & -3 & -1            \\ 
+     0 & -2 & -3 & -3 & -3 & -2 &  0            \\ 
+     0 &  0 & -1 & -1 & -1 &  0 &  0            \\ 
+\end{bmatrix} 
+\]
 
 A implementação em java para o algoritmo pode ser acessado através do link:\url{https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/MarrHildrethProcess.java}
 
@@ -1174,8 +1162,7 @@ O ajuste da curva é realizado levando em consideração forças internas e exte
 \centering
 \caption{\textbf{Exemplo na execução do método Snakes}}
 \includegraphics[width=1\textwidth]{imagens/snake.png}
-
-Fonte: \citet{pedriniSchwartz:2008}
+\sourceAuthor
 \label{fig:snake}
 \end{figure}
 
@@ -1359,7 +1346,7 @@ Neste capítulo são apresentados trabalhos relacionados à área de pesquisa de
 % ---
 \section{JavaVis: An Integrated Computer Vision Library for Teaching Computer Vision}
 
-A pesquisa de Cazorla e Viejo (2013) propõe o desenvolvimento de um \textit{framework} para estudar visão computacional e tópicos semelhantes. Esta ferramenta foi chamada de JavaVis. Está ferramenta é dividida em 3 áreas. A primeira área é denominada JavaVis2D, por onde o sistema é iniciado. Esta área está relacionada com a visão computacional tradicional, onde é possível utilizar diversos algoritmos já implementados, e também que os próprios alunos criem novos algoritmos. 
+A pesquisa de \citet{cazorla2015javavis} propõe o desenvolvimento de um \textit{framework} para estudar visão computacional e tópicos semelhantes. Esta ferramenta foi chamada de JavaVis. Esta ferramenta é dividida em 3 áreas. A primeira área é denominada JavaVis2D, por onde o sistema é iniciado. Esta área está relacionada com a visão computacional tradicional, onde é possível utilizar diversos algoritmos já implementados, e também que os próprios alunos criem novos algoritmos. 
 
 JavaVIsDesktop é uma outra área do software, que permite a conexão de uma sequência de algoritmos e a manipulação de seus parâmetros. Esta área foi construída para facilitar a manipulação dos algoritmos por parte do aluno, tendo em vista que a manipulação individual de algoritmos através de área 2D pode ser difícil, devido a grande quantidade de tentativas para ajustar corretamente os parâmetros. Por final, existe a área 3D que tem como objetivo permitir a manipulação de imagens 3D.
 
@@ -1368,7 +1355,7 @@ O objetivo do JavaVis é prover uma ferramenta que seja fácil de utilizar e apr
 % ---
 \subsection{JavaVis2D}
 
-O JavaVis2D é uma área da ferramenta que possui diversos algoritmos de visão computacional implementados. Dentre eles podem ser encontrados funções de manipulação e transformações de cores, como rotação, espelhamento, ruído, conversão para tons de cinza, etc. Também são encontrados algoritmos de convolução, ajuste de imagem como brilho e contraste, segmentação como Binarização e Kmeans, manipulação geométrica, detecção de bordas como Canny, Susan e Grad, morfologia matemática como erosão e dilatação e também algoritmos de esqueletização. 
+O JavaVis2D é uma área da ferramenta que possui diversos algoritmos de visão computacional implementados. Dentre eles podem ser encontrados funções de manipulação e transformações de cores, como rotação, espelhamento, ruído, conversão para tons de cinza, etc. Também são encontrados algoritmos de convolução, ajuste de imagem como brilho e contraste, segmentação como Binarização e \textit{Kmeans}, manipulação geométrica, detecção de bordas como Canny, Susan e Grad, morfologia matemática como erosão e dilatação e também algoritmos de esqueletização. 
 
 A biblioteca permite a criação de funções por parte do aluno, isso é possível através da implementação de uma classe Java contendo a implementação de uma função, juntamente com seus parâmetros de entrada e saída. Desta forma, segundo os autores, o aluno precisa somente se concentrar no desenvolvimento da função, a biblioteca se encarrega exibir as imagens na interface e aceitar os parâmetros de entrada.
 
@@ -1386,11 +1373,11 @@ Fonte: Cazorla e Viejo  (2013)
 
 Está área do projeto tem como objetivo proporcionar ao aluno uma melhor maneira para visualizar partes de um processamento de imagem. Portanto, é possível utilizar diferentes algoritmos em ordem para construir outro de maior complexidade. É possível construir uma sequência de funções, semelhante a um autômato. Cada estado na sequência corresponde a um algoritmo da biblioteca JavaVis2D, e este estado apresenta o resultado de execução de seu algoritmo, possibilitando a visualização de cada etapa do processo.
 
-Esta abordagem em etapas permite ao estudante ajustar facilmente os parâmetros de cada algoritmo, sendo possível observar a consequência de cada alteração na sequência completa. Após a conclusão do sequenciamento dos algoritmos e dos ajustes de parâmetros, é possível gerar uma nova função para a biblioteca JavaVis2D. Esta nova função irá conter a sequência de funções com seus respectivos parâmetros.
+Esta abordagem em etapas permite ao estudante ajustar facilmente os parâmetros de cada algoritmo, sendo possível observar a consequência de cada alteração na sequência completa. Após a conclusão do sequenciamento dos algoritmos e dos ajustes de parâmetros, é possível gerar uma nova função para a biblioteca JavaVis2D. Esta nova função conterá a sequência de funções com seus respectivos parâmetros.
 
-Segundo os autores, JavaVisDesktop é uma ferramenta interessante para identificar os diferentes comportamos de cada algoritmo. Por exemplo, o estudante é capaz de verificar a diferença da aplicação do algoritmos de Canny utilizando diferentes valores para o parâmetro de sigma, possibilitando, desta forma, a escolha o valor mais adequado para o problema enfrentado. Os autores relatam que esta funcionalidade é amplamente apreciada pelos estudantes, pois agiliza a implementação de novos algoritmos.
+Segundo os autores, JavaVisDesktop é uma ferramenta interessante para identificar os diferentes comportamos de cada algoritmo. Por exemplo, o estudante é capaz de verificar a diferença da aplicação do algoritmo de Canny utilizando diferentes valores para o parâmetro de sigma, possibilitando, desta forma, a escolha o valor mais adequado para o problema enfrentado. Os autores relatam que esta funcionalidade é amplamente apreciada pelos estudantes, pois agiliza a implementação de novos algoritmos.
 
-Na Figura \ref{fig:javavis_desktop} é demonstrado a sequência de três funções, que são: carregamento da imagem, suavização Gaussiana e Canny. Na figura existe uma janela que possibilita a alteração dos parâmetros da função de Canny. Também é possível visualizar o resultado da execução de cada função.
+Na Figura \ref{fig:javavis_desktop} é demonstrada a sequência de três funções, que são: carregamento da imagem, suavização Gaussiana e Canny. Na figura existe uma janela que possibilita a alteração dos parâmetros da função de Canny. Também é possível visualizar o resultado da execução de cada função.
 
 \begin{figure}[ht]
 \centering
@@ -1404,7 +1391,7 @@ Fonte: Cazorla e Viejo  (2013)
 % ---
 \subsection{JavaVis3D}
 
-Esta área do ferramenta tem como objetivo permitir a manipulação de imagens 3D. A maior parte de entidades geométricas estão implementadas no core do JavaVis3D. Entidades como pontos, vetores, segmentos e planos estão incluídos neste pacote, sendo possível utilizados para a aplicação de manipulações nas imagens. A interface foi construída utilizando a API 3D do Java. baseada em OpenGL.
+Esta área da ferramenta tem como objetivo permitir a manipulação de imagens 3D. A maior parte de entidades geométricas estão implementadas no core do JavaVis3D. Entidades como pontos, vetores, segmentos e planos estão incluídos neste pacote, sendo possível utilizados para a aplicação de manipulações nas imagens. A interface foi construída utilizando a API 3D do Java, baseada em OpenGL.
 
 A Figura \ref{fig:javavis_3d} demonstra o JavaVis3D \textit{framework}. A janela a direita controla a posição da cena. O usuário pode navegar pela cena utilizando esta janela.
 
@@ -1426,7 +1413,7 @@ A ferramenta foi utilizada em sala de aula. Os autores, primeiramente, introduzi
 
 Os autores aplicaram diversas tarefas ao longo de 10 anos. Um exemplo pode ser observado na Figura \ref{fig:javavis_avaliacao}, onde os alunos tiveram que construir uma função capaz de identificar a quantidade de moedas existentes na imagem. Primeiramente, os estudantes utilizaram a área de Desktop para identificar os melhores métodos e seus respectivos parâmetros. Posteriormente, os alunos criaram uma nova função no JavaVis capaz de executar a tarefa proposta.
 
-Para os autores, o JavaVis possui algumas funcionalidades que permitem ao estudante uma maneira mais simples de se aprender visão computacional. Uma delas é a simplicidade de implementação de novos métodos. Outra é a possibilidade do estudante visualizar cada etapa do processamento de algoritmos, devido a sequenciamento de técnicas para a composição de um algoritmo de maior complexidade.
+Para os autores, o JavaVis possui algumas funcionalidades que permitem ao estudante uma maneira simples de aprender visão computacional. Uma delas é a simplicidade de implementação de novos métodos. Outra é a possibilidade do estudante visualizar cada etapa do processamento de algoritmos, devido a sequenciamento de técnicas para a composição de um algoritmo de maior complexidade.
 
 \begin{figure}[ht]
 \centering
@@ -1440,15 +1427,15 @@ Fonte: Cazorla e Viejo  (2013)
 % ---
 \section{Classroom Live: a software-assisted gamification tool}
 
-A pesquisa de Freitas e Freitas (2013) tem por objetivo conseguir engajar os estudantes da US Air Force Academy. Para isso, foi desenvolvido um sistema cliente/servidor para servir como aporte para aulas gamificadas. O sistema é chamado de Classroom Live, e este faz uso do de computadores e acesso wireless para prover uma experiência online e interativa de aprendizagem. Ao acessar o software, o aluno recebe “quests” que são preparadas pelo instrutor. O instrutor pode acessar uma aplicação diferente para analisar a performance do estudante e recompensas em tempo real.
+A pesquisa de \citet{de2013classroom} tem por objetivo conseguir engajar os estudantes da US Air Force Academy. Para isso, foi desenvolvido um sistema cliente/servidor para servir como aporte para aulas gamificadas. O sistema é chamado de Classroom Live, e este faz uso do de computadores e acesso wireless para prover uma experiência \textit{online} e interativa de aprendizagem. Ao acessar o software, o aluno recebe “\textit{quests}” que são preparadas pelo instrutor. O instrutor pode acessar uma aplicação diferente para analisar a performance do estudante e recompensas em tempo real.
 
 Os autores desenvolveram o software visando a utilização em aulas do curso de ciência da computação, e que pudesse utilizar a infraestrutura já existente, como computadores e acesso a internet. O desenvolvimento da aplicação foi influenciado pelo \textit{feedback} de alunos e instrutores, servindo como guia para o desenvolvimento. Os autores citam alguns pontos que foram considerados durante o desenvolvimento do software:
 
-Estética: Alunos possuem uma experiência mais agradável com um ferramenta educacional que possui um apelo visual. Por este motivo, autores desenvolveram um sistema de controle de avatares. No começo, o estudante começa com um avatar básico e um limite de customizações possíveis. A medida que os alunos completam as tarefas e desafios, eles são recompensados com itens adicionais que podem ser utilizados para customizar a aparência de seus avatares.
+Estética: Alunos possuem uma experiência mais agradável com um ferramenta educacional que possui um apelo visual. Por este motivo, os autores desenvolveram um sistema de controle de avatares. No começo, o estudante inicia com um avatar básico e um limite de customizações possíveis. A medida que os alunos completam as tarefas e desafios, eles são recompensados com itens adicionais que podem ser utilizados para customizar a aparência de seus avatares.
 
-Realizar tarefas em \textit{background}: Os autores perceberam que o Classroom live seria uma das muitas aplicações sendo executadas nos computadores do alunos. Tendo como objetivo manter os alunos engajados, a aplicação precisa ser capaz de automaticamente baixar novas \textit{quests} criadas pelo instrutor e notificá-las para o aluno. O Classroom Live foi desenvolvida de forma \textit{standalone} suportando comunicações assíncronas. Os autores optaram por esta abordagem ao invés de construir um sistema web devido a possibilidade dos estudantes ignorar ou até fechar o sistema acidentalmente caso fosse utilizado uma abordagem web.
+Realizar tarefas em \textit{background}: Os autores perceberam que o Classroom live seria uma das muitas aplicações sendo executadas nos computadores do alunos. Tendo como objetivo manter os alunos engajados, a aplicação precisa ser capaz de automaticamente baixar novas \textit{quests} criadas pelo instrutor e notificá-las para o aluno. O Classroom Live foi desenvolvido de forma \textit{standalone} suportando comunicações assíncronas. Os autores optaram por esta abordagem ao invés de construir um sistema web devido a possibilidade dos estudantes ignorar ou até fechar o sistema acidentalmente caso fosse utilizado uma abordagem web.
 
-Fácil de utilizar: O Classroom Live foi projetado para prover um experiência de aprendizagem que seja tanto divertida quando intuitiva. Quando o estudante acesso o sistema, ele pode observar quais \textit{quests} ele precisa completar e quais ele já completou. Na visão do instrutor, sistema foi construído para facilitar a criação de novas \textit{quests}, monitorar o progresso do aluno e monitoras as conquistas dos alunos.
+Fácil de utilizar: O Classroom Live foi projetado para prover um experiência de aprendizagem que seja tanto divertida quanyo intuitiva. Quando o estudante acessa o sistema, ele pode observar quais \textit{quests} ele precisa completar e quais ele já completou. Na visão do instrutor, o sistema foi construído para facilitar a criação de novas \textit{quests}, monitorar o progresso do aluno e monitorar as conquistas dos alunos.
 
 Monitorar todos os eventos: O sistema possui a característica de monitorar a performance do aluno em múltiplas aulas. Estas informações são armazenadas em uma base de dados que serve como repositório de \textit{quests} concluídas, customização de avatares e respostas de usuários. Esta abordagem permite ao instrutor analisar as submissões dos alunos, sendo possível identificar dificuldades individuais de cada aluno. 
 
@@ -1461,18 +1448,17 @@ Fonte: Freitas e Freitas (2013)
 \label{fig:classroom_diagrama}
 \end{figure}
 
-A Figura \ref{fig:classroom_diagrama} demonstra as funcionalidades existe no sistema para o aluno e o instrutor.
-Após o instrutor acessar o sistema, ele utiliza cinco áreas do sistema para planejar uma nova aula. Na área \textit{”Manage Student Accounts”}, o instrutor pode criar novas contas de usuário e configurar contas já existentes. A área \textit{“Create Quest”} é onde o instrutor irá passar a maior parte do tempo, pois é nesta área onde é realizado a criação de novas \textit{quest} a serem completadas pelo alunos. Neste processo, o instrutor tem a possibilidade de relacionar recompensas e pontos de experiência que o aluno irá receber ao completar a \textit{quest}. 
+A Figura \ref{fig:classroom_diagrama} demonstra as funcionalidades existentes no sistema para o aluno e o instrutor. Após o instrutor acessar o sistema, ele utiliza cinco áreas do sistema para planejar uma nova aula. Na área \textit{”Manage Student Accounts”}, o instrutor pode criar novas contas de usuário e configurar contas já existentes. A área \textit{“Create Quest”} é onde o instrutor passará a maior parte do tempo, pois é nesta área onde é realizada a criação de novas \textit{quest} a serem completadas pelo alunos. Neste processo, o instrutor tem a possibilidade de relacionar recompensas e pontos de experiência que o aluno receberá ao completar a \textit{quest}. 
 
-A área \textit{“Create Achievements”}, permite ao instrutor cria uma biblioteca de recompensas e associar pontos de experiência a elas. As áreas \textit{“Manage Itens”} e \textit{“Manage zones”} permite ao instrutor manipular os itens virtuais e os ambiente visuais que o aluno irá encontrar durante utilização do sistema.
+A área \textit{“Create Achievements”}, permite ao instrutor criar uma biblioteca de recompensas e associar pontos de experiência a elas. As áreas \textit{“Manage Itens”} e \textit{“Manage zones”} permitem ao instrutor manipular os itens virtuais e os ambientes visuais que o aluno encontrará durante utilização do sistema.
 
-Durante as aulas, o instrutor terá quatro áreas para gerenciar as atividades dos alunos. Na área \textit{“Issue Quest”}, o instrutor poderá controlar as \textit{quests} existentes, podendo inativa-las, definir um tempo limite para a conclusão. Na área \textit{”Award Achievements”}, o instrutor tem a possibilidade de definir prêmios para os alunos. Na área \textit{“Track Student Progress”}, o instrutor pode observar o avanço dos alunos. Na última área, \textit{"Mark quest"} complete, o instrutor analisa o trabalho realizado pelo estudante e defini que se este cumprir com a especificação determinada ou não.
+Durante as aulas, o instrutor terá quatro áreas para gerenciar as atividades dos alunos. Na área \textit{“Issue Quest”}, o instrutor poderá controlar as \textit{quests} existentes, podendo inativa-las, definir um tempo limite para a conclusão. Na área \textit{”Award Achievements”}, o instrutor tem a possibilidade de definir prêmios para os alunos. Na área \textit{“Track Student Progress”}, o instrutor pode observar o avanço dos alunos. Na última área, \textit{"Mark quest"} complete, o instrutor analisa o trabalho realizado pelo estudante e define se este cumprir com a especificação determinada ou não.
 
 Na sessão do alunos, existem 4 funcionalidades. A principal delas é a \textit{“Manege Active Quests”}, esta é a funcionalidade que permite o alunos visualizar suas \textit{quests} e enviar suas respectivas respostas. A funcionalidade \textit{“View Completed Quests”} possibilita ao aluno visualizar sua própria performance em \textit{quests} já concluídas, e também permite a visualização das respostas corretas paras as \textit{quests}. A funcionalidade \textit{“View Achievements”} permite a visualização de todas as conquista recebidas pelo usuário. Por final, a funcionalidade “Customize Avatar” é onde o aluno pode customizar a aparência de seu avatar a partir dos itens conquistados.
 
-Para avaliar a eficácia do Classroom Live, os autores aplicaram a ferramenta em uma parte do curso de introdução a programação. A Figura \ref{fig:classroom_aula}, demonstra a sequência de eventos utilizados nesta experiência de aplicação em sala de aula. Cada lição começa com a criação de dois tipos de \textit{quests} por parte do instrutor. O primeiro corresponde a uma tarefa onde o aluno deve desenvolver e enviar um trecho de código fonte que corresponda a tarefa atribuída. O instrutor também desenvolve \textit{quests} que múltiplas escolhas relacionadas ao material ensinado na aula daquele dia. O instrutor tem a possibilidade de adicionar recompensas em ambas \textit{quests}.
+Para avaliar a eficácia do Classroom Live, os autores aplicaram a ferramenta em uma parte do curso de introdução a programação. A Figura \ref{fig:classroom_aula}, demonstra a sequência de eventos utilizados nesta experiência de aplicação em sala de aula. Cada lição começa com a criação de dois tipos de \textit{quests} por parte do instrutor. O primeiro corresponde a uma tarefa onde o aluno deve desenvolver e enviar um trecho de código fonte que corresponda a tarefa atribuída. O instrutor também desenvolve \textit{quests} de múltiplas escolhas relacionadas ao material ensinado na aula daquele dia. O instrutor tem a possibilidade de adicionar recompensas em ambas as \textit{quests}.
 
-Quando o aluno submete suas respostas, os resultados são enviados automaticamente para o servidor para que instrutor possa realizar a revisão do que foi feito. Dependendo da performance dos estudantes o instrutor por decidir se deve ou não voltar para a explicação teórica ou mover para o próximo tópico. Enquanto isso, os alunos recebem \textit{feedback} de suas ações realizadas. A atribuição de recompensas é realizada pelo instrutor após ele realizar a revisão da tarefa completada pelo aluno.
+Quando o aluno submete suas respostas, os resultados são enviados automaticamente para o servidor para que instrutor possa realizar a revisão do que foi feito. Dependendo da performance dos estudantes, o instrutor por decidir se deve ou não voltar para a explicação teórica ou mover para o próximo tópico. Enquanto isso, os alunos recebem \textit{feedback} de suas ações realizadas. A atribuição de recompensas é realizada pelo instrutor após ele realizar a revisão da tarefa completada pelo aluno.
 
 \begin{figure}[ht]
 \centering
@@ -1483,13 +1469,13 @@ Fonte: Freitas e Freitas (2013)
 \label{fig:classroom_aula}
 \end{figure}
 
-Durante a aplicação do sistema Classroom Live no curso de introdução a programação durante 5 meses, os autores identificaram diversas lições aprendidas de quão eficiente pode ser a utilização de gamificação na sala de aula. Dentre elas estão:
+Durante a aplicação do sistema Classroom Live no curso de introdução a programação, durante 5 meses, os autores identificaram diversas lições aprendidas de quão eficiente pode ser a utilização de gamificação na sala de aula. Dentre elas estão:
 
-O conteúdo é muito importante: A eficácia da aplicação da ferramenta depende da habilidade de gerar conteúdo atraente para os alunos. Os estudantes demonstram um maior interesse quando as \textit{quest} eram instigantes e eram recompensados. Os autores encontraram uma relação entre o engajamento dos alunos e conteúdo, como grande volumes que \textit{quests} e recompensas os alunos demonstravam maior participação.
+O conteúdo é muito importante: A eficácia da aplicação da ferramenta depende da habilidade de gerar conteúdo atraente para os alunos. Os estudantes demonstram um maior interesse quando as \textit{quest} eram instigantes e recompensados. Os autores encontraram uma relação entre o engajamento dos alunos e o conteúdo, como grande volumes de \textit{quests} e recompensas os alunos demonstravam maior participação.
 
-Gamificação demanda tempo: Segundo os autores, as utilização de gamificação na sala de aula aumentou o tempo necessário para a preparação das aulas, mesmo com a utilização de um software como Classroom Live para auxiliar. Para estas aulas, os instrutores tiveram que popular o sistema com itens e \textit{quests} que deveriam ser atraentes para os alunos e relevantes para o curso. Os autores acreditam que este tempo irá diminuir à medida que é construída uma base de dados de \textit{quests} que possam ser reutilizadas em outros semestres.
+Gamificação demanda tempo: Segundo os autores, as utilização de gamificação na sala de aula aumentou o tempo necessário para a preparação das aulas, mesmo com a utilização de um software como Classroom Live para auxiliar. Para estas aulas, os instrutores tiveram que popular o sistema com itens e \textit{quests} que deveriam ser atraentes para os alunos e relevantes para o curso. Os autores acreditam que este tempo diminuirá à medida que é construída uma base de dados de \textit{quests} que possam ser reutilizadas em outros semestres.
 
-Para avaliar a aplicação, foi solicita para que os alunos responder algumas questões referente a utilização do Classroom Live como pode ser visualizado na Figura \ref{fig:classroom_avaliacao}. O estudo realizado em 15 alunos.
+Para avaliar a aplicação, foi solicito para que os alunos responder algumas questões referente a utilização do Classroom Live, como pode ser visualizado na Figura \ref{fig:classroom_avaliacao}. O estudo realizado com 15 alunos.
 
 \begin{figure}[ht]
 \centering
@@ -1504,6 +1490,8 @@ Segundo os autores, aparentemente os alunos gostaram de utilizar o Classroom Liv
 
 Os autores não conseguiram constatar se a utilização da ferramenta aumentou a performance dos estudantes, mas eles observaram que a aplicação obteve êxito em relação a melhorar o interesse e engajamento dos estudantes nas aula.
 
+%TODO: Criar paragrafo finalizando o capítulo%
+
 % ----------------------------------------------------------
 % Proposta
 % ----------------------------------------------------------
@@ -1511,20 +1499,22 @@ Os autores não conseguiram constatar se a utilização da ferramenta aumentou a
 
 O objetivo principal deste trabalho é o desenvolvimento de uma ferramenta gamificada para o auxílio ao ensino de processamento digital de imagens. Primeiramente foi realizado um estudo de sistemas com objetivos semelhantes e os principais conceitos de gamificação que serviram como aporte para o desenvolvimento da proposta. Estes estudos foram apresentados nos capítulos anteriores.
     
+%TODO: Fazer chamada para o VISNode
+    
 % ---
 \section{VISNode}
 
 Para o desenvolvimento deste trabalho foi utilizado o software VISNode. Esta ferramenta foi desenvolvida por alunos da Universidade Feevale após concluírem a disciplina de Processamento Digital de Imagem. Eles identificaram uma dificuldade para realizar a comparação de técnicas, com o mesmo objetivo, e escolher o parâmetro adequada para cada situação. Desta forma, foi desenvolvido um ferramenta que tem por objetivo demonstrar, de forma visual,  a execução de técnicas de PDI e como elas se conectam \cite{visnode}.
 
-O VISNode utiliza o conceito de processos, que consiste em operações que podem ser executados em entradas (\textit{inputs}) e gerar saídas (\textit{outputs}). Estas saídas podem ser imagens, valores numéricos, ou qualquer outra estrutura de dados necessária para a execução do processo. Os processos podem ser qualquer função de possa ser aplicar a um \textit{input} e gerar um \textit{output}, como por exemplo: de manipulação da imagem, como desfoque de Gauss, limiarização ou de inversão de cores; obtenção de informações, como a obtenção de estatísticas de cor;  extração de objetos \cite{visnode}.
+O VISNode utiliza o conceito de processos, que consiste em operações que podem ser executados em entradas (\textit{inputs}) e gerar saídas (\textit{outputs}). Estas saídas podem ser imagens, valores numéricos, ou qualquer outra estrutura de dados necessária para a execução do processo. Os processos podem ser qualquer função que possa ser aplicada a um \textit{input} e gerar um \textit{output}, como por exemplo: de manipulação da imagem, como desfoque de Gauss, limiarização ou de inversão de cores; obtenção de informações, como a obtenção de estatísticas de cor;  extração de objetos \cite{visnode}.
 
-Cada processo da ferramenta é considerado um nodo, como em uma árvore ou grafo. Cada nodo possui entradas e saídas que podem ser conectadas a entradas e saídas de outros nodos para a execução sequencial. Para um processo de Threshold, por exemplos, a imagem de origem e o limiar numérico são os parâmetros de entrada, enquanto a imagem resultante da operação consiste no parâmetro de saída \cite{visnode}. 
+Cada processo da ferramenta é considerado um nodo, como em uma árvore ou grafo. Cada nodo possui entradas e saídas que podem ser conectadas a entradas e saídas de outros nodos para a execução sequencial. Para um processo de Threshold, por exemplo, a imagem de origem e o limiar numérico são os parâmetros de entrada, enquanto a imagem resultante da operação consiste no parâmetro de saída \cite{visnode}. 
 
 Para determinados tipos de entrada é possível informar o valor manualmente no nodo ou via conexão. Por exemplo, para o nodo de limiarização é possível informar um valor numérico para o limiar diretamente no nodo, utilizando a interface gráfica, ou obter à partir da saída de outro nodo, como, por exemplo, a cor média da imagem \cite{visnode}.
 
-Segundo os criadores, estrutura em nodos foi criada com o intuito de facilitar a compreensão em relação a como diversos processos podem ser executados de forma sequencial para chegar a um objetivo final. Na tela principal de edição do software, o usuário pode mover, inserir e remover nodos de processos, criar e remover conexões entre as entradas e saídas de forma visual e realizar ajustes nos parâmetros dos processos, visualizando em tempo real o resultado de suas modificações.
+Segundo os criadores, a estrutura em nodos foi criada com o intuito de facilitar a compreensão em relação a como diversos processos podem ser executados de forma sequencial para chegar a um objetivo final. Na tela principal de edição do software, o usuário pode mover, inserir e remover nodos de processos, criar e remover conexões entre as entradas e saídas de forma visual e realizar ajustes nos parâmetros dos processos, visualizando em tempo real o resultado de suas modificações.
 
-A Figura \ref{fig:visnode} demonstra a utilização do software VISNode. Nesta figura é possível visualizar um painel, à direita do software, de onde é possível selecionar as técnicas de PDI a serem aplicadas na imagem. Também é demonstrado um fluxo de execução utilizado duas técnicas: Grayscale e Threshold. No processo de Threshold é possível observar um \textit{input slider} por onde é realizado a mudança do parâmetro do limiar.
+A Figura \ref{fig:visnode} demonstra a utilização do software VISNode. Nesta figura é possível visualizar um painel, à direita do software, de onde é possível selecionar as técnicas de PDI a serem aplicadas na imagem. Também é demonstrado um fluxo de execução utilizando duas técnicas: \textit{Grayscale} e \textit{Threshold}. No processo de \textit{Threshold} é possível observar um \textit{input slider} por onde é realizado a mudança do parâmetro do limiar.
 
 \begin{figure}[ht]
 \centering
@@ -1542,35 +1532,32 @@ O software VISNode foi construído utilizando a arquitetura modular proposta por
 
 PDI: implementações de algoritmos de processamento de imagens, que são aplicados aos exames médicos no processo de extração de características, como, por exemplo: histograma, limiarização, remoção e redução de ruídos, operações de convolução, métodos de classificação, entre outros \cite{reisferramenta}; 
 
-Uso Comum: classes de uso  comum  por todos os outros módulos, como classes utilitárias ou estruturas de dados utilizadas na troca de informações entre módulos \cite{reisferramenta}; 
-
-Acesso a Arquivos: camada de acesso arquivos do tipo DICOM\cite{reisferramenta}.
+\begin{enumerate}
+\item Uso Comum: classes de uso  comum  por todos os outros módulos, como classes utilitárias ou estruturas de dados utilizadas na troca de informações entre módulos; 
+\item Acesso a Arquivos: camada de acesso arquivos do tipo DICOM.
+\end{enumerate}
 
 % ---
 \section{Proposta gamificada}
 
 O presente trabalho se propõe a desenvolver uma ferramenta que faça uso de conceitos de gamificação visando auxiliar o ensino e aprendizagem. Este trabalho foca no ensino de processamento digital de imagens, pretendendo servir como aporte para alunos de disciplinas que abordam esses conceitos.
 
-O principal objetivo do trabalho é desenvolver um ferramenta que motive os alunos a participarem das aulas e engaja-los na busca por conhecimentos relacionado a área de estudo. Para isso será utilizado a gamificação, portando, a ferramenta irá proporcionar um ambiente para que isso seja possível, utilizando elementos como:
-Recompensas
-Narrativas
-\textit{feedback}
-Desafios
-Missões
+O principal objetivo do trabalho é desenvolver um ferramenta que motive os alunos a participarem das aulas e engaja-los na busca por conhecimentos relacionados a área de estudo. Para isso será utilizada a gamificação, portando, a ferramenta proporcionará um ambiente para que isso seja possível, utilizando elementos como:
+Recompensas, Narrativas, \textit{feedback}, Desafios e Missões.
 
 Para o usuário acessar a parte gamificada da ferramenta, este terá de realizar um cadastro e logar no sistema. Após o usuário logado, ele terá acesso a todas as funcionalidades do VISNode, como prototipação e experimentação de algoritmos e também a parte gamificada da ferramenta.
 
-Logado no sistema, o usuário possui acesso ao menu de missões. Neste local o usuário irá encontrar diversas missões com diferentes objetivos e graus de dificuldades diferentes.	
+Logado no sistema, o usuário possui acesso ao menu de missões. Neste local o usuário encontrará diversas missões com diferentes objetivos e graus de dificuldades diferentes.	
 
-Quando a ferramenta for utilizado dentro da sala de aula, o educador poderá criar um grupo de trabalho e definir quais usuário e quais desafios este grupo irá compor. Desta forma, o usuário poderá controlar o progresso de cada participante do grupo, podendo visualizar quantas tarefas o usuário já realizou, como ele solucionou os desafios, quais recompensas ele já ganhou.
+Quando a ferramenta for utilizada dentro da sala de aula, o educador poderá criar um grupo de trabalho e definir quais usuário e quais desafios este grupo irá compor. Desta forma, o usuário poderá controlar o progresso de cada participante do grupo, podendo visualizar quantas tarefas o usuário já realizou, como ele solucionou os desafios, quais recompensas ele já ganhou.
 
-Um desafio consistem em uma tarefa que o usuário deverá realizar. Cada desafio irá possuir uma narrativa, na qual deve contextualizar o problema visando motivar o usuário a resolução do mesmo.
+Um desafio consiste em uma tarefa que o usuário deverá realizar. Cada desafio possuirá uma narrativa, na qual deve contextualizar o problema visando motivar o usuário à resolução do mesmo.
 
-A resolução do desafio deve ser realizada utilizando o VISNode, sendo que o usuário deverá conectar as técnicas existente para obter o resultado esperado. O próprio software irá realizar a conferência se a solução proposta pelo usuário condiz com o resultado esperado. Informação como número de tentativa e duração serão armazenadas para análises por parte do educador.
+A resolução do desafio deve ser realizada utilizando o VISNode, sendo que o usuário deverá conectar as técnicas existente para obter o resultado esperado. O próprio software realizará a conferência se a solução proposta pelo usuário condiz com o resultado esperado. Informações como número de tentativa e duração serão armazenadas para análises por parte do educador.
 
 Visando ser utilizada em outras instituições, a ferramenta permite a criação de novas missões e desafios. Ampliando, desta forma, o uso da ferramenta para mais usuários.
 
-A ideia da ferramenta é que possa ser utilizada dentro da sala de aula, como já descrito, mas também fora. Para isso, a ferramenta irá contar com áreas que podem ser acessíveis por pessoas fora da disciplina. Desta forma, qualquer indivíduo que tenha interesse em utilizar a ferramenta poderá.
+A ideia da ferramenta é que possa ser utilizada dentro da sala de aula, como já descrito, mas também fora. Para isso, a ferramenta contará com áreas que podem ser acessíveis por pessoas fora da disciplina. Desta forma, qualquer indivíduo que tenha interesse em utilizar a ferramenta poderá.
 
 Tendo como objetivo dar assistência ao usuário no entendimento dos algoritmos utilizados, a ferramenta provê informações detalhadas dos algoritmos implementados, sendo possível visualizar uma explicação textual de seu funcionamento, além do código de sua implementação. Esta funcionalidade também pode servir como material didático, auxiliando na etapa de aprendizado de usuários como pouca conhecimento na área.
 
