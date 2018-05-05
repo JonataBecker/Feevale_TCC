@@ -191,10 +191,9 @@ A área de processamento digital de imagens vem crescendo nas mais diversas áre
 % inserir lista de abreviaturas e siglas
 % ---
 \begin{siglas}
-  \item[Fig.] Area of the $i^{th}$ component
-  \item[456] Isto é um número
-  \item[123] Isto é outro número
-  \item[lauro cesar] este é o meu nome
+  \item[2D] Bidimensional
+  \item[3D] Tridimensional
+  \item[PDI] Processamento Digital de Imagens
 \end{siglas}
 % ---
 
@@ -202,10 +201,13 @@ A área de processamento digital de imagens vem crescendo nas mais diversas áre
 % inserir lista de símbolos
 % ---
 \begin{simbolos}
-  \item[$ \Gamma $] Letra grega Gama
-  \item[$ \Lambda $] Lambda
-  \item[$ \zeta $] Letra grega minúscula zeta
-  \item[$ \in $] Pertence
+  \item[$ \gamma $] Letra grega Gama
+  \item[$ \beta $] Letra grega Beta
+  \item[$ \alpha $] Letra grega Alpha
+  \item[$ \delta $] Letra grega Delta
+  \item[$ \ominus $] União
+  \item[$ \oplus $] Intersecção
+  
 \end{simbolos}
 % ---
 
@@ -218,7 +220,6 @@ A área de processamento digital de imagens vem crescendo nas mais diversas áre
 % ---
 
 
-
 % ----------------------------------------------------------
 % ELEMENTOS TEXTUAIS
 % ----------------------------------------------------------
@@ -229,9 +230,30 @@ A área de processamento digital de imagens vem crescendo nas mais diversas áre
 % ----------------------------------------------------------
 \chapter{Introdução}
 
-Mesmo com o esforço e dedicação de educadores de universidades, estudantes se frustram com disciplinas do curso devido a grande complexidade e a falta de motivação (GARCIA; GUZMAN; PACHECO, 2015). Na maioria dos casos, estudantes descobrem que a teoria não é atrativa, difícil e pouco aplicável (ZIN; SALLEH; BAKRI, 2015).
+Mesmo com o esforço e dedicação de educadores de universidades, estudantes se frustram com disciplinas do curso devido a grande complexidade e a falta de motivação \cite{garcia2015colfdimap}. Na maioria dos casos, estudantes descobrem que a teoria não é atrativa, difícil e pouco aplicável \cite{zin2015transforming}.
 
+A gamificação é uma abordagem que visa facilitar a aprendizagem e incrementar a motivação, através da utilização de conceitos provenientes dos jogos como superar desafios, receber recompensas e ganhar pontuação. Um dos objetivos da gamificação é atrair a atenção da pessoa e motivá-la a executar a tarefa proposta, criando um ambiente onde haja um maior envolvimento \cite{kaap:2014}.   
 
+Os avanços de pesquisa e utilização de  (PDI) cresce fortemente nas mais diversas áreas de conhecimento. Em medicina, por exemplo, procedimentos são utilizados para melhorar a qualidade de imagens médicas através da alteração de contraste ou intensidade de contraste, facilitando, desta forma, a interpretação por parte de profissionais da área da saúde \cite{ronnau2015}. Da mesma forma, PDI pode ser encontrado em astronomia \cite{grice20153d}, biologia \cite{hardy2017advanced}, aplicações industriais \cite{dai2015advances} e apoio a defesa \cite{mendoza2016development}. Devido a esta importância, a disciplina de PDI é presente em quase todos os programas de graduação dos cursos de Ciência da Computação e Sistemas de Informação \cite{garcia2015colfdimap}.
+
+PDI é composta por diversas etapas, iniciando pela aquisição da imagem, passando pelo processamento e segmentação até a exibição da imagem ou informações provenientes destas. A etapa de processamento de imagens é composta por procedimentos que são apresentados em forma de algoritmos \cite{gonzalesWoods:2008}. Por estes algoritmos expressarem funções matemáticas complexas, softwares podem ser úteis para auxiliar alunos a entender estes conceitos sem desconsiderar a teoria matemática \cite{lopez2016teaching}. A tecnologia é uma poderosa ferramenta para o processo de ensino e aprendizagem, oferecendo ambientes de simulação e prototipação para educadores e estudantes, que servem como aporte do ensino \cite{henderson2017works}.
+
+A área de PDI conta com diversas ferramentas para auxiliar tanto na aprendizagem quanto no desenvolvimento de novas soluções. Pode-se citar o OpenCV que é uma biblioteca de visão computacional open source \cite{pulli2012realtime}, o ambiente CoLFDImaP é uma ferramenta web para experimentação que faz uso de um paradigma colaborativo \cite{garcia2015colfdimap} e o Adaptive Vision Studio (AVS) que é uma ferramenta para a criação de algoritmos de processamento e análise de imagens através de um dataflow de técnicas PDI \cite{radlak2015adaptive}.
+
+O VISNode é uma ferramenta que apresenta uma interface que permite uma visualização mais concreta de técnicas de PDI e como elas se conectam para formar um processamento de mais alto nível. A ferramenta é baseada em nodos e suas conexões, onde cada nodo representa uma técnica de PDI e pode ser encadeado para formação de um processo \cite{visnode}.
+
+Portanto, este trabalho tem como objetivo desenvolver módulos para a ferramenta VISNode, visando o auxílio na aprendizagem na área de processamento digital de imagens. Para isso serão aplicados conceitos de gamificação. 
+
+O módulo desenvolvido proporcionará aos estudantes um ambiente onde seja possível o aprendizado através da experimentação de técnicas de PDI. A partir da ferramenta será possível consultar materiais teóricos que descrevem o funcionamento das técnicas de PDI, além do pseudocódigo de seus algoritmos. Tendo em vista que a busca por material teórico pode ser um desafio, pois normalmente estas matérias possuem o referencial matemático e a escrita de forma algorítmica pode ser difícil. Além disso, a ferramenta contará com um ambiente de desafios que tem como objetivo incentivar estudantes através da resolução de problemas relacionados a área de PDI.
+
+Os procedimentos metodológicos adotados neste trabalho seguem as definições de
+\cite{prodanov2013metodologia}, sendo caracterizado como uma pesquisa aplicada, em que o
+ferramenta criado poderá ser utilizado diretamente nas de educação. Também é possível caracterizá-lo como uma pesquisa experimental, pois a solução encontrada envolveu testes práticos para a validação da ferramenta. Esta validação será realizada em sala de aula, utilizando a ferramenta desenvolvida e aplicando os desafios propostos por ela nos alunos.
+
+Quanto aos procedimentos técnicos adotados, inicialmente foi realizada uma pesquisa
+bibliográfica sobre os principais temas abordados, gamificação e PDI. Da mesma forma, foi realizada uma revisão de trabalhos correlatos buscando, nos experimentos estudados, aporte técnico e científico para o desenvolvimento do projeto.
+
+Este trabalho está dividido em seis capítulos. No Capítulo 1 são expostas diferentes técnicas aplicadas no PDI, que foram estudadas na busca de embasamento técnico para o desenvolvimento da ferramenta. O Capítulo 2 trata da gamificação e seus conceitos, apresentando os principais elementos que podem ser utilizados na aplicação de gamificação. No Capitulo 3 são apresentadas algumas pesquisas que já foram feitas na área de desenvolvimento de ferramentas para o ensino e ferramentas gamificadas. No Capítulo 4 é abordado a proposta que o trabalho se prontifica a fazer. Será apresentado o principal objetivo do trabalho e o que será feito para cumpri-lo, abordando quais elementos da gamificação serão utilizados e como serão implementados na ferramenta. O Capítulo 5 aborda o desenvolvimento da ferramenta, com detalhes de seu funcionamento e das técnicas que foram utilizadas. O Capítulo 6 demonstra o processo de validação e os resultados obtidos nessa etapa, seguido das considerações finais.
 
 % ----------------------------------------------------------
 % Processamento digital de imagens
@@ -245,7 +267,6 @@ Um sistema de processamento de imagens é composto por um conjunto de etapas, de
 A etapa de aquisição tem como objetivo capturar a imagem por meio de um dispositivo e converte-la adequadamente para uma representação digital. A etapa de pré-processamento visa a melhora da qualidade da imagem, utilizando técnicas para a diminuição de ruídos, a correção de contraste e a suavização da imagem. A etapa de segmentação é responsável pela extração e identificação de áreas de interesse, geralmente utilizando técnicas de detecção de bordas ou regiões \cite{pedriniSchwartz:2008}.
 
 A etapa de representação e descrição é responsável  pelo armazenamento e manipulação dos objetos extraídos da imagem. Além disso, este processo visa a extração de características dos objetivos extraídos. A etapa de reconhecimento e interpretação, é a etapa que rotula os objetivos da imagem, utilizando, para isso, as características extraídas na etapa anterior. Além da rotulação, é responsabilidade desta etapa atribuir um significado ao conjunto de objetos reconhecidos \cite{pedriniSchwartz:2008}. 
-
 
 Para o processamento digital de imagens é necessário que a imagem possa ser manipulada digitalmente. Segundo \citet{pedriniSchwartz:2008}, uma imagem digital pode ser representada através de uma matriz bidimensional, onde cada elemento desta matriz corresponde a um ponto da imagem. Cada um destes pontos representa uma cor ou um tom de cinza e são denominados pixels. 
 
@@ -1160,7 +1181,11 @@ Na Figura \ref{fig:snake} é demonstrado uma execução do método de Snakes. (a
 
 A implementação em java para o algoritmo pode ser acessado através do link:\url{https://github.com/GrupoTorax/PDI/blob/master/src/main/java/org/paim/pdi/CannyProcess.java}
 
-%TODO: Fazer parâgrafo de finalização
+\section{Considerações}
+
+Neste capítulo foi apresentado o referencial teórico referente a PDI, cumprindo, desta forma, o primeiro objetivo específico do trabalho. Foram abordadas as principais técnicas de PDI relacionadas a transformações geométricas, filtros passa-baixa, filtros passa-alta, morfologia matemática, afinamento de bordas e técnicas de segmentação. Todas as técnicas apresentadas estão implementadas na ferramenta VISNode que será aborda na sessão \ref{sec:visnode}.
+
+No próximo capítulo serão abordados conceitos referente a gamificação. São abordados temas referente a sua diferença em relação a simulação e jogo, sua aplicação na educação e elementos da gamificação.
 
 % ----------------------------------------------------------
 % Gamificação
@@ -1177,7 +1202,7 @@ Um dos autores precursores na teorização da gamificação foi \citet{mcgonigal
 
 Dentre as principais características da gamificação estão a utilização de elementos de jogos digitais, tais como: narrativa, sistema de \textit{feedback}, sistema de recompensas, gerenciamento de conflito, cooperação, competição dirigida, objetivos e regras claras, níveis, tentativa e erro, diversão, interação, interatividade, etc. Estas características são importantes para obter o envolvimento do sujeito, o que pode ser encontrado na relação entre jogadores e jogos \cite{deterding2011game}.
 
-Este capítulo trata de conceitos referente a gamificação. É abordada sua diferença em relação a simulação e jogo, sua aplicação na educação, elementos de jogos e elementos da gamificação.
+Este capítulo trata de conceitos referente a gamificação. É abordada sua diferença em relação a simulação e jogo, sua aplicação na educação e elementos da gamificação.
 
 % ---
 \section{Jogo, Simulação, Gamificação}
@@ -1224,7 +1249,6 @@ A motivação intrínseca é aquela originada pelo próprio indivíduo. O envolv
 
 De maneira contrária, a motivação extrínseca é baseada no mundo que envolve o indivíduo de forma externa. Tem como origem o desejo em obter alguma recompensa externa, como, por exemplo, pontos, prêmios e classificações ou evitar uma punição. Desta forma, através da motivação extrínseca, um indivíduo não é motivado por fatores internos, em vez disso, é motivação pela recompensa que será obtida por realizar uma determinada tarefa \cite{busarello2016gamificaccao}.
 
-  
 % ---
 \section{Elementos gamificação}
 
@@ -1248,13 +1272,10 @@ As regras têm como objetivo restringir ações por parte do indivíduo, desta f
 
 O objetivo é aquilo que o indivíduo deve realizar. Objetivos devem ser apresentados de forma clara, para que não haja confusão e aumento da complexidade devido a ambiguidade do objetivo. Normalmente, um jogo possui mais de um objetivo, que vão sendo organizados ao decorrer da iteração. Quando há objetivos muito complexos, estes podem ser quebrados em objetivos menores, para que o indivíduo consiga atingir o objetivo maior. Esta subdivisão de desafios permite ao indivíduo identificar seu progresso em relação ao objetivos maiores \cite{fardo2013gamificaccao}.
 
-
 % ---
 \subsection{Pontos}
 
 Este elemento pode ser utilizado para diversos propósitos. Uma de suas aplicações é demonstrar o progresso do usuário, servindo como \textit{feedback}, de forma que seja possível identificar se o usuário está agindo de maneira correta. Este elemento também pode servir como estímulo, de forma que o usuário buscará uma maior pontuação \cite{kaap:2014}. 
-
-
 
 % ---
 \subsection{Medalhas}
@@ -1296,6 +1317,12 @@ Segundo \citet{busarello2016gamificaccao}, os indivíduos têm interesse em reso
 
 As pessoas atingem um nível mais elevado de satisfação ao comparar seu desempenho com o de outras pessoas. Este ambiente competitivo pode aumentar o desempenho. Elementos de jogos instigam esse tipo de desejo, fazendo uso de \textit{rankings} para exibir os resultados e celebrando os vencedores  \cite{bunchball2016gamification}. Alguns jogos fazem uso de uma lista contendo os 10 mais bem classificados, utilizando a exposição para indicar novos níveis e recompensas alcançadas.
 
+\section{Considerações}
+
+Neste capítulo foi apresentado o referencial teórico referente a gamificação, cumprindo, desta forma, o segundo objetivo específico do trabalho. Foi abordado o conceito de gamificação, sua aplicabilidade como ferramenta educacional e seus principais elementos .
+
+No próximo capítulo serão apresentados trabalhos relacionados ao trabalho desenvolvido. O primeiro trabalho apresentado (sessão \ref{sec:javavis}) é uma ferramenta que foi desenvolvida com o objetivo de auxiliar no ensino e aprendizagem de PDI. O segundo trabalho apresentado (sessão \ref{sec:classrom}) é uma ferramenta que foi desenvolvida visando melhorar o engajamento de estudantes, para isso, ela foi desenvolvida utilizando elementos da gamificação.
+
 % ----------------------------------------------------------
 % Trabalhos correlatos
 % ----------------------------------------------------------
@@ -1305,10 +1332,11 @@ Neste capítulo são apresentados trabalhos relacionados à área de pesquisa de
 
 % ---
 \section{JavaVis: An Integrated Computer Vision Library for Teaching Computer Vision}
+\label{sec:javavis}
 
 A pesquisa de \citet{cazorla2015javavis} propõe o desenvolvimento de um \textit{framework} para estudar visão computacional e tópicos semelhantes. Esta ferramenta foi chamada de JavaVis. Esta ferramenta é dividida em 3 áreas. A primeira área é denominada JavaVis2D, por onde o sistema é iniciado. Esta área está relacionada com a visão computacional tradicional, onde é possível utilizar diversos algoritmos já implementados, e também que os próprios alunos criem novos algoritmos. 
 
-JavaVIsDesktop é uma outra área do software, que permite a conexão de uma sequência de algoritmos e a manipulação de seus parâmetros. Esta área foi construída para facilitar a manipulação dos algoritmos por parte do aluno, tendo em vista que a manipulação individual de algoritmos através de área 2D pode ser difícil, devido a grande quantidade de tentativas para ajustar corretamente os parâmetros. Por final, existe a área 3D que tem como objetivo permitir a manipulação de imagens 3D.
+JavaVisDesktop é uma outra área do software, que permite a conexão de uma sequência de algoritmos e a manipulação de seus parâmetros. Esta área foi construída para facilitar a manipulação dos algoritmos por parte do aluno, tendo em vista que a manipulação individual de algoritmos através de área 2D pode ser difícil, devido a grande quantidade de tentativas para ajustar corretamente os parâmetros. Por final, existe a área 3D que tem como objetivo permitir a manipulação de imagens 3D.
 
 O objetivo do JavaVis é prover uma ferramenta que seja fácil de utilizar e aprender conceitos relacionados à visão computacional, sempre tendo em vista que o desenvolvimento de novos algoritmos deve ser uma tarefa fácil. O JavaVis permite a manipulação de algoritmos através de uma interface gráfica, possibilitando alteração de parâmetros de algoritmos visualmente. É uma ferramenta que foi construída objetivando facilitar a aprendizagem de estudantes.
 
@@ -1382,6 +1410,7 @@ Para os autores, o JavaVis possui algumas funcionalidades que permitem ao estuda
 
 % ---
 \section{Classroom Live: a software-assisted gamification tool}
+\label{sec:classrom}
 
 A pesquisa de \citet{de2013classroom} tem por objetivo conseguir engajar os estudantes da US Air Force Academy. Para isso, foi desenvolvido um sistema cliente/servidor para servir como aporte para aulas gamificadas. O sistema é chamado de Classroom Live, e este faz uso do de computadores e acesso wireless para prover uma experiência \textit{online} e interativa de aprendizagem. Ao acessar o software, o aluno recebe “\textit{quests}” que são preparadas pelo instrutor. O instrutor pode acessar uma aplicação diferente para analisar a performance do estudante e recompensas em tempo real.
 
@@ -1391,7 +1420,7 @@ Estética: Alunos possuem uma experiência mais agradável com um ferramenta edu
 
 Realizar tarefas em \textit{background}: Os autores perceberam que o Classroom live seria uma das muitas aplicações sendo executadas nos computadores do alunos. Tendo como objetivo manter os alunos engajados, a aplicação precisa ser capaz de automaticamente baixar novas \textit{quests} criadas pelo instrutor e notificá-las para o aluno. O Classroom Live foi desenvolvido de forma \textit{standalone} suportando comunicações assíncronas. Os autores optaram por esta abordagem ao invés de construir um sistema web devido a possibilidade dos estudantes ignorar ou até fechar o sistema acidentalmente caso fosse utilizado uma abordagem web.
 
-Fácil de utilizar: O Classroom Live foi projetado para prover um experiência de aprendizagem que seja tanto divertida quanyo intuitiva. Quando o estudante acessa o sistema, ele pode observar quais \textit{quests} ele precisa completar e quais ele já completou. Na visão do instrutor, o sistema foi construído para facilitar a criação de novas \textit{quests}, monitorar o progresso do aluno e monitorar as conquistas dos alunos.
+Fácil de utilizar: O Classroom Live foi projetado para prover um experiência de aprendizagem que seja tanto divertida quanto intuitiva. Quando o estudante acessa o sistema, ele pode observar quais \textit{quests} ele precisa completar e quais ele já completou. Na visão do instrutor, o sistema foi construído para facilitar a criação de novas \textit{quests}, monitorar o progresso do aluno e monitorar as conquistas dos alunos.
 
 Monitorar todos os eventos: O sistema possui a característica de monitorar a performance do aluno em múltiplas aulas. Estas informações são armazenadas em uma base de dados que serve como repositório de \textit{quests} concluídas, customização de avatares e respostas de usuários. Esta abordagem permite ao instrutor analisar as submissões dos alunos, sendo possível identificar dificuldades individuais de cada aluno. 
 
@@ -1443,7 +1472,10 @@ Segundo os autores, aparentemente os alunos gostaram de utilizar o Classroom Liv
 
 Os autores não conseguiram constatar se a utilização da ferramenta aumentou a performance dos estudantes, mas eles observaram que a aplicação obteve êxito em relação a melhorar o interesse e engajamento dos estudantes nas aula.
 
-%TODO: Criar paragrafo finalizando o capítulo%
+\section{Considerações}
+Neste capítulo foi apresentado ferramentas relacionadas ao trabalho desenvolvido, cumprindo, desta forma, o terceiro objetivo específico do trabalho. Foi abordado o funcionamento das ferramente e como elas foram utilizadas em sala de aula.
+
+No próximo capítulo será apresentado a proposta do trabalho. Será demonstrando o principal objetivo do trabalho e o que será feito para cumpri-lo, abordando quais elementos da gamificação serão utilizados e como serão implementados na ferramenta.
 
 % ----------------------------------------------------------
 % Proposta
@@ -1452,12 +1484,13 @@ Os autores não conseguiram constatar se a utilização da ferramenta aumentou a
 
 O objetivo principal deste trabalho é o desenvolvimento de uma ferramenta gamificada para o auxílio ao ensino de processamento digital de imagens. Primeiramente foi realizado um estudo de sistemas com objetivos semelhantes e os principais conceitos de gamificação que serviram como aporte para o desenvolvimento da proposta. Estes estudos foram apresentados nos capítulos anteriores.
     
-%TODO: Fazer chamada para o VISNode
-    
+Este trabalho fará uso da ferramenta VISNode (apresentada na sessão \ref{sec:visnode}). Esta ferramenta já se encarra de proporcionar um ambiente para a prototipação e experimentação de técnicas de PDI, possuindo diversas técnicas já implementadas. 
+   
 % ---
 \section{VISNode}
+\label{sec:visnode}
 
-Para o desenvolvimento deste trabalho foi utilizado o software VISNode. Esta ferramenta foi desenvolvida por alunos da Universidade Feevale após concluírem a disciplina de Processamento Digital de Imagem. Eles identificaram uma dificuldade para realizar a comparação de técnicas, com o mesmo objetivo, e escolher o parâmetro adequada para cada situação. Desta forma, foi desenvolvido um ferramenta que tem por objetivo demonstrar, de forma visual,  a execução de técnicas de PDI e como elas se conectam \cite{visnode}.
+Esta ferramenta foi desenvolvida por alunos da Universidade Feevale após concluírem a disciplina de Processamento Digital de Imagem. Eles identificaram uma dificuldade para realizar a comparação de técnicas, com o mesmo objetivo, e escolher o parâmetro adequada para cada situação. Desta forma, foi desenvolvido um ferramenta que tem por objetivo demonstrar, de forma visual,  a execução de técnicas de PDI e como elas se conectam \cite{visnode}.
 
 O VISNode utiliza o conceito de processos, que consiste em operações que podem ser executados em entradas (\textit{inputs}) e gerar saídas (\textit{outputs}). Estas saídas podem ser imagens, valores numéricos, ou qualquer outra estrutura de dados necessária para a execução do processo. Os processos podem ser qualquer função que possa ser aplicada a um \textit{input} e gerar um \textit{output}, como por exemplo: de manipulação da imagem, como desfoque de Gauss, limiarização ou de inversão de cores; obtenção de informações, como a obtenção de estatísticas de cor;  extração de objetos \cite{visnode}.
 
@@ -1526,6 +1559,12 @@ Progresso
 Exemplos de narrativas
 
 Como o software vai ser validado
+
+\section{Considerações}
+
+Neste capítulo foi apresentado a proporta do trabalho, cumprindo, desta forma, o quarto objetivo específico do trabalho. Foi demonstrando o principal objetivo do trabalho e o que será feito para cumpri-lo, abordando quais elementos da gamificação serão utilizados e como serão implementados na ferramenta.
+
+No próximo capitulo será apresentado o desenvolvimento da ferramenta. Será demonstrado o as tecnologias envolvidas no desenvolvimento e as etapas realizadas até a conclusão do desenvolvimento e o resultado final da implementação.
 
 % ----------------------------------------------------------
 % Desenvolvimento
